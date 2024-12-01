@@ -2,6 +2,7 @@ import React, { useState , useEffect} from "react";
 import "./style.css";
 import axios from "axios";
 import RecipeCard from "../components/foodRecommanded";
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Recommendation = () => {
   const [formData, setFormData] = useState({
