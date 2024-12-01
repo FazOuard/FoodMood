@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>FoodMood</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 text-center">FoodMood</h1>
+        <div class="from-container">
+            <form method="post" class="mt-4">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Âge">Âge</label>
+                        <input type="number" class="form-control" id="Âge" name="Âge" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Genre">Genre</label>
+                        <select class="form-control" id="Genre" name="Genre" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="Femme">Femme</option>
+                            <option value="Homme">Homme</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Statut">Statut</label>
+                        <select class="form-control" id="Statut" name="Statut" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="Étudiant">Étudiant</option>
+                            <option value="Fonctionnaire">Fonctionnaire</option>
+                            <option value="Retraité">Retraité</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Aimer_Plat_marocain">Aimez vous les plats marocains?</label>
+                        <select class="form-control" id="Aimer_Plat_marocain" name="Aimer_Plat_marocain" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="type_cuisine">Type de cuisine preferee</label>
+                        <select class="form-control" id="type_cuisine" name="type_cuisine" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="Cuisine marocaine">Cuisine marocaine</option>
+                            <option value="Cuisine italienne">Cuisine italienne</option>
+                            <option value="Cuisine libanaise">Cuisine libanaise</option>
+                            <option value="Cuisine asiatique">Cuisine asiatique</option>
+                            <option value="Cuisine mexicaine">Cuisine mexicaine</option>
+                            <option value="Cuisine française">Cuisine française</option>
+                            <option value="Cuisine espagnole">Cuisine espagnole</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Poids ">Poids </label>
+                        <input type="number" class="form-control" id="Poids " name="Poids " step="any" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Taille ">Taille </label>
+                        <input type="number" class="form-control" id="Taille " name="Taille " step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="duree_preparation">Duree de preparation</label>
+                        <select class="form-control" id="duree_preparation" name="duree_preparation" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="15-30 minutes">15-30 minutes</option>
+                            <option value="30-60 minutes">30-60 minutes</option>
+                            <option value="1-3 heures">1-3 heures</option>
+                            <option value="Plus">Plus</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Sport_question">Pratiquez vous du sport </label>
+                        <select class="form-control" id="Sport_question" name="Sport_question" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="regime_question">Suivez vous un regime</label>
+                        <select class="form-control" id="regime_question" name="regime_question" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="Oui">Oui</option>
+                            <option value="Non">Non</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Plat_consome">Les plats consomes le plus</label>
+                        <input type="text" class="form-control" id="Plat_consome" name="Plat_consome" step="any" required>
+                    </div>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary">Voir la recommendation</button>
+            </form>
+        </div>
+
+
+        {% if recommendations%}
+    <div class="mt-5">
+        <h2>Plats que vous pourriez preparer</h2>
+        <div class="row">
+            {% for recipe in recommendations%}
+            <div class="col-md4">
+                <div class="card recipe-card">
+                    <img class="card-img-top recipe-image" src="{{recipe['Image']}}" alt="{{recipe['Image']}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{recipe['Titre']}}</h5>
+                       
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    
+    </div>
+
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7ie4rNf5j6sqz7AzpZTL7I7hC+K+YjCM/N9" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H9RI+2nKmcTq5KjAcFEPaL2Gp7A1kH9glw3k" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha384-qDfUCMm9aXnDkNBoZqFY6Oaem1P5UuYZjWp0UqNhBtmepJT2wLDR7W6eIuEjb+as" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
