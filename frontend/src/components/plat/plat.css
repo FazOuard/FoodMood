@@ -20,6 +20,7 @@
     font-weight: black;
     color: #2C471B;
     text-align: left;
+    margin: 0;
 }
 
 .plat-ingredient h5{
@@ -81,4 +82,15 @@
     top: 10%;
     display: flex;
     flex-direction: column;
+}
+
+.plat-like img{
+    width: 30px;
+}
+
+.plat-title-like{
+    display: flex;
+    width: 45vw;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -35,9 +35,13 @@ const Plat = () => {
                         <img src={item.Image} />
                     </div>
                     <div className='plat-infos'>
-                        
-                        <div className='plat-title'>
-                            <h1>{item.Titre}</h1>
+                        <div className='plat-title-like'>
+                            <div className='plat-title'>
+                                <h1>{item.Titre}</h1>
+                            </div>
+                            <div className='plat-like'>
+                                <img src={like0} />
+                            </div>
                         </div>
                         <div className='plat-ingredient'>
                             <h2>Ingrédients</h2>
