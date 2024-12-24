@@ -32,10 +32,11 @@ const Plat = () => {
                     <div className='plat-image'>
                         <img src={item.Image} />
                     </div>
-                    <div className='plat-title'>
-                        <h1>{item.Titre}</h1>
-                    </div>
                     <div className='plat-infos'>
+                        
+                        <div className='plat-title'>
+                            <h1>{item.Titre}</h1>
+                        </div>
                         <div className='plat-ingredient'>
                             <h2>Ingrédients</h2>
                             <h5>{item.Ingredients}</h5>

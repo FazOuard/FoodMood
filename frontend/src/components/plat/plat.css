@@ -18,10 +18,8 @@
 .plat-title h1{
     font-size: xx-large;
     font-weight: black;
-    position: fixed;
-    top: 10%;
-    left: 50%;
     color: #2C471B;
+    text-align: left;
 }
 
 .plat-ingredient h5{
