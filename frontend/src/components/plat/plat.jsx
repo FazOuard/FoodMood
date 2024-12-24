@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 import clock from '../../assets/icons/clock.png'
 import calorie from '../../assets/icons/calorie.png'
 import proteine from '../../assets/icons/proteine.png'
+import like0 from '../../assets/icons/like0.png'
+import like1 from '../../assets/icons/like1.png'
 
 const Plat = () => {
     
