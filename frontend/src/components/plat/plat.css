@@ -78,7 +78,7 @@
 .plat-infos{
     position: fixed;
     left: 50%;
-    top: 20%;
+    top: 10%;
     display: flex;
     flex-direction: column;
 }
