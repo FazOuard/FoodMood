@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './plats.css'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Plats = () => {
+  
   const [data, setData] = useState([]);
-  let url;
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const goToOneDish = (idplat) => {
+    navigate("/Plat", {state: { ...(location.state || {}), idplat } })
+  }
+
   useEffect(() => {
     axios.get('http://localhost:5000/data')
       .then(response => {
@@ -24,7 +32,7 @@ const Plats = () => {
       <div className='plats0'>
         {data.filter((item) => item.Image != null)
         .map((item, index) => (
-          <div key={index} className='un_plat'>
+          <div key={index} className='un_plat' onClick={() => goToOneDish(item.id)}>
             {item.Image ? (
               <div className='plats_img'>
                 <img src={item.Image} alt={item.Titre} onError={handleImageError} />
