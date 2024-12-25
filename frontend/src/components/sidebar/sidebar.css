@@ -31,6 +31,13 @@
     width: 15px;
     height: 15px;
 }
+
+.sidebar-choice h4{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .sidebar-choice {
     display: flex;
     align-items: center;
@@ -61,7 +68,6 @@
     padding: 10px 10px;
     border-radius: 50px;
     border: 2px solid #2C471B;
-    max-width: 12vw;
     width: calc(12vw - 20px);
     cursor: pointer;
 }

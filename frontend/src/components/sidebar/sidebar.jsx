@@ -5,6 +5,7 @@ import calendar from '../../assets/icons/calendar.png'
 import stat from '../../assets/icons/stat.png'
 import dish from '../../assets/icons/dish.png'
 import magic from '../../assets/icons/magic.png'
+import logout from '../../assets/icons/logout.png'
 
 const SideBar = () => {
     
@@ -37,7 +38,10 @@ const SideBar = () => {
             </div>
             <div className='sidebar-choices2'>
                 <div className='sidebar-line'/>
-                <h4>Se déconnecter</h4>
+                <div className='sidebar-choice'>
+                    <img src={logout} />
+                    <h4>Se déconnecter</h4>
+                </div>
             </div>
         </div>
     );
