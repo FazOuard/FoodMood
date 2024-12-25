@@ -1,0 +1,27 @@
+.sidebar-all{
+    background-color: #6E9955;
+    color: white;
+    position: fixed;
+    z-index: 100;
+    width: 12vw;
+    left: 0;
+    top: 8vh;
+    height: calc(92vh - 2vw);
+    padding: 2vw;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.sidebar-choices1{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-line{
+    width: 12vw;
+    height: 0.1px;
+    background-color: rgba(214, 241, 198, 0.2);
+}

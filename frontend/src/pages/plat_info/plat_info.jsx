@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import RandomPlats from '../../components/randomPlats/randomPlats';
 import Plat from '../../components/plat/plat';
 import NavBar from '../../components/navbar/navbar';
+import SideBar from '../../components/sidebar/sidebar';
 
 const Plat_info = () => {
 
@@ -14,6 +15,7 @@ const Plat_info = () => {
     return (
         <div className='plat_info'>
             <NavBar/>
+            <SideBar/>
             <div className='plat_info1'>
                 <div><RandomPlats /></div>
                 <div><Plat/></div>
