@@ -1,0 +1,5 @@
+.plat_info1{
+    display: flex;
+    gap: clamp(3px, 1vh, 10px);
+    align-items: center;
+}

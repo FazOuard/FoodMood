@@ -1,15 +1,26 @@
+.plat-all{
+    width: 70vw;
+    height: 75vh;
+    max-width: 850px;
+    position: relative;
+    background-color: #F2FFEA ;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
 .plat{
     background-color: #F2FFEA ;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
+    width: 100%;
+    height: 100%;
+    position: absolute;
     top: 0;
     right: 0;
 }
 
 .plat-image img {
-    position: fixed;
-    width: 1000px;
+    position: absolute;
+    width: 50%;
     bottom: 0;
     right: 55%;
     height: 100%;
@@ -25,13 +36,17 @@
 
 .plat-ingredient h5{
     color: #2A2A2A;
-    max-width: 45vw;
+    max-width: 90%;
     text-align: justify;
+    margin-top: 5px;
 }
 
 .plat-ingredient h2{
     color: #6E9955;
-    max-width: 45vw;
+    max-width: 90%;
+    margin: 0;
+    margin-top: 20px;
+
 }
 
 .plat-duree h5{
@@ -68,19 +83,23 @@
 .plat-recette h2{
     font-weight: bolder;
     color: #6E9955;
+    margin: 0;
+    margin-top: 10px;
 }
 .plat-recette h5{
     font-weight: bolder;
-    max-width: 45vw;
+    max-width: 90%;
     text-align: justify;
     color: #2A2A2A;
+    margin-top: 5px;
 }
 
 .plat-infos{
-    position: fixed;
+    position: absolute;
     left: 50%;
     top: 10%;
     display: flex;
+    width: 50%;
     flex-direction: column;
 }
 
@@ -90,7 +109,7 @@
 
 .plat-title-like{
     display: flex;
-    width: 45vw;
+    width: 90%;
     justify-content: space-between;
     align-items: center;
 }

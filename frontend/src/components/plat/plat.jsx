@@ -26,7 +26,7 @@ const Plat = () => {
     
     return (
         <div>
-            <div>
+            <div className='plat-all'>
             {data
             .filter((item) => item.id == state.idplat)
             .map((item, index) => (
@@ -45,18 +45,18 @@ const Plat = () => {
                         </div>
                         <div className='plat-ingredient'>
                             <h2>Ingrédients</h2>
-                            <h5>{item.Ingredients}</h5>
+                            <h5>{item.Ingredients ? item.Ingredients : <div style={{ color: "#CECECE" }}>Nous allons essayer de définir les ingrédients le plutôt possible!</div>}</h5>
                         </div>
 
                         <div className='plat-info'>
                             <div className='plat-duree'>
                                 <img src={clock} />
-                                <h5>{item.Duree}</h5>
+                                <h5>{item.Duree ? item.Duree : "NaaaN mins"}</h5>
                             </div>
                             <div className='line' />
                             <div className='plat-duree'>
                                 <img src={calorie} />
-                                <h5>{item.Calories} Kcal</h5>
+                                <h5>{item.Calories ? item.Calories : "NaaaN"} Kcal</h5>
                             </div>
                             <div className='line' />
                             <div className='plat-duree'>
@@ -66,7 +66,7 @@ const Plat = () => {
                         </div>
                         <div className='plat-recette'>
                             <h2>Recette</h2>
-                            <h5>{item.Recette}</h5>
+                            <h5>{item.Recette ? item.Recette : <div style={{ color: "#CECECE" }}>Nous allons essayer de définir la recette le plutôt possible!</div>}</h5>
                         </div>
                     </div>
                 </div>

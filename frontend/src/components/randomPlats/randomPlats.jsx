@@ -11,7 +11,7 @@ const RandomPlats = () => {
   const location = useLocation();
 
   const goToOneDish = (idplat) => {
-    navigate("/Plat", {state: { ...(location.state || {}), idplat } })
+    navigate("/platinfo", {state: { ...(location.state || {}), idplat } })
   }
 
   useEffect(() => {

@@ -3,6 +3,7 @@ import './App.css';
 import Recommendation from "./pages/recommendation.jsx";
 import Plats from './components/plats/plats.jsx';
 import Plat from './components/plat/plat.jsx';
+import Plat_info from './pages/plat_info/plat_info.jsx';
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
       <Route path="/" element={<Recommendation />} />
       <Route path="/plats" element={<Plats />} />
       <Route path="/plat" element={<Plat />} />
+      <Route path="/platinfo" element={<Plat_info />} />
+      
       </Routes>
     </Router>
     </div>
