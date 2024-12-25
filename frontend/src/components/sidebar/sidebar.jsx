@@ -6,8 +6,13 @@ import stat from '../../assets/icons/stat.png'
 import dish from '../../assets/icons/dish.png'
 import magic from '../../assets/icons/magic.png'
 import logout from '../../assets/icons/logout.png'
+import { useNavigate } from 'react-router-dom';
 
 const SideBar = () => {
+    const navigate = useNavigate();
+    const goToAllDishes = () => {
+        navigate('/plats');
+    }
     
     return (
         <div className='sidebar-all'>
@@ -16,7 +21,7 @@ const SideBar = () => {
                     <img src={magic} />
                     <h4>Recommander</h4>
                 </div>
-                <div className='sidebar-choice'>
+                <div className='sidebar-choice' onClick={goToAllDishes}>
                     <img src={dish} />
                     <h4>Tout nos plats</h4>
                 </div>
