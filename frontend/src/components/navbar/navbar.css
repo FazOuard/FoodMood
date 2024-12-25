@@ -1,0 +1,20 @@
+.navbar-all{
+    z-index: 200;
+    height: 8vh;
+    width: 100vw;
+    background-color: #2C471B;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+.navbar-choices{
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-right: 20px;
+}
