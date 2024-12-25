@@ -10,26 +10,28 @@
   }
   
   .plats0{
-    padding: 40px 10px;
-    width: 90vw;
+    padding: 30px 5px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border-radius: 10px;
+    height: 60vh;
+    overflow-y: scroll;
   }
   
   .ALL{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
-    background-color: #d6f1c6;
+    width: 100%;
   }
   
   .plats_img {
     position: relative;
-    width: 20vw;
-    height: 15vw;
+    width: 23vw;
+    max-width: 220px;
+    height: 17vw;
+    max-height: 160px;
     overflow: hidden;
     transition: transform 0.3s ease;
     border-radius: 5px;
