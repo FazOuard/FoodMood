@@ -3,9 +3,9 @@
     gap: clamp(3px, 1vh, 10px);
     align-items: center;
     position: fixed;
-    left: 12vw;
+    left: 16vw;
     top: 8vh;
-    width: 88vw;
+    width: 84vw;
     height: 92vh;
     justify-content: center;
     background-color: #FFFEE6;

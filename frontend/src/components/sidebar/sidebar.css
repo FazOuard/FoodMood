@@ -26,3 +26,44 @@
     height: 0.1px;
     background-color: rgba(214, 241, 198, 0.2);
 }
+
+.sidebar-choice img{
+    width: 15px;
+    height: 15px;
+}
+.sidebar-choice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-recom img{
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar-recom h4{
+    color: #2C471B;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+    font-size: medium;
+}
+
+.sidebar-recom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: larger;
+    background-image: linear-gradient(45deg, #FFFEE6, #D6F1C6 );
+    padding: 10px 10px;
+    border-radius: 50px;
+    border: 2px solid #2C471B;
+    max-width: 12vw;
+    width: calc(12vw - 20px);
+    cursor: pointer;
+}
+
+
