@@ -34,6 +34,7 @@ const Plat = () => {
                     <div className='plat-image'>
                         <img src={item.Image} />
                     </div>
+                    <div className='plat-fixback'/>
                     <div className='plat-infos'>
                         <div className='plat-title-like'>
                             <div className='plat-title'>
