@@ -14,7 +14,6 @@ function App() {
       <Route path="/" element={<Recommendation />} />
       <Route path="/plats" element={<Plat_All />} />
       <Route path="/platinfo" element={<Plat_info />} />
-      
       </Routes>
     </Router>
     </div>

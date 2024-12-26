@@ -6,6 +6,8 @@ import RandomPlats from '../../components/randomPlats/randomPlats';
 import Plat from '../../components/plat/plat';
 import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
+import Estimate from '../../components/estimate/estimate';
+
 
 const Plat_info = () => {
 
@@ -19,6 +21,7 @@ const Plat_info = () => {
             <div className='plat_info1'>
                 <div><RandomPlats /></div>
                 <div><Plat/></div>
+                <div><Estimate/></div>
             </div>
         </div>
     );
