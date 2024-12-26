@@ -24,6 +24,7 @@
     right: 30%;
     height: 100%;
     z-index: 10;
+    min-width: 75vh;
 }
 
 .plat-title h1{
