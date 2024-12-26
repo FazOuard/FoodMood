@@ -8,6 +8,7 @@
     border-radius: 10px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
     height: calc(75vh - 20px);
+    justify-content: space-between;
 }
 
 .estimate-all h2{
@@ -47,3 +48,7 @@
     margin: 10px 0;
 }
 
+.estimate-alling{
+    display: flex;
+    flex-direction: column;
+}

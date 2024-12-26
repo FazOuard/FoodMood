@@ -4,20 +4,11 @@ import './estimate.css';
 import { useLocation } from 'react-router-dom';
 
 const Estimate = () => {
-    const [data, setData] = useState([]);
     const [ing, setIng] = useState([]);
     const [platIng, setPlatIng] = useState([]);
 
     const location = useLocation();
     const state = location.state || {};
-
-    useEffect(() => {
-        axios.get('http://localhost:5000/data')
-          .then(response => {
-            setData(response.data);
-          })
-          .catch(error => console.error('Error fetching data:', error));
-    }, []);
 
     useEffect(() => {
         axios.get('http://localhost:5000/ingredients')
@@ -35,7 +26,7 @@ const Estimate = () => {
           .catch(error => console.error('Error fetching ingredients of dishes:', error));
     }, []);
 
-    const filteredIng = platIng.filter((item) => (item.idPlat == state.idplat || item.idPlat == 7))
+    const filteredIng = platIng.filter((item) => (item.idPlat == state.idplat))
   
     const idIngList = filteredIng
         .map((item) => item.idIng) 
@@ -58,28 +49,37 @@ const Estimate = () => {
 
     return (
         <div className='estimate-all'>
-            <div>
+            <div className='estimate-alling'>
               <h2>Ingrédients</h2>
               <div className='estimate-line'/>
-              {ing
-              .filter((item) => (idIngList.includes(item.Id)))
+              {idIngList
               .map((ingid, index) => (
-                <div key={index} className='estimate-oneIng'>
-                  <div className='estimate-ing-price'>
-                  <h4>{ingid.Ingredient}</h4>
-                  <h6>({idIngListQuantity[index] * ingid.Prix / ingid.Valeur} MAD)</h6>
+                <div>
+                    {ing
+                      .filter((item) => item.Id == ingid)
+                      .map((item4) =>(
+                        <div key={index} className='estimate-oneIng'>
+                          <div className='estimate-ing-price'>
+                            <h4>{item4.Ingredient}</h4>
+                            <h6>({idIngListQuantity[index] * item4.Prix / item4.Valeur} MAD)</h6>
+                          </div>
+                          <div className='estimate-quantity'>
+                            <h4>
+                              {idIngListQuantity[index]}
+                              {item4.Unite}
+                            </h4>
+                          </div>
+                        </div>
+                      ))
+                    }
                   </div>
-                  <div className='estimate-quantity'>
-                    <h4>{idIngListQuantity[index]}
-                    {ingid.Unite}</h4>
-                    </div>
-                </div>
               ))}
             </div>
-            
-            <div className='estimate-line'/>
-            <div className='estimate-price'>
-              <h3>TOTAL: {estimatedBudget.toFixed(2)} MAD</h3>
+            <div className='estimate-allprice'>
+              <div className='estimate-line'/>
+              <div className='estimate-price'>
+                <h3>TOTAL: {estimatedBudget.toFixed(2)} MAD</h3>
+              </div>
             </div>
         </div>
     );
