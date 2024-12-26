@@ -7,8 +7,8 @@
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-    height: calc(75vh - 20px);
     justify-content: space-between;
+    height: calc(75vh - 72px);
 }
 
 .estimate-all h2{
@@ -51,4 +51,21 @@
 .estimate-alling{
     display: flex;
     flex-direction: column;
+}
+
+
+.estimate{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.estimate-all-ing{
+    max-height: 47vh;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+}
+
+.estimate-all-ing:hover{
+    overflow-y: scroll;
 }
