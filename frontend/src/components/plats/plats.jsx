@@ -24,19 +24,20 @@ const Plats = () => {
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
-  console.log("this is the lenght of data:", data.length)
+  
   const handleImageError = (e) => {
     e.target.src = 'path/to/placeholder-image.jpg'; 
   };
+
   const filteredData = data.filter((item) => {
     const matchesSearchText = searchText
       ? item.Titre?.toLowerCase().includes(searchText.toLowerCase())
       : true;
     const matchesCaloriesInterval = item.Calories && item.Calories >= CaloriesInterval[0] && item.Calories <= CaloriesInterval[1];
+
     return matchesSearchText && matchesCaloriesInterval;
   });
-  
-  console.log("this is the lenght of finltered data:", filteredData.length)
+
 
   return (
     <div className='ALL'>
