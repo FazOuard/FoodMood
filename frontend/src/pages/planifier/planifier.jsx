@@ -13,12 +13,16 @@ const Planifier = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    const goToPlanWeek = () => {
+        navigate('/planSemaine');
+    }
+
     return (
         <div className='planifier'>
             <NavBar/>
             <SideBar/>
             <div className='planifier0'>
-                <div className='planifier-card'>
+                <div className='planifier-card' onClick={goToPlanWeek} >
                     <h2>Planifier une semaine</h2>
                     <img src={weekcalendar} />
                     <div className='plan-line'/>
