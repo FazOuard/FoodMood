@@ -10,9 +10,8 @@
   }
   
   .plats0{
-    padding: 30px 5px;
-    width: 70vw;
-    max-width: calc(84vw - 160px);
+    width: calc(100vw - 18vw - 16vw);
+    max-width: calc(100vw - 160px - 16vw);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
