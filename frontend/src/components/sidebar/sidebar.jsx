@@ -13,6 +13,9 @@ const SideBar = () => {
     const goToAllDishes = () => {
         navigate('/plats');
     }
+    const goToPlan = () => {
+        navigate('/planifier');
+    }
     
     return (
         <div className='sidebar-all'>
@@ -31,7 +34,7 @@ const SideBar = () => {
                     <h4>Mes statistiques</h4>
                 </div>
                 <div className='sidebar-line'/>
-                <div className='sidebar-choice'>
+                <div className='sidebar-choice' onClick={goToPlan}>
                     <img src={calendar} />
                     <h4>Plannifier</h4>
                 </div>
