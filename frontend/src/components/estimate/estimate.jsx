@@ -88,7 +88,7 @@ const Estimate = () => {
             <div className='estimate-allprice'>
               <div className='estimate-line'/>
               <div className='estimate-price'>
-                <h3>TOTAL: {estimatedBudget.toFixed(2) * nbrpersons} MAD</h3>
+                <h3>TOTAL: {(estimatedBudget * nbrpersons).toFixed(2)} MAD</h3>
               </div>
             </div>
         </div>
