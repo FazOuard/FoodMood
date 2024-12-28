@@ -48,6 +48,17 @@ return matchesSearchText && matchesCaloriesInterval && matchesProteinesInterval 
   });
   
   console.log("this is the lenght of finltered data:", filteredData.length)
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+  };
+  
+  const scrambledData = [...filteredData]; // Create a copy of filteredData
+  shuffleArray(scrambledData); // Shuffle the copy
+  
 //Affichage du Composant
   return (
     <div className='ALL'>
@@ -167,7 +178,8 @@ return matchesSearchText && matchesCaloriesInterval && matchesProteinesInterval 
          
       </div>
       <div className='plats0'>
-        {filteredData.filter((item) => item.Image != null) //Filtre les plats pour ne garder que ceux qui ont une image définie.
+        {scrambledData
+        .filter((item) => item.Image != null) //Filtre les plats pour ne garder que ceux qui ont une image définie.
         .map((item, index) => ( // Pour chaque plat filtré, crée un nouveau <div>
           <div key={index} className='un_plat' onClick={() => goToOneDish(item.id)}>  
             {item.Image ? (
