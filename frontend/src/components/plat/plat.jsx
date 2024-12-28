@@ -1,5 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+/**
+ * Objectif général :
+Le composant Plat dans votre projet React est conçu pour afficher les détails d'un plat (image, titre, ingrédients, durée, calories, protéines, recette, etc.). 
+Il utilise les hooks useState et useEffect pour gérer l'état des données et effectuer des requêtes API. 
+Les données sont récupérées depuis un serveur local (localhost:5000/data), 
+puis filtrées et affichées en fonction de l'ID du plat passé via useLocation de react-router-dom.
+ */
+
+
+
+import React, { useEffect, useState } from 'react';//useState permet de stocker les données récupérées   useEffect est utilisé pour effectuer la requête API lorsque le composant est monté
+import axios from 'axios'; //Un client HTTP utilisé pour faire des requêtes API.
 import './plat.css'
 import { useLocation } from 'react-router-dom';
 import clock from '../../assets/icons/clock.png'
@@ -9,30 +19,31 @@ import like0 from '../../assets/icons/like0.png'
 import like1 from '../../assets/icons/like1.png'
 
 const Plat = () => {
-    
-    const [data, setData] = useState([]);
-
-    const location = useLocation();
-    const state = location.state || {};
-
-    useEffect(() => {
-        axios.get('http://localhost:5000/data')
-          .then(response => {
-            setData(response.data);
+    // Déclaration de l'État
+    const [data, setData] = useState([]); //useState([]) : Cela initialise un état local nommé data avec une valeur par défaut d'un tableau vide.
+    //  setData est la fonction qui vous permettra de mettre à jour cet état plus tard
+     //Récupération de l'Emplacement
+    const location = useLocation(); //useLocation() : Ce hook permet d'accéder à l'objet location qui contient des informations sur l'URL actuelle.
+    const state = location.state || {}; //Cela récupère l'état passé via le routeur (s'il y en a) ou initialise state comme un objet vide si aucun état n'est présent.
+    //Effet de Chargement des Données
+    useEffect(() => {                                                   //useEffect(() => { ... }, []) : Ce hook exécute le code à l'intérieur de la fonction lorsque le composant est monté (au premier rendu).
+        axios.get('http://localhost:5000/data') //Cette ligne effectue une requête GET à l'URL spécifiée pour récupérer des données.                       //  Le tableau vide [] signifie que cet effet ne sera exécuté qu'une seule fois, similaire à componentDidMount
+          .then(response => { //Si la requête réussit, la réponse est traitée ici.
+            setData(response.data);  // Vous mettez à jour l'état data avec les données récupérées en utilisant setData(response.data).
             console.log(response.data);
           })
-          .catch(error => console.error('Error fetching data:', error));
+          .catch(error => console.error('Error fetching data:', error)); //Si une erreur se produit lors de la récupération des données, elle est capturée et affichée dans la console
       }, []);
-    
+     //Retour du JSX
     return (
         <div>
             <div className='plat-all'>
             {data
-            .filter((item) => item.id == state.idplat)
-            .map((item, index) => (
+            .filter((item) => item.id == state.idplat)  //Filtre le tableau data pour ne garder que l'élément dont l'ID correspond à state.idplat. Cela signifie que vous affichez uniquement les détails d'un plat spécifique.
+            .map((item, index) => (        //Pour chaque élément filtré, vous créez un nouveau <div> contenant les détails du plat.
                 <div key={index} className='plat'>
                     <div className='plat-image'>
-                        <img src={item.Image} />
+                        <img src={item.Image} />                      
                     </div>
                     <div className='plat-fixback'/>
                     <div className='plat-infos'>

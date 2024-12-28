@@ -160,3 +160,123 @@
   .calories-filter1 h4{
     margin: 0;
   }
+
+  .Proteines-filter{
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+
+  .Proteines-filter input{
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .Proteines-filter1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Proteines-filter1 h4{
+    margin: 0;
+  } 
+    
+ 
+  
+  .Lipides-filter{
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+
+  .Lipides-filter input{
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .Lipides-filter1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Lipides-filter1 h4{
+    margin: 0;
+  } 
+    
+  
+  
+  
+  
+   .Tempscuissant-filter{
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+
+  .Tempscuissant-filter input{
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .Tempscuissant-filter1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Tempscuissant-filter1 h4{
+    margin: 0;
+  }
+
+  
+  .Glucide-filter{
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+
+  .Glucide-filter input{
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .Glucide-filter1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Glucide-filter1 h4{
+    margin: 0;
+  }
+  
