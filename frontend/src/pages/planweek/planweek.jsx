@@ -12,6 +12,7 @@ const PlanWeek = () => {
     const location = useLocation();
 
     const [data, setData] = useState([]);
+    const semaine = ["Jour 1", "Jour 2", "Jour 3", "Jour 4", "Jour 5", "Jour 6", "Jour 7" ];
 
     useEffect(() => {
         axios.get('http://localhost:5000/data')
@@ -63,67 +64,66 @@ const PlanWeek = () => {
             <NavBar/>
             <SideBar/>
             <div className='planifierweek0'>
-                <div style={{ display: "flex", justifyContent: "space-around" }}>
+                <div className='drag-and-drop'>
                     {/* Draggable Items List */}
-                    <div style={{ border: "1px solid #ccc", padding: "10px", width: "40%" }}>
-                        <h3>Déplacez ces plats</h3>
+                    <div className='all-to-drag'>
+                        <h3>Choisissez vos plats</h3>
                         <div className='to-drag-items'>
-                        {items.map((item, index) => (
-                            <div
-                                key={index}
-                                draggable
-                                onDragStart={(event) => handleDragStart(event, item)}
-                                className='to-drag-item'
-                            >
-                                {data.filter((plat) => item == plat.id)
-                                    .map((plat) => (
-                                        <img key={plat.id} src={plat.Image} />
-                                    ))}
-                            </div>
-                        ))}
-                    </div>
+                            {items.map((item, index) => (
+                                <div
+                                    key={index}
+                                    draggable
+                                    onDragStart={(event) => handleDragStart(event, item)}
+                                    className='to-drag-item'
+                                >
+                                    {data.filter((plat) => item == plat.id)
+                                        .map((plat) => (
+                                            <img key={plat.id} src={plat.Image} />
+                                        ))}
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Drop Area */}
-                    <div
-                        onDrop={handleDrop}
-                        onDragOver={handleDragOver}
-                        style={{
-                        border: "1px solid #ccc",
-                        padding: "10px",
-                        width: "40%",
-                        minHeight: "200px",
-                        }}
-                    >
-                    <h3>Drop Here</h3>
-                    {droppedItems.map((item, index) => (
-                    <div
-                        key={index}
-                        style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        padding: "8px",
-                        margin: "5px 0",
-                        backgroundColor: "#d4f7d4",
-                        }}
-                    >
-                        {item}
-                        <button
-                        onClick={() => handleRemove(item)}
-                        style={{
-                            marginLeft: "10px",
-                            backgroundColor: "red",
-                            color: "white",
-                            border: "none",
-                            borderRadius: "4px",
-                            cursor: "pointer",
-                        }}
+                    <div className='to-drop'>
+                        {semaine.map((jour, index) => (
+                            <div
+                            onDrop={handleDrop}
+                            onDragOver={handleDragOver}
+                            key={index}
                         >
-                        ×
-                        </button>
-                    </div>
-                    ))}
+                        <h3>{jour}</h3>
+                        {droppedItems.map((item, index) => (
+                            <div
+                                key={index}
+                                style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                padding: "8px",
+                                margin: "5px 0",
+                                backgroundColor: "#d4f7d4",
+                                }}
+                            >
+                                {item}
+                                <button
+                                onClick={() => handleRemove(item)}
+                                style={{
+                                    marginLeft: "10px",
+                                    backgroundColor: "red",
+                                    color: "white",
+                                    border: "none",
+                                    borderRadius: "4px",
+                                    cursor: "pointer",
+                                }}
+                                >
+                                ×
+                                </button>
+                            </div>
+                        ))}
+                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
