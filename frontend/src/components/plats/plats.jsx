@@ -13,9 +13,10 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
   const [CaloriesInterval, setCaloriesInterval] = useState([0, 600]); //CaloriesInterval : État pour stocker un intervalle de calories (probablement utilisé pour filtrer les plats).
   const [ProteineInterval, setProteineInterval] = useState([0, 100]); //ProteineInterval 
   const [GlucideInterval, setGlucideInterval] = useState([0,100]);
-  const [TempsdecuissantInterval, setTempsdecuissantInterval] = useState([0,100]);// temps de cuissant 
+  const [selectedDuration, setSelectedDuration] = useState(""); // État pour la durée sélectionnée
   const [LipidesInterval, setLipidesInterval] =useState([0,100]);
- 
+  const [selectedType, setSelectedType] = useState('');
+  
   //Fonction de Navigation
   const goToOneDish = (idplat) => { //Cette fonction prend un idplat comme argument et utilise la fonction navigate pour rediriger l'utilisateur vers la route /platinfo.
     navigate("/platinfo", {state: { ...(location.state || {}), idplat } })
@@ -42,9 +43,10 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
     const matchesCaloriesInterval = item.Calories && item.Calories >= CaloriesInterval[0] && item.Calories <= CaloriesInterval[1];//Filtre par intervalle de calories : Vérifie si les calories du plat sont dans l'intervalle spécifié
     const matchesProteinesInterval = item.Proteines && item.Proteines >= ProteineInterval[0] && item.Proteines <= ProteineInterval[1];//Filtre par intervalle de calories : Vérifie si les calories du plat sont dans l'intervalle spécifié
     const matchesGlucideInterval = item.Glucides && item.Glucides >= GlucideInterval[0] && item.Glucides <= GlucideInterval[1];//Filtre par intervalle de calories : Vérifie si les calories du plat sont dans l'intervalle spécifié
-    const matchesTempscuissantInterval = item.Duree && item.Duree >= TempsdecuissantInterval[0] && item.Duree <= TempsdecuissantInterval[1];//Filtre par intervalle de calories : Vérifie si les calories du plat sont dans l'intervalle spécifié
+    const matchesDuration = selectedDuration ? item.Duree === selectedDuration : true; // Filtrer par durée
     const matchesLipidesInterval = item.Lipides && item.Lipides >= LipidesInterval[0] && item.Lipides <= LipidesInterval[1];//Filtre par intervalle de calories : Vérifie si les calories du plat sont dans l'intervalle spécifié
-return matchesSearchText && matchesCaloriesInterval && matchesProteinesInterval &&  matchesGlucideInterval    && LipidesInterval ;// &&  matchesTempscuissantInterval    Combinaison : Les plats sont inclus dans filteredData s'ils correspondent aux deux critères.
+    const matchesType = selectedType ? item.Cathegorie === selectedType : true; // Filtrage par type
+    return matchesSearchText && matchesCaloriesInterval && matchesProteinesInterval &&  matchesGlucideInterval    && LipidesInterval && matchesDuration && matchesType;// &&  matchesTempscuissantInterval    Combinaison : Les plats sont inclus dans filteredData s'ils correspondent aux deux critères.
   });
   
   console.log("this is the lenght of finltered data:", filteredData.length)
@@ -135,26 +137,8 @@ return matchesSearchText && matchesCaloriesInterval && matchesProteinesInterval 
           />
           </div> 
           </div>
-     <div className="Tempscuissant-filter">
-          <label>Duree : <span style={{color: "#CECECE", fontWeight:"regular", fontSize: "15px"}}>{`De ${TempsdecuissantInterval[0]} à ${TempsdecuissantInterval[1]} min`}</span></label>           <div className='Tempscuissant-filter1'>
-            <h4>De:</h4>
-          <input
-            type="number"
-            min="0"
-            max={TempsdecuissantInterval[1] - 1}
-            value={TempsdecuissantInterval[0]}
-            onChange={(e) => setTempsdecuissantInterval([Number(e.target.value), TempsdecuissantInterval[1]])}
-          />
-          <h4>à:</h4>
-          <input
-            type="number"
-            min={TempsdecuissantInterval[0] + 1}
-            max="600"
-            value={TempsdecuissantInterval[1]}
-            onChange={(e) => setTempsdecuissantInterval([TempsdecuissantInterval[0], Number(e.target.value)])}
-          />
-          </div>      
-          </div> 
+       
+    
      <div className="Lipides-filter">
           <label>Lipides: <span style={{color: "#CECECE", fontWeight:"regular", fontSize: "15px"}}>{`De ${LipidesInterval[0]} à ${LipidesInterval[1]} g`}</span></label>           <div className='Lipides-filter1'>
             <h4>De:</h4>
@@ -175,7 +159,26 @@ return matchesSearchText && matchesCaloriesInterval && matchesProteinesInterval 
           />
           </div> 
           </div> 
-         
+          <div className="duration-filter">
+        <label>Durée de cuisson :</label>
+        <select value={selectedDuration} onChange={(e) => setSelectedDuration(e.target.value)}>
+          <option value="">Toutes</option>
+          <option value="10 minutes">10 minutes</option>
+          <option value="15-30 minutes">15-30 minutes</option>
+          <option value="30-60 minutes">30-60 minutes</option>
+          <option value="1-3 heures">1-3 heures</option>
+        </select>
+      </div>
+      <div className="type-filter">
+          <label>Type de plat:</label>
+          <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
+            <option value="">Tous</option>
+            <option value="Salade">Salade</option>
+            <option value="Traditionnelle">Traditionnelle</option>
+            <option value="Fast food">Fast food</option>
+            {/* Ajouter d'autres options selon les types de plats disponibles */}
+          </select>
+        </div>
       </div>
       <div className='plats0'>
         {scrambledData

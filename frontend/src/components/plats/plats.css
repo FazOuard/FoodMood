@@ -224,36 +224,6 @@
   
   
   
-  
-   .Tempscuissant-filter{
-    display: flex;
-    flex-direction: column;
-    color: #2C471B;
-  }
-
-  .Tempscuissant-filter input{
-    width: 3.5vw;
-    max-width: 50px;
-    color: #2C471B;
-    background-color: #F2FFEA;
-    border: 1px solid #2C471B;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 5px 10px;
-    margin: 0;
-  }
-
-  .Tempscuissant-filter1{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .Tempscuissant-filter1 h4{
-    margin: 0;
-  }
-
-  
   .Glucide-filter{
     display: flex;
     flex-direction: column;
@@ -282,3 +252,75 @@
     margin: 0;
   }
   
+  .duration-filter {
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+  
+  .duration-filter label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .duration-filter select {
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+  .duration-filter select {
+    width: 10vw; /* Augmente la largeur en pourcentage de la largeur de la fenêtre */
+    max-width: 150px; /* Limite maximale pour la largeur */
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px; /* Agrandit le texte */
+    font-weight: bold;
+    padding: 10px 12px; /* Augmente l'espacement interne pour rendre la case plus grande */
+    margin: 0;
+    border-radius: 5px; /* Optionnel : arrondi les bords pour un style plus moderne */
+  }
+
+  
+  .type-filter {
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+  
+  .type-filterr label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .type-filter select {
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+  .type-filter select {
+    width: 10vw; /* Augmente la largeur en pourcentage de la largeur de la fenêtre */
+    max-width: 150px; /* Limite maximale pour la largeur */
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px; /* Agrandit le texte */
+    font-weight: bold;
+    padding: 10px 12px; /* Augmente l'espacement interne pour rendre la case plus grande */
+    margin: 0;
+    border-radius: 5px; /* Optionnel : arrondi les bords pour un style plus moderne */
+  }
