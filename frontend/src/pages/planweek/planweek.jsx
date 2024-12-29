@@ -4,8 +4,6 @@ import './planweek.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
-import Calendar from 'react-calendar';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 
 const PlanWeek = () => {
