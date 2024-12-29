@@ -5,7 +5,7 @@
     width: 84vw;
     height: 92vh;
     overflow-y: scroll;
-    color: #000;
+    color: #2C471B;
 }
 
 .to-drag-item{
@@ -53,4 +53,30 @@
     font-weight: bold;
     font-size: larger;
     margin-bottom: 5px;
+}
+
+.dropped-item img{
+    width: 7vw;
+    height: 7vw;
+    border-radius: 5px;
+}
+
+.dropped-title-remove{
+    display: flex;
+    justify-content: space-between;
+    width: 7vw;
+}
+
+.dropped-title-remove h4{
+    margin: 0%;
+    padding: 0%;
+    max-width: calc(7vw - 20px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dopped-items{
+    display: flex;
+    gap: 10px;
 }

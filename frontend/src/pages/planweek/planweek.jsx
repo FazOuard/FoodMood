@@ -101,36 +101,37 @@ const PlanWeek = () => {
                             key={index}
                         >
                         <h3>{jour}</h3>
+                        <div className='dopped-items'>
                         {droppedItemsByDay[jour].map((item, index) => (
-                            <div
-                                key={index}
-                                style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                                padding: "8px",
-                                margin: "5px 0",
-                                backgroundColor: "#d4f7d4",
-                                }}
-                            >
-                                {item}
-                                <h2
-                                onClick={() => handleRemove(item, jour)}
-                                style={{
-                                    backgroundColor: "red",
-                                    borderRadius: "4px",
-                                    cursor: "pointer",
-                                    width: "20px",
-                                    height: "20px",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center"
-                                }}
-                                >
-                                <img src={cross} style={{ width: "10px", height: "10px"}} />
-                                </h2>
+                            <div key={index} className='dropped-item'>
+                                {data
+                                    .filter((plat) => item == plat.id)
+                                    .map((plat) => (
+                                        <div key={plat.id}>
+                                            <img key={plat.id} src={plat.Image} />
+                                            <div className='dropped-title-remove'>
+                                                <h4>{plat.Titre}</h4>
+                                                <div onClick={() => handleRemove(item, jour)}
+                                                    style={{
+                                                        backgroundColor: "red",
+                                                        borderRadius: "4px",
+                                                        cursor: "pointer",
+                                                        width: "20px",
+                                                        height: "20px",
+                                                        display: "flex",
+                                                        justifyContent: "center",
+                                                        alignItems: "center"
+                                                    }}
+                                                >
+                                                    <img src={cross} style={{ width: "10px", height: "10px"}} />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
                         ))}
+                        </div>
                         </div>
                         ))}
                     </div>
