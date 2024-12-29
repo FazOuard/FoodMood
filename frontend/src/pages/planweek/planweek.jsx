@@ -29,22 +29,26 @@ const PlanWeek = () => {
                         plat.id
                     ))
     
-    const [droppedItems, setDroppedItems] = useState([]);
-    
+    const [droppedItemsByDay, setDroppedItemsByDay] = useState(
+        semaine.reduce((acc, day) => ({ ...acc, [day]: [] }), {})
+    );
+
       // Handle drag start
     const handleDragStart = (event, item) => {
         event.dataTransfer.setData("text", item);
     };
     
       // Handle drop event
-    const handleDrop = (event) => {
+    const handleDrop = (event, day) => {
         event.preventDefault();
         const droppedItem = event.dataTransfer.getData("text");
-    
+
         // Avoid duplicates
-        if (!droppedItems.includes(droppedItem)) {
-          setDroppedItems([...droppedItems, droppedItem]);
-          setItems(items.filter((item) => item !== droppedItem));
+        if (!droppedItemsByDay[day].includes(droppedItem)) {
+          setDroppedItemsByDay({
+            ...droppedItemsByDay,
+            [day]: [...droppedItemsByDay[day], droppedItem],
+          });
         }
     };
     
@@ -53,9 +57,11 @@ const PlanWeek = () => {
         event.preventDefault();
     };
 
-    const handleRemove = (item) => {
-        setDroppedItems(droppedItems.filter((droppedItem) => droppedItem !== item));
-        setItems([...items, item]);
+    const handleRemove = (item, day) => {
+        setDroppedItemsByDay({
+            ...droppedItemsByDay,
+            [day]: droppedItemsByDay[day].filter((droppedItem) => droppedItem !== item),
+        });
     };
     
     
@@ -89,12 +95,12 @@ const PlanWeek = () => {
                     <div className='to-drop'>
                         {semaine.map((jour, index) => (
                             <div
-                            onDrop={handleDrop}
+                            onDrop={(event) => handleDrop(event, jour)}
                             onDragOver={handleDragOver}
                             key={index}
                         >
                         <h3>{jour}</h3>
-                        {droppedItems.map((item, index) => (
+                        {droppedItemsByDay[jour].map((item, index) => (
                             <div
                                 key={index}
                                 style={{
@@ -108,7 +114,7 @@ const PlanWeek = () => {
                             >
                                 {item}
                                 <button
-                                onClick={() => handleRemove(item)}
+                                onClick={() => handleRemove(item, jour)}
                                 style={{
                                     marginLeft: "10px",
                                     backgroundColor: "red",
