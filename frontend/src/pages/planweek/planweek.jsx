@@ -4,7 +4,8 @@ import './planweek.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
-import cross from '../../assets/icons/cross.png'
+import cross from '../../assets/icons/cross.png';
+import replace from '../../assets/replace/replace.png'
 
 
 const PlanWeek = () => {
@@ -128,6 +129,29 @@ const PlanWeek = () => {
                                 }
                             </div>
                         ))}
+                        {
+                        Array.from({ length: 4 - droppedItemsByDay[jour].length }).map((_, i) => (
+                        <div className='dropped-item'>
+                                <img src={replace} />
+                                <div className='dropped-title-remove'>
+                                    <h4>...</h4>
+                                    <div
+                                                    style={{
+                                                        backgroundColor: "#2C471B",
+                                                        borderRadius: "4px",
+                                                        cursor: "pointer",
+                                                        width: "20px",
+                                                        height: "20px",
+                                                        display: "flex",
+                                                        justifyContent: "center",
+                                                        alignItems: "center"
+                                                    }}
+                                    >
+                                        <img src={cross} style={{ width: "10px", height: "10px"}} />
+                                    </div>
+                                </div>
+                            </div>
+                            ))}
                         </div>
                         </div>
                         ))}
