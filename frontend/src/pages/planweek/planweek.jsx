@@ -95,11 +95,8 @@ const PlanWeek = () => {
                     {/* Drop Area */}
                     <div className='to-drop'>
                         {semaine.map((jour, index) => (
-                            <div
-                            onDrop={(event) => handleDrop(event, jour)}
-                            onDragOver={handleDragOver}
-                            key={index}
-                        >
+                            <div onDrop={(event) => handleDrop(event, jour)} onDragOver={handleDragOver} key={index} className='ONE-day'>
+
                         <h3>{jour}</h3>
                         <div className='dopped-items'>
                         {droppedItemsByDay[jour].map((item, index) => (

@@ -36,7 +36,8 @@
 .to-drop{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 45%;
+    align-items: center;
 }
 
 .all-to-drag{
@@ -56,21 +57,28 @@
 }
 
 .dropped-item img{
-    width: 7vw;
-    height: 7vw;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 5px;
+}
+
+.dropped-item{
+    padding: 5px;
+    background-color: #F2FFEA;
     border-radius: 5px;
 }
 
 .dropped-title-remove{
     display: flex;
     justify-content: space-between;
-    width: 7vw;
+    width: 6vw;
 }
 
 .dropped-title-remove h4{
     margin: 0%;
     padding: 0%;
-    max-width: calc(7vw - 20px);
+    font-size: small;
+    max-width: calc(6vw - 20px);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -78,5 +86,16 @@
 
 .dopped-items{
     display: flex;
-    gap: 10px;
+    gap: 5px;
+}
+
+.ONE-day{
+    background-color: #D6F1C6;
+    padding: 10px;
+    border-radius: 5px;
+}
+.ONE-day h3{
+    width: 100%;
+    text-align: center;
+    margin: 5px;
 }
