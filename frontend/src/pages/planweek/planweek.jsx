@@ -4,6 +4,7 @@ import './planweek.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
+import cross from '../../assets/icons/cross.png'
 
 
 const PlanWeek = () => {
@@ -113,19 +114,21 @@ const PlanWeek = () => {
                                 }}
                             >
                                 {item}
-                                <button
+                                <h2
                                 onClick={() => handleRemove(item, jour)}
                                 style={{
-                                    marginLeft: "10px",
                                     backgroundColor: "red",
-                                    color: "white",
-                                    border: "none",
                                     borderRadius: "4px",
                                     cursor: "pointer",
+                                    width: "20px",
+                                    height: "20px",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center"
                                 }}
                                 >
-                                ×
-                                </button>
+                                <img src={cross} style={{ width: "10px", height: "10px"}} />
+                                </h2>
                             </div>
                         ))}
                         </div>
