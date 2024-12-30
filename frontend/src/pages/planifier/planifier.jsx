@@ -16,6 +16,9 @@ const Planifier = () => {
     const goToPlanWeek = () => {
         navigate('/planSemaine');
     }
+    const goToPlanMonth = () => {
+        navigate('/planMois');
+    }
 
     return (
         <div className='planifier'>
@@ -45,7 +48,7 @@ const Planifier = () => {
                         </div>
                     </div>
                 </div>
-                <div className='planifier-card'>
+                <div className='planifier-card' onClick={goToPlanMonth}>
                     <h2>Planifier un mois</h2>
                     <img src={todo} />
                     <div className='plan-line'/>

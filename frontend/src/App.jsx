@@ -5,6 +5,7 @@ import Plat_info from './pages/plat_info/plat_info.jsx';
 import Plat_All from './pages/plats/plats.jsx';
 import Planifier from './pages/planifier/planifier.jsx';
 import PlanWeek from './pages/planweek/planweek.jsx';
+import PlanMonth from './pages/PlanMonth/PlanMonth.jsx';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Route path="/platinfo" element={<Plat_info />} />
       <Route path="/planifier" element={<Planifier />} />
       <Route path="/planSemaine" element={<PlanWeek />} />
+      <Route path="/planMois" element={<PlanMonth />} />
       </Routes>
     </Router>
     </div>
