@@ -32,32 +32,33 @@
 .to-drop{
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 31%;
     align-items: center;
     position: fixed;
     height: 92vh;
     overflow-y: scroll;
     right: 0;
     top: 8vh;
-    width: 43%;
+    background-color: #D6F1C6;
+    z-index: -100;
 }
 
 .all-to-drag{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    align-content: center;
     position: fixed;
     height: 92vh;
     overflow-y: scroll;
     left: 16vw;
     top: 8vh;
-    width: 43%;
+    width: 53%;
+    scrollbar-width: thin;
+    background-color: #2C471B;
 }
 
 .all-to-drag h3{
-    color: #2C471B;
+    color: #F2FFEA;
     font-weight: bold;
     font-size: larger;
     margin-bottom: 5px;

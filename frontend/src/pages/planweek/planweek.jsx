@@ -78,12 +78,7 @@ const PlanWeek = () => {
                         <h3>Choisissez vos plats</h3>
                         <div className='to-drag-items'>
                             {items.map((item, index) => (
-                                <div
-                                    key={index}
-                                    draggable
-                                    onDragStart={(event) => handleDragStart(event, item)}
-                                    className='to-drag-item'
-                                >
+                                <div key={index} draggable onDragStart={(event) => handleDragStart(event, item)} className='to-drag-item'>
                                     {data.filter((plat) => item == plat.id)
                                         .map((plat) => (
                                             <img key={plat.id} src={plat.Image} />
