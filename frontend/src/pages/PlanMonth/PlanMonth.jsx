@@ -1,6 +1,12 @@
-import React, { useState } from "react";
-import "./PlanMonth.css";
 
+import "./PlanMonth.css";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useLocation, useNavigate } from 'react-router-dom';
+import NavBar from '../../components/navbar/navbar';
+import SideBar from '../../components/sidebar/sidebar';
+import cross from '../../assets/icons/cross.png';
+import replace from '../../assets/replace/replace.png'
 const PlanMonth = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [tasks, setTasks] = useState({});
@@ -46,7 +52,11 @@ const PlanMonth = () => {
   };
 
   return (
+  
     <div className="plan-month">
+       <NavBar/>
+       <SideBar/>
+       <div className='planifierMonth0'>
       <header className="calendar-header">
         <button onClick={handlePrevMonth}>&lt;</button>
         <h1>
@@ -85,19 +95,20 @@ const PlanMonth = () => {
         <div className="modal">
           <div className="modal-content">
             <h2>
-              Ajouter une tâche pour le{" "}
+              Ajouter le nom du plats{" "}
               {new Date(selectedDay).toLocaleDateString()}
             </h2>
             <textarea
               value={taskInput}
               onChange={(e) => setTaskInput(e.target.value)}
-              placeholder="Entrez votre tâche ici..."
+              placeholder="Entrez vos pltas."
             ></textarea>
             <button onClick={handleAddTask}>Ajouter</button>
             <button onClick={() => setSelectedDay(null)}>Annuler</button>
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };
