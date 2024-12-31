@@ -91,7 +91,7 @@ const PlanWeek = () => {
                         </div>
                         <div className='to-drag-items'>
                             {data
-                            .filter((plat) => plat.Titre.toLowerCase().includes(searchText.toLowerCase()))
+                            .filter((plat) => plat.Image != null && plat.Titre.toLowerCase().includes(searchText.toLowerCase()))
                             .map((plat, index) => (
                                 <div key={index} draggable onDragStart={(event) => handleDragStart(event, plat.id)} className='to-drag-item'>
                                     <img key={plat.id} src={plat.Image} />
