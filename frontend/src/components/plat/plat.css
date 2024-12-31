@@ -1,0 +1,134 @@
+.plat-all{
+    width: 50vw;
+    height: 75vh;
+    max-width: 850px;
+    position: relative;
+    background-color: #F2FFEA ;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.plat{
+    background-color: #F2FFEA ;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.plat-image img {
+    position: absolute;
+    bottom: 0;
+    right: 30%;
+    height: 100%;
+    z-index: 10;
+    min-width: 75vh;
+}
+
+.plat-title h1{
+    font-size: xx-large;
+    font-weight: black;
+    color: #2C471B;
+    text-align: left;
+    margin: 0;
+}
+
+.plat-ingredient h5{
+    color: #2A2A2A;
+    max-width: 90%;
+    text-align: justify;
+    margin-top: 5px;
+}
+
+.plat-ingredient h2{
+    color: #6E9955;
+    max-width: 90%;
+    margin: 0;
+    margin-top: 20px;
+
+}
+
+.plat-duree h5{
+    color: #2A2A2A;
+    max-width: 50px;
+    text-align: center;
+    margin: 0;
+}
+
+.plat-duree img{
+    width: 20px;
+}
+
+.plat-duree{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:5px
+}
+
+.line{
+    width: 0.5px;
+    height: 58px;
+    background-color: #CECECE;
+}
+
+
+.plat-info{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+
+.plat-recette h2{
+    font-weight: bolder;
+    color: #6E9955;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.plat-recette h5 {
+    font-weight: bolder;
+    max-width: 90%;
+    text-align: justify;
+    color: #2A2A2A;
+    margin-top: 5px;
+    max-height: 20vh;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    transition: overflow-y 0.3s ease; 
+}
+
+.plat-recette h5:hover {
+    overflow-y: scroll;
+}
+
+.plat-fixback{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 55%;
+    background-color: #F2FFEA;
+    z-index: 15;
+}
+.plat-infos{
+    z-index: 20;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+
+.plat-like img{
+    width: 30px;
+}
+
+.plat-title-like{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+}

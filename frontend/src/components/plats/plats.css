@@ -1,0 +1,334 @@
+.un_plat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px;
+  }
+  
+  .un_plat h2{
+    margin: 1vh 1vw;
+  }
+  
+  .plats0{
+    width: calc(100vw - 18vw - 16vw);
+    max-width: calc(100vw - 160px - 16vw);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 75vh;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+  }
+
+  
+  
+  .ALL{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .plats_img {
+    position: relative;
+    width: 23vw;
+    max-width: 220px;
+    height: 17vw;
+    max-height: 160px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+    border: 1px solid white;
+  }
+  
+  .plats_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+  .shadow{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    right: 0;
+    bottom: 0;
+    color: white;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)); 
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+  
+  
+  .plats_img h2 {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    color: white;
+    font-size: 20px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .ALL h1{
+    color: #34622F;
+  }
+  
+  .plats_img:hover img{
+    transform: scale(1.2);
+  }
+  
+  
+  .plats_img:hover .shadow{
+    height:  110%;
+  }
+  
+  
+  .plats_img:hover{
+    border: 1px solid #83BE91
+  }
+  
+  .plats_img:hover h2{
+    color: #83BE91
+  }
+
+  .search-bar {
+    margin-bottom: 20px;
+    position: relative;
+    width: 10vw;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    position: absolute;
+    padding: 10px 20px;
+    padding-left: 35px;
+    font-size: 16px;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    border-radius: 50px;
+    color: #2C471B;
+  }
+  
+  .search{
+    width: 14vw;
+    min-width: 150px;
+    position: fixed;
+    z-index: 100;
+    background-color: #FFFFF4;
+    padding: 2vw;
+    right: 0;
+    top: 8vh;
+    height: calc(92vh - 4vw);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .search-bar img{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .calories-filter{
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+
+  .calories-filter input{
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .calories-filter1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .calories-filter1 h4{
+    margin: 0;
+  }
+
+  .Proteines-filter{
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+
+  .Proteines-filter input{
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .Proteines-filter1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Proteines-filter1 h4{
+    margin: 0;
+  } 
+    
+ 
+  
+  .Lipides-filter{
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+
+  .Lipides-filter input{
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .Lipides-filter1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Lipides-filter1 h4{
+    margin: 0;
+  } 
+    
+  
+  
+  
+  .Glucide-filter{
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+
+  .Glucide-filter input{
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .Glucide-filter1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Glucide-filter1 h4{
+    margin: 0;
+  }
+  
+  .duration-filter {
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+  
+  .duration-filter label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .duration-filter select {
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+  }
+  .duration-filter select {
+    width: 10vw; /* Augmente la largeur en pourcentage de la largeur de la fenêtre */
+    max-width: 150px; /* Limite maximale pour la largeur */
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px; /* Agrandit le texte */
+    font-weight: bold;
+    padding: 10px 12px; /* Augmente l'espacement interne pour rendre la case plus grande */
+    margin: 0;
+    border-radius: 5px; /* Optionnel : arrondi les bords pour un style plus moderne */
+  }
+
+  
+  .type-filter {
+    display: flex;
+    flex-direction: column;
+    color: #2C471B;
+  }
+  
+  .type-filterr label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .type-filter select {
+    width: 3.5vw;
+    max-width: 50px;
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+   max-height: 200px; /* Définit la hauteur maximale du menu déroulant */
+      overflow-y: auto;  /* Ajoute une barre de défilement verticale si le contenu dépasse */
+    
+  }
+  .type-filter select {
+    width: 10vw; /* Augmente la largeur en pourcentage de la largeur de la fenêtre */
+    max-width: 150px; /* Limite maximale pour la largeur */
+    color: #2C471B;
+    background-color: #F2FFEA;
+    border: 1px solid #2C471B;
+    font-size: 14px; /* Agrandit le texte */
+    font-weight: bold;
+    padding: 10px 12px; /* Augmente l'espacement interne pour rendre la case plus grande */
+    margin: 0;
+    border-radius: 5px; /* Optionnel : arrondi les bords pour un style plus moderne */
+  }
+.type-filter select option {
+  display: inline-block; /* pour que les options se présentent horizontalement */
+  white-space: nowrap; /* empêche le texte des options de se couper */
+  padding: 10px;
+}

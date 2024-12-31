@@ -1,0 +1,14 @@
+.plat_all1{
+    position: fixed;
+    top: 8vh;
+    left: 16vw;
+}
+
+.plat_all{
+    background-color: #FFFEE6;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

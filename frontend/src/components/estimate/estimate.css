@@ -1,0 +1,71 @@
+.estimate-all{
+    background-color: #FFFFF4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #2C471B;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+    height: calc(75vh - 72px);
+}
+
+.estimate-all h2{
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.estimate-oneIng{
+    display: flex;
+    justify-content: space-between;
+}
+
+.estimate-oneIng h4{
+    margin: 2px;
+}
+
+.estimate-line{
+    width: 100%;
+    height: 1px;
+    background-color: #2C471B;
+    margin: 10px 0;
+}
+
+.estimate-ing-price{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.estimate-ing-price h6{
+    margin: 0%;
+    color: #6E9955;
+}
+
+.estimate-price h3{
+    margin: 10px 0;
+}
+
+.estimate-alling{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.estimate{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.estimate-all-ing{
+    max-height: 47vh;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+}
+
+.estimate-all-ing:hover{
+    overflow-y: scroll;
+}
