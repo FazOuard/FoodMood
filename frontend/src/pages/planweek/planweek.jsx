@@ -69,7 +69,6 @@ const PlanWeek = () => {
         });
     };
     
-    
     return (
         <div className='planweek'>
             <NavBar/>
@@ -91,15 +90,23 @@ const PlanWeek = () => {
                             </div>
                         </div>
                         <div className='to-drag-items'>
-                            {items
+                            {data
+                            .filter((plat) => plat.Titre.toLowerCase().includes(searchText.toLowerCase()))
+                            .map((plat, index) => (
+                                <div key={index} draggable onDragStart={(event) => handleDragStart(event, plat.id)} className='to-drag-item'>
+                                    <img key={plat.id} src={plat.Image} />
+                                </div>
+                            ))}
+                            {/* {items
+                            .filter((item) => data.filter((plat) => item == plat.id && plat.Titre.toLowerCase().includes(searchText.toLowerCase())))
                             .map((item, index) => (
                                 <div key={index} draggable onDragStart={(event) => handleDragStart(event, item)} className='to-drag-item'>
-                                    {data.filter((plat) => item == plat.id)
+                                    {data.filter((plat) => item == plat.id )
                                         .map((plat) => (
                                             <img key={plat.id} src={plat.Image} />
                                         ))}
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                     </div>
 
