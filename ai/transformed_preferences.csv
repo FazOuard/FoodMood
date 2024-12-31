@@ -1,0 +1,1078 @@
+user_id,product_id,rating
+1,Poulet rôti,1
+1,Viande avec pruneaux,2
+2,Poulet frit,1
+2,Kebab,2
+3,Poisson,1
+4,Rfissa,1
+4,Pastilla au poisson,2
+4,Lasagne,3
+4,Paella,4
+4,Spaghetti,5
+5,Pâtes,1
+5,Burger,2
+5,Tajine,3
+5,Pastilla,4
+5,Poisson,5
+6,Poulet rôti,1
+7,Pizza,1
+7,Pastilla,2
+7,Bokadio,3
+7,Msemen,4
+8,Couscous,1
+8,Tajine,2
+9,Tajine,1
+9,Rfissa,2
+9,Msemen,3
+9,Couscous,4
+10,Pizza,1
+10,Tacos,2
+10,Pastilla,3
+11,Harira,1
+11,Spaghetti,2
+11,Tajine de poulet,3
+11,Tajine de poisson,4
+12,Pastilla,1
+12,Couscous,2
+12,Tacos,3
+12,Tajine de poulet,4
+13,Couscous,1
+13,Viande avec pruneaux,2
+13,Rfissa,3
+13,Poulet rôti,4
+14,Couscous,1
+15,Poulet,1
+15,Viande avec pruneaux,2
+15,Seffa,3
+15,Couscous,4
+15,Rfissa,5
+16,Riz avec du poulet,1
+17,Rfissa,1
+18,Fruit,1
+18,Salade,2
+18,Pâtes,3
+20,Pastilla,1
+21,Pastilla,1
+22,Rfissa,1
+22,Pizza,2
+22,Pastilla,3
+22,Poulet rôti,4
+22,Seffa,5
+23,Poulet rôti,1
+23,Tajine,2
+23,Rfissa,3
+24,Tajine,1
+24,Harira,2
+24,Rfissa,3
+24,Couscous,4
+24,Poulet rôti,5
+25,Pizza,1
+25,Pastilla,2
+25,Cordon bleu,3
+25,Lasagne,4
+25,Spaghetti,5
+26,Rfissa,1
+26,Pizza,2
+26,Couscous,3
+26,Seffa,4
+26,Pâtes,5
+27,Lentilles,1
+27,Salade légume,2
+27,Tajine légume,3
+27,Riz à légumes,4
+27,Brochettes,5
+28,Couscous,1
+28,Harcha au thym,2
+28,Boulettes de viande hachée,3
+28,Mrouzia,4
+28,Gratin de poulet,5
+29,Pizza,1
+29,Tacos,2
+29,Poulet rôti,3
+29,Gratin,4
+30,Rfissa,1
+30,Lasagne,2
+30,Tacos,3
+30,Pastilla,4
+30,Pâtes,5
+30,Poulet parmigiana,6
+31,Loubia,1
+31,Poulet rôti,2
+31,Viande avec pruneaux,3
+31,Sardines grillées,4
+31,Spaghetti,5
+32,Kebab,1
+32,Pastilla,2
+32,Frites,3
+32,Pâtes,4
+32,Shawarma,5
+33,Saumon rôti,1
+33,Couscous,2
+33,Omelette,3
+33,Steak de bœuf avec quinoa,4
+34,Poulet rôti,1
+34,Couscous,2
+34,Pâtes,3
+34,Pastilla,4
+35,Poulet rôti,1
+35,Lobia à la marocaine,2
+35,Tacos,3
+35,Tajine,4
+36,Lasagne,1
+36,Sushi,2
+36,Couscous,3
+36,Pastilla,4
+37,Pastilla,1
+39,Couscous,1
+39,Rfissa,2
+39,Pastilla,3
+39,Poulet rôti,4
+39,Tajine,5
+40,Pastilla,1
+41,Rfissa,1
+42,Pastilla,1
+43,Mandi,1
+43,Zourbiyan,2
+43,Viande hachée,3
+43,Poulet braisé,4
+44,Msemen,1
+44,Pizza,2
+44,Couscous,3
+45,Lentilles,1
+46,Poulet rôti,1
+46,Seffa,2
+47,Tajine viande hachée,1
+47,Thé marocaine,2
+47,Seffa,3
+47,Harira,4
+47,Pizza,5
+47,Pastilla,6
+48,Couscous,1
+48,Tajine,2
+48,Harira,3
+48,Pastilla,4
+48,Ratatouille,5
+49,Couscous,1
+49,Pastilla,2
+49,Tajine,3
+50,Tajine,1
+50,Poulet rôti,2
+50,Kebab,3
+50,Rfissa,4
+51,Rfissa,1
+51,Seffa,2
+51,Poulet rôti,3
+51,Kebab,4
+52,Tajine,1
+53,Poisson,1
+53,Pastilla,2
+53,Pâtes,3
+54,Tajine,1
+54,Couscous,2
+54,Poisson,3
+54,Poulet,4
+55,Rfissa,1
+55,Pizza,2
+55,Lasagne,3
+55,Poulet farci,4
+55,Pastilla au poisson,5
+56,Alfredo pasta,1
+56,Poulet rôti,2
+56,Pastilla,3
+56,Shawarma,4
+56,Viande avec pruneaux,5
+57,Pastilla,1
+57,Pizza,2
+57,Mrouzia,3
+57,Risotto,4
+57,Tarte aux pommes caramélisées,5
+58,Paella,1
+58,Sushi,2
+58,Pizza,3
+59,Seffa,1
+59,Seffa Medfouna,2
+59,Bissara,3
+59,Pâtes,4
+59,Spaghetti,5
+60,Pastilla,1
+60,Poulet rôti,2
+60,Seffa,3
+60,Sushi,4
+61,Kebab,1
+61,Tacos,2
+62,Tajine,1
+62,Couscous,2
+62,Poulet rôti,3
+62,Kebab,4
+62,Harira,5
+63,Pastilla au poisson,1
+63,Spaghetti,2
+63,Lasagne,3
+63,Bokadio,4
+63,Paella,5
+64,Pizza,1
+64,Pastilla,2
+65,Pâtes,1
+65,Lasagne,2
+65,Sushi,3
+65,Burger,4
+65,Rfissa,5
+66,Couscous,1
+66,Mrouzia,2
+66,Frites,3
+67,Seffa,1
+67,Tajine,2
+67,Couscous,3
+67,Poulet rôti,4
+67,Pastilla,5
+68,Tacos,1
+68,Poulet farci,2
+68,Tajine,3
+68,Rfissa,4
+69,Pastilla  au poisson,1
+69,Pâtes,2
+69,Couscous,3
+69,Tajine de poulet,4
+69,pizza,5
+70,Couscous,1
+71,Seffa,1
+72,Poulet rôti,1
+72,Pastilla,2
+72,Kebab,3
+73,Poulet rôti,1
+73,Couscous,2
+73,Tajine,3
+73,Pastilla au poisson,4
+74,Pastilla,1
+74,Rfissa,2
+74,Couscous,3
+74,Tajine,4
+74,Tanjia,5
+75,Rfissa,1
+75,Pizza,2
+76,Couscous,1
+76,Poulet rôti,2
+77,Rfissa,1
+77,Pastilla,2
+77,Tajine,3
+77,Poulet rôti,4
+77,Couscous,5
+78,Tajine,1
+78,Pizza,2
+78,Tacos,3
+78,Chebakia,4
+78,Couscous,5
+79,Couscous,1
+79,Tajine,2
+79,Seffa,3
+79,Poulet rôti,4
+80,Poulet rôti,1
+81,Spaghetti,1
+81,Gratin,2
+81,Tajine,3
+82,Rfissa,1
+82,Pizza,2
+82,Tajine,3
+82,Poulet rôti,4
+83,Couscous,1
+83,Seffa,2
+84,Tajine,1
+84,Couscous,2
+85,Couscous,1
+85,Tajine,2
+85,Poisson,3
+85,Brochettes,4
+85,Pastilla,5
+86,Couscous,1
+86,Soupe au poisson,2
+86,Salade marocaines,3
+86,Tajine,4
+86,Harira,5
+87,Pâtes,1
+88,Couscous,1
+88,Tajine,2
+89,Rfissa,1
+89,Couscous,2
+89,Msemen,3
+90,Pizza,1
+91,Seffa,1
+91,Shawarma,2
+91,Pizza,3
+92,Poulet rôti,1
+93,Coucous,1
+93,Salade marocaine,2
+93,Légumes sautés,3
+93,Poulet rôti,4
+93,Pastilla,5
+94,Sushi,1
+94,Pâtes,2
+94,Tacos,3
+95,Riz,1
+95,Poisson,2
+95,Spaghetti,3
+95,Omelette,4
+95,Tajine,5
+96,Pizza,1
+96,Pastilla,2
+96,Tajine,3
+96,Chakchouka,4
+96,Beriouate,5
+97,Pavé de saumon,1
+97,Champignons à la crème,2
+97,Riz basmati,3
+98,Couscous,1
+98,Pizza,2
+98,Poisson,3
+98,Tajine,4
+98,Pastilla,5
+99,Tajine,1
+99,Salade de riz,2
+99,Pâtes,3
+99,Tortilla,4
+99,Burger,5
+100,Rfissa,1
+101,Poulet rôti,1
+102,Fajitas,1
+102,Cousous,2
+102,Pâtes,3
+102,Poulet rôti,4
+102,Sushi,5
+103,Couscous,1
+104,Seffa,1
+105,Poulet rôti,1
+105,Rfissa,2
+106,Poulet farci,1
+107,Pizza,1
+107,Tajine,2
+107,Spaghetti,3
+107,Pastilla,4
+107,Sushi,5
+108,Couscous,1
+108,Tajine de poisson,2
+108,Pastilla au poisson,3
+108,Paella,4
+108,Salade marocaine,5
+109,Poulet rôti,1
+109,Pizza,2
+109,Rfissa,3
+109,Mecheoui,4
+110,Mrouzia,1
+111,Zaalouk,1
+111,Couscous,2
+111,Tajine de boulettes de poisson,3
+111,Harira,4
+111,Poulet rôti,5
+112,Poulet,1
+113,Msemen,1
+113,Rfissa,2
+113,Poulet rôti,3
+113,Pastilla au poisson,4
+113,Couscous,5
+114,Gratin,1
+114,Lentilles,2
+114,Purée de pomme de terre,3
+114,Poisson,4
+114,Rfissa,5
+115,Pastilla,1
+115,Poulet rôti,2
+115,Viande avec pruneaux,3
+115,Tacos,4
+115,Mecheoui,5
+116,Couscous,1
+116,Frites,2
+116,Rfissa,3
+117,Rfissa,1
+117,Couscous,2
+117,Pâtes,3
+117,Tajine,4
+118,Pastilla,1
+118,Pizza,2
+119,Couscous,1
+119,Pastilla,2
+119,Friture de poisson,3
+119,Paella,4
+119,Rfissa,5
+120,Tajine,1
+120,Sushi,2
+120,Rfissa,3
+120,Tacos,4
+120,Pizza,5
+121,Couscous,1
+121,Rfissa,2
+121,Harira,3
+121,Tajine,4
+122,Pizza,1
+123,Poulet rôti,1
+123,Pastilla,2
+123,Seffa,3
+123,Viande haché,4
+123,Friture de poisson,5
+124,Rfissa,1
+125,Rfissa,1
+125,Poulet rôti,2
+125,Viande avec pruneaux,3
+125,Pastilla au poisson,4
+125,Mecheoui,5
+126,Kebab,1
+126,Pastilla,2
+126,Lasagne,3
+126,Pâtes,4
+127,Pastilla,1
+127,Couscous,2
+127,Rfissa,3
+127,Poisson,4
+127,Loubia,5
+128,Pastilla,1
+129,Riz avec du poulet,1
+129,Avoine trempée,2
+129,Crêpes à l'avoine,3
+129,Sandwich au thon,4
+129,Œufs,5
+130,Tagliatelle Alfredo,1
+130,Burger,2
+130,les pattes  sauces blanches,3
+130,Pâtes,4
+130,Seffa Medfouna,5
+131,Poulet rôti,1
+131,Pastilla,2
+131,Sushi,3
+131,Rfissa,4
+131,Shawarma,5
+132,Tajine,1
+132,Poulet rôti,2
+132,Couscous,3
+132,Salade marocaine,4
+132,Sardine grillée,5
+133,Tajine,1
+133,Couscous,2
+133,Pastilla,3
+133,Poulet rôti,4
+134,Pastilla,1
+135,Salade marocaine,1
+135,Harira,2
+135,Fèves,3
+135,Tajine de pommes de terre,4
+135,Loubia,5
+136,Mecheoui,1
+136,Burger,2
+136,Tajine de poulet,3
+137,Pizza,1
+137,Tajine,2
+138,Couscous,1
+138,Poisson grillé,2
+138,Soupe au poisson,3
+138,Soupe de légumes,4
+138,Lentilles,5
+139,Riz,1
+139,Poulet,2
+139,Steak,3
+139,Dinde,4
+139,Viande haché,5
+140,Tajine,1
+141,Salade marocaine,1
+141,Poisson,2
+141,Couscous,3
+141,Pastilla,4
+141,Gratin,5
+142,Salade marocaine,1
+142,Chakchouka,2
+142,Falafel,3
+142,Ratatouille,4
+143,Rfissa,1
+143,Poulet rôti,2
+143,Pastilla,3
+144,Pizza,1
+144,Poulet rôti,2
+144,Brochettes,3
+144,Pastilla,4
+145,Couscous,1
+146,Pâtes,1
+146,Pastilla,2
+146,Rfissa,3
+146,Tajine,4
+146,Paellla,5
+147,Escalopes de dinde,1
+148,Rfissa,1
+148,Pizza,2
+148,Tajine,3
+148,Harira,4
+149,Couscous,1
+149,Shawarma,2
+149,Pastilla,3
+149,Viande avec pruneaux,4
+149,Poulet rôti,5
+150,Tacos,1
+150,Pizza,2
+150,Tajine,3
+150,Couscous,4
+151,Pâtes,1
+151,Poulet rôti,2
+151,Rfissa,3
+151,Pastichio,4
+151,Tacos,5
+152,Pastilla,1
+153,Pâtes,1
+153,Rfissa,2
+153,Tacos,3
+153,Pastichio,4
+153,Pastilla,5
+154,Poulet rôti,1
+154,Salade marocaine,2
+154,Rfissa,3
+155,Tajine,1
+155,Pastilla,2
+155,Soupe d'orge,3
+155,Poulet rôti,4
+155,Viande avec pruneaux,5
+156,Tajine,1
+156,Poulet rôti,2
+156,Couscous,3
+157,Pastilla,1
+157,Sushi,2
+158,Poisson,1
+158,Paella,2
+158,Poulet,3
+158,Pâtes,4
+158,Pois chiche à la marocaine,5
+159,Pastilla,1
+159,Dumplings,2
+159,Ravioli,3
+159,Poulet rôti,4
+159,Seffa,5
+160,Salade,1
+160,Rfissa,2
+160,Poulet rôti,3
+161,Spaghetti,1
+161,Lasagne,2
+161,Crevettes pilpil,3
+161,Burger,4
+161,Pizza,5
+162,Pastilla,1
+162,Poulet rôti,2
+162,Rfissa,3
+162,Lentilles,4
+162,Tajine,5
+163,Viande avec brune,1
+163,Tajine,2
+163,sushi,3
+164,Sushi,1
+165,Pastilla,1
+165,Spaghetti,2
+165,Lasagne,3
+165,Pizza,4
+165,Dinde,5
+166,Couscous,1
+167,Rfissa,1
+167,Seffa,2
+167,Pastilla,3
+167,Viande avec pruneaux,4
+167,Pâtes,5
+168,Pizza,1
+168,Shawarma,2
+168,Tajine,3
+169,Poisson,1
+169,Couscous,2
+169,Tanjia,3
+169,Rfissa,4
+169,Poulet,5
+170,Pastilla,1
+171,Harira,1
+171,Poulet,2
+171,Poisson,3
+171,Gratin,4
+172,Couscous,1
+172,Pâtes,2
+172,Poulet,3
+172,Rfissa,4
+172,Viande avec pruneaux,5
+173,Biryani,1
+173,Butter chicken,2
+173,Korma,3
+173,Lasagne,4
+174,Tajine,1
+174,Poulet rôti,2
+174,Légumineuses,3
+175,Rfissa,1
+175,Pastilla,2
+175,Salade verte,3
+175,Soupe,4
+175,Gâteau au chocolat,5
+176,Couscous,1
+176,Pastilla,2
+176,Kebab,3
+176,Tajine,4
+176,Harira,5
+177,Couscous,1
+177,Viande avec pruneaux,2
+178,Pizza,1
+178,Poulet,2
+178,Salade niçoise,3
+179,Couscous,1
+179,Harira,2
+179,Poulet rôti,3
+180,Pizza,1
+180,Poulet rôti,2
+180,Tajine de poulet,3
+180,Tacos,4
+180,Rfissa,5
+180,Bissara,6
+181,Rfissa,1
+182,Salade César,1
+182,Tajine de poulet,2
+182,Rfissa,3
+182,Tajine d'agneau aux pruneaux,4
+182,Shawarma,5
+183,Rfissa,1
+183,Pâtes,2
+183,Tajine,3
+183,Pastilla,4
+183,Pizza,5
+184,Pizza,1
+184,Tajine,2
+184,Pâtes,3
+184,Sandwich,4
+185,Pastilla,1
+185,Poisson,2
+185,Couscous,3
+185,Viande haché,4
+185,Tacos,5
+186,Couscous,1
+186,Poulet rôti,2
+186,Rfissa,3
+186,Pastilla,4
+186,Kebab,5
+187,Seffa Medfouna,1
+187,Poulet rôti,2
+187,Viande avec pruneaux,3
+187,Pastilla,4
+187,Mecheoui,5
+188,Couscous,1
+188,Tajine de poulet,2
+189,Poulet,1
+189,Poisson,2
+190,Rfissa,1
+191,Poulet,1
+191,Pizza,2
+191,Burger,3
+191,Pastilla,4
+191,Poisson,5
+192,Pizza,1
+192,Pâtes,2
+192,Riz,3
+192,Salade,4
+193,Riz sénégalais,1
+193,Kapssa libanaise,2
+193,Couscous,3
+193,Yassa sénégalaise,4
+193,Poulet,5
+194,Poisson,1
+194,Salade,2
+194,Légumineuses,3
+194,Couscous,4
+194,Tajine,5
+195,Tajine,1
+195,Couscous,2
+196,Couscous,1
+196,Pâtes,2
+197,Rfissa,1
+197,Pâtes,2
+197,Gratin,3
+197,Lasagne,4
+197,Tajine,5
+198,Viande avec pruneaux,1
+198,Couscous,2
+198,Pastilla au poisson,3
+198,Salade,4
+198,Viande hachée,5
+199,Sushi,1
+199,Mrouzia,2
+199,Pastilla au poisson,3
+200,Tajine,1
+201,Taboulé,1
+201,Burger,2
+201,Pâtes,3
+202,Couscous,1
+202,Rfissa,2
+202,Pizza,3
+203,Pizza,1
+203,Poulet rôti,2
+204,Rfissa,1
+205,Poulet,1
+205,Viande hachée,2
+205,Kebab,3
+205,Salade,4
+206,Couscous,1
+206,Pastilla au Fruit de mer,2
+206,Salade,3
+206,Mecheoui,4
+207,Viande avec pruneaux,1
+207,Tajine de poulet,2
+207,Pastilla au poisson,3
+207,Salade,4
+207,Couscous,5
+208,Couscous,1
+208,Lasagne,2
+208,Paella,3
+208,Rfissa,4
+208,Pastilla,5
+209,Pastilla,1
+209,Salades,2
+209,Poulet,3
+210,Kebab,1
+210,Tacos,2
+210,Pizza,3
+210,Couscous,4
+210,Saucisse,5
+211,Pizza,1
+211,Pâtes,2
+211,Viande hachée,3
+211,Viande,4
+211,Soupe de poisson,5
+212,Pastilla,1
+212,Rfissa,2
+212,Pizza,3
+212,Couscous,4
+212,Sushi,5
+213,Tajine,1
+213,Pastilla poulet,2
+213,Zaalouk,3
+213,Pasticcio,4
+213,Gratin,5
+214,Poisson,1
+214,Couscous,2
+215,Gratin,1
+215,Tajine de viande hachée,2
+215,Pastilla au poisson,3
+215,Mrouzia,4
+215,Sardine grillée,5
+216,Tajine,1
+216,Seffa Medfouna,2
+216,Sardine grillée,3
+217,Pastilla au poisson,1
+217,Poulet rôti,2
+217,Pâtes,3
+217,Tanjia,4
+217,Couscous,5
+218,Pizza,1
+218,Poulet,2
+219,Couscous,1
+219,Poulet,2
+219,Rfissa,3
+219,Pastilla,4
+219,Pizza,5
+220,Seffa Medfouna,1
+220,Rfissa,2
+220,Poulet rôti,3
+220,Pastilla au poisson,4
+220,Cosamia,5
+221,Poulet rôti,1
+222,Tacos,1
+222,Mixte grillé,2
+222,Poulet à la moutarde,3
+222,soupe de poulet,4
+222,Pizza,5
+223,Tacos,1
+223,Mixte grillé,2
+223,Poulet à la moutarde,3
+223,Pizza,4
+223,Soupe de poulet,5
+224,Rfissa,1
+224,Sushi,2
+224,Tarte aux pommes,3
+224,Burger,4
+224,Tajine,5
+225,Couscous,1
+226,Pizza,1
+226,Poulet rôti,2
+226,Tacos,3
+226,Tajine de boeuf,4
+226,Couscous,5
+227,Pastilla,1
+227,Poulet rôti,2
+227,Rfissa,3
+228,Couscous,1
+228,Pastilla,2
+228,Salade verte,3
+229,Pastilla,1
+229,Couscous,2
+229,Tajine,3
+230,Rfissa,1
+230,Pastilla,2
+230,Couscous,3
+231,Poulet rôti,1
+232,Poulet,1
+233,Poulet rôti,1
+233,Salades variées,2
+233,Rfissa,3
+233,Nouilles sautées au poulet et aux légumes,4
+234,Tajine,1
+235,Poisson,1
+235,Viande,2
+235,Couscouss,3
+235,Salade,4
+235,Pastilla,5
+236,Rfissa,1
+237,Pizza,1
+238,Couscous,1
+238,tajine,2
+238,rfissa,3
+239,Poulet rôti,1
+239,Pastilla au poulet,2
+240,Poisson,1
+240,Rfissa,2
+240,Couscous,3
+240,Tajine,4
+240,Pastilla,5
+241,Rfissa,1
+241,Pastilla,2
+242,Pastilla,1
+242,Tajine,2
+242,Burger,3
+242,Pizza,4
+242,Tacos,5
+243,Emincé de poulet,1
+244,poulet rôti,1
+245,Poulet rôti,1
+245,Pastilla au poulet,2
+245,seffa,3
+245,Poisson grillé,4
+245,Salade,5
+246,Poulet rôti,1
+246,Pastilla,2
+246,Pizza,3
+247,Couscous,1
+247,Poulet rôti,2
+247,Tajine,3
+247,Seffa Medfouna,4
+247,Pastilla au poisson,5
+248,Couscous,1
+248,Tajine,2
+249,Pizza,1
+249,Pastilla,2
+249,Rfissa,3
+249,Viande hachée,4
+249,Msemen,5
+250,Salade,1
+250,Pastilla,2
+250,Poisson grillé,3
+250,Gâteau au chocolat,4
+251,Pizza,1
+252,Tajine,1
+252,Viande avec pruneaux,2
+252,kebab,3
+253,Pastilla,1
+253,Harira,2
+253,Poisson,3
+254,Couscous,1
+254,Tajine,2
+254,Poulet rôti,3
+254,Viande avec pruneaux,4
+254,Rfissa,5
+255,Tajine,1
+255,Poulet rôti,2
+255,Mecheoui,3
+255,Couscous,4
+255,Salade .,5
+256,Couscous,1
+256,Rfissa,2
+256,Msemen,3
+256,Tajine,4
+256,Harira,5
+257,Pastilla,1
+257,Rfissa,2
+257,Pizza,3
+258,Pizza,1
+258,Lasagne,2
+258,Steak,3
+259,Rfissa,1
+259,Tacos,2
+259,Tajine,3
+259,Gratin,4
+260,Poulet rôti,1
+260,Tajine,2
+260,Pastilla,3
+260,Couscous,4
+260,Loubia,5
+261,Pastilla,1
+261,Poulet rôti,2
+261,Couscous,3
+261,Rfissa,4
+261,Tajine,5
+262,Rfissa,1
+262,Viande avec pruneaux,2
+262,Poulet rôti,3
+262,Seffa,4
+262,Tajine aux artichauts et petits pois,5
+263,Pastilla,1
+264,Pastilla,1
+264,Poulet rôti,2
+264,Mrouzia,3
+264,Pizza,4
+264,Tacos,5
+265,Couscous,1
+265,Brochettes de dinde,2
+265,Pastilla,3
+265,Hamburger,4
+265,Pâtes,5
+266,Gratin,1
+266,Couscous,2
+266,Pastilla,3
+267,Rfissa,1
+267,Seffa,2
+267,Tajine,3
+267,Pastilla,4
+267,Couscous,5
+268,Couscous,1
+269,Gratin d' aubergines,1
+269,Tajine de viande hachée,2
+269,Tagliatelles crevettes,3
+269,Butter chicken,4
+269,Phat thai,5
+270,Pates à l'huile d'olive et Parmesan,1
+270,Crumble au légume,2
+270,Couscous,3
+270,Lasagne,4
+270,Viande,5
+271,Lasagne,1
+271,Burrito,2
+271,Burger,3
+271,Raclette,4
+271,Tartiflette,5
+272,Lasagne,1
+273,Ndole,1
+273,Kebab,2
+273,Choucroute,3
+273,Paella,4
+273,Couscous,5
+274,Tortilla,1
+274,Loubia,2
+274,Bissara,3
+274,Viande haché,4
+275,Couscous,1
+275,Tajine,2
+276,Ndole,1
+277,Nfouk-owone,1
+277,Thiéboudiène,2
+277,Tajine de poulet,3
+278,Pastilla au Fruit de mer,1
+278,Rziza,2
+278,pasticcio,3
+279,Couscous,1
+279,Tajine,2
+279,Rfissa,3
+279,Harira,4
+280,Pizza,1
+280,Viande haché,2
+280,Sushi,3
+280,Poisson,4
+280,Raclette,5
+281,Pâtte à beurre,1
+281,Poulet à la marocaine,2
+281,Pastilla,3
+281,Brochettes,4
+281,Harira,5
+282,Tajine,1
+283,Rfissa,1
+283,couscous,2
+283,Poulet rôti,3
+284,Couscous,1
+284,Rfissa,2
+284,Poulet rôti,3
+285,Poulet rôti,1
+285,Pastilla,2
+285,Paella,3
+286,Couscous,1
+286,Poisson,2
+286,Légumes,3
+286,Légumineuses,4
+286,Viande grillée,5
+287,Couscous,1
+287,Tajine,2
+287,Rfissa,3
+287,Pastilla,4
+287,Poisson,5
+288,Kebab,1
+288,Tajine,2
+288,Couscous,3
+288,Pâtes,4
+289,Kebab,1
+289,Tajine,2
+289,Couscous,3
+289,Pâtes,4
+290,Okok,1
+291,Seffa,1
+292,Poulet,1
+292,La viande acheté,2
+292,Lentilles,3
+292,Cosmos,4
+292,Pois chiche,5
+293,Poulet,1
+293,Tajine,2
+293,Viande,3
+293,Poisson,4
+293,Salade,5
+294,Poulet,1
+294,Viande,2
+294,Poisson,3
+294,Lentilles,4
+295,Tajine,1
+295,Poisson,2
+295,Couscous,3
+295,Salade mixte,4
+295,Poulet,5
+295,Viande,6
+296,Riz à la ratatouille,1
+297,Tajine,1
+298,Omelette,1
+298,Beriouate,2
+299,Lasagne,1
+299,Rfissa,2
+299,Poulet rôti,3
+299,Kebab,4
+299,Pastilla,5
+300,Poisson,1
+300,Tajine,2
+300,Harira,3
+300,Brochettes,4
+300,Légumineuses,5
+301,Zaalouk,1
+301,Harira,2
+301,Tajine de poisson,3
+302,Rfissa,1
+303,Poissons,1
+303,Tajine,2
+304,Poulet rôti,1
+305,Tajine,1
+305,Sushi,2
+305,Couscous,3
+305,Poulet avec légumes sautés,4
+305,Rfissa,5
+306,Pâtes,1
+306,Couscous,2
+306,Rfissa,3
+306,Mecheoui,4
+306,Sushi,5
+307,Couscous,1
+308,Poisson,1
+308,Poulet,2
+308,Couscous,3
+308,Mecheoui,4
+309,Tajine,1
+309,Plats escalope de dinde,2
+309,Pastilla,3
+309,Poisson grillé,4
+310,Emince de poulet champignon,1
+311,Paella,1
+311,Pastilla au poisson,2
+311,Salade marocainne,3
+311,Tajine,4
+312,Kebab,1
+312,Rfissa,2
+312,Couscous,3
+312,Tajine au légumes,4
+312,Légumineuses,5
+313,Pastilla,1
+313,Tacos,2
+313,Sandwich,3
+313,Tajine de poisson,4
+314,Rfisaa,1
