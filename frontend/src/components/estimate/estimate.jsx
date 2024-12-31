@@ -70,7 +70,7 @@ const Estimate = () => {
                         <div key={index} className='estimate-oneIng'>
                           <div className='estimate-ing-price'>
                             <h4>{item4.Ingredient}</h4>
-                            <h6>({idIngListQuantity[index] * item4.Prix * nbrpersons / item4.Valeur} MAD)</h6>
+                            <h6>({(idIngListQuantity[index] * item4.Prix * nbrpersons / item4.Valeur).toFixed(2)} MAD)</h6>
                           </div>
                           <div className='estimate-quantity'>
                             <h4>

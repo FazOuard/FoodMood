@@ -1,0 +1,80 @@
+/* Wrapper général */
+.wrapperFaz {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sectionFaz {
+  background-color: #f4f4f4;
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Centrer le contenu horizontalement */
+  align-items: flex-start; /* Alignement vertical en haut */
+}
+
+.container-customFaz {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Largeur maximale du conteneur */
+  gap: 20px;
+}
+
+/* Sidebar (Barre de navigation) */
+.sidebar-customFaz {
+  width: 250px; /* Largeur fixe de la barre de navigation */
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  flex-shrink: 0; /* Empêche le redimensionnement */
+}
+
+.nav-listFaz {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-listFaz li {
+  margin: 10px 0;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  color: #ddd;
+}
+
+/* Contenu principal */
+.content-customFaz {
+  flex: 1; /* Prend l'espace restant */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center; /* Centrer le contenu horizontalement */
+  align-items: center; /* Centrer le contenu verticalement */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container-customFaz {
+    flex-direction: column; /* Disposition en colonne pour petits écrans */
+  }
+
+  .sidebar-customFaz {
+    width: 100%;
+  }
+
+  .content-customFaz {
+    width: 100%;
+  }
+}

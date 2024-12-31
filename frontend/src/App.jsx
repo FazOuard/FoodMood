@@ -1,11 +1,14 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Recommendation from "./pages/recommendation.jsx";
+import Recommendation from "./pages/recommendation/recommendation.jsx";
 import Plat_info from './pages/plat_info/plat_info.jsx';
 import Plat_All from './pages/plats/plats.jsx';
 import Planifier from './pages/planifier/planifier.jsx';
 import PlanWeek from './pages/planweek/planweek.jsx';
 import PlanMonth from './pages/PlanMonth/PlanMonth.jsx';
+import ProfilAdmin from './pages/admin/admin.jsx';
+import PlotComponent from './pages/admin/dashboard.jsx';
+import Recommend from './pages/recommendation/recommend.jsx';
 
 function App() {
 
@@ -20,6 +23,10 @@ function App() {
       <Route path="/planifier" element={<Planifier />} />
       <Route path="/planSemaine" element={<PlanWeek />} />
       <Route path="/planMois" element={<PlanMonth />} />
+      <Route path="/Admin" element={<ProfilAdmin />} >
+        <Route path="Dashboard" element={<PlotComponent />} />
+      </Route>
+      <Route path="recommend" element={<Recommend />} />
       </Routes>
     </Router>
     </div>
