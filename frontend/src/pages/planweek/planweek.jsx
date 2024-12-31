@@ -6,12 +6,15 @@ import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
 import cross from '../../assets/icons/cross.png';
 import replace from '../../assets/replace/replace.png'
+import searchicon from '../../assets/icons/search.png'
 
 
 const PlanWeek = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+
+    const [searchText, setSearchText] = useState('');
 
     const [data, setData] = useState([]);
     const semaine = ["Jour 1", "Jour 2", "Jour 3", "Jour 4", "Jour 5", "Jour 6", "Jour 7" ];
@@ -75,9 +78,21 @@ const PlanWeek = () => {
                 <div className='drag-and-drop'>
                     {/* Draggable Items List */}
                     <div className='all-to-drag'>
-                        <h3>Choisissez vos plats</h3>
+                        <div className='title-search'>
+                            <h3>Choisissez vos plats</h3>
+                            <div className="search-bar">
+                                <input
+                                    type="text"
+                                    placeholder="Rechercher un plat..."
+                                    value={searchText}
+                                    onChange={(e) => setSearchText(e.target.value)} 
+                                />
+                                <img src={searchicon} />
+                            </div>
+                        </div>
                         <div className='to-drag-items'>
-                            {items.map((item, index) => (
+                            {items
+                            .map((item, index) => (
                                 <div key={index} draggable onDragStart={(event) => handleDragStart(event, item)} className='to-drag-item'>
                                     {data.filter((plat) => item == plat.id)
                                         .map((plat) => (
