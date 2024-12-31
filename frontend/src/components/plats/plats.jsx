@@ -170,12 +170,19 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
         </select>
       </div>
       <div className="type-filter">
+        
           <label>Type de plat:</label>
           <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
             <option value="">Tous</option>
+            <option value="Desserts et Gourmandises">Desserts et Gourmandises</option>
+            <option value="Poisson">Poisson</option>
+            <option value="Plats Internationaux">Plats Internationaux</option>
+            <option value="Plats Rapides et Street Food">Plats Rapides et Street Food</option>
             <option value="Salade">Salade</option>
-            <option value="Traditionnelle">Traditionnelle</option>
-            <option value="Fast food">Fast food</option>
+            <option value="Soupes et Entrées Chaudes">Soupes et Entrées Chaudes</option>
+            <option value="Tajine">Tajine</option>
+            <option value="Traditionnels Marocains">Traditionnels Marocains</option>
+           
             {/* Ajouter d'autres options selon les types de plats disponibles */}
           </select>
         </div>

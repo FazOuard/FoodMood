@@ -311,6 +311,9 @@
     font-weight: bold;
     padding: 5px 10px;
     margin: 0;
+   max-height: 200px; /* Définit la hauteur maximale du menu déroulant */
+      overflow-y: auto;  /* Ajoute une barre de défilement verticale si le contenu dépasse */
+    
   }
   .type-filter select {
     width: 10vw; /* Augmente la largeur en pourcentage de la largeur de la fenêtre */
@@ -324,3 +327,8 @@
     margin: 0;
     border-radius: 5px; /* Optionnel : arrondi les bords pour un style plus moderne */
   }
+.type-filter select option {
+  display: inline-block; /* pour que les options se présentent horizontalement */
+  white-space: nowrap; /* empêche le texte des options de se couper */
+  padding: 10px;
+}
