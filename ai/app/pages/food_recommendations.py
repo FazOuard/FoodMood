@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 data=pd.read_csv('Préférences_Alimentaires.csv')
 plat=pd.read_csv("Plats.csv")
-
+#vfvd
 
 #Preprocessing plats preferees
 data = data.dropna(subset=["Plat_consome"])
