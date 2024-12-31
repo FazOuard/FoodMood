@@ -1,82 +1,80 @@
-
-.wrapper {
+/* Wrapper général */
+.wrapperFaz {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
-  background-color: #343a40;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-
+  min-height: 100vh;
 }
 
-.section {
+.sectionFaz {
+  background-color: #f4f4f4;
   flex: 1;
-}
-
-.container {
   display: flex;
-  width: 1200px; 
-  margin: 0 auto; 
-  background-color: #343a40;
+  justify-content: center; /* Centrer le contenu horizontalement */
+  align-items: flex-start; /* Alignement vertical en haut */
 }
 
-.sidebar {
-  margin-top:60px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 250px;
-  background-color: #343a40;
-  color: #fff;
-  padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+.container-customFaz {
   display: flex;
-  flex-direction: column; /* Aligne les éléments verticalement */
-  justify-content: flex-start; /* Garde les éléments alignés en haut */
-  align-items: center; /* Centre les éléments horizontalement */
+  width: 100%;
+  max-width: 1200px; /* Largeur maximale du conteneur */
+  gap: 20px;
 }
 
-.sidebar .nav-link,
-.sidebar .sidebar-title {
+/* Sidebar (Barre de navigation) */
+.sidebar-customFaz {
+  width: 250px; /* Largeur fixe de la barre de navigation */
+  background-color: #333;
   color: #fff;
-  font-size: 1rem;
-  padding: 10px;
-  display: flex; /* Utilise flexbox pour centrer le texte */
-  justify-content: center; /* Centre horizontalement */
-  align-items: center; /* Centre verticalement */
-  width: 100%; /* Les éléments occupent toute la largeur */
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  text-decoration: none;
-  
-}
-
-.sidebar-title{
-  font-size: 1.5rem;
-  
-}
-
-.sidebar .nav-link:hover,
-.sidebar .sidebar-title:hover {
-  background-color: #495057;
-  color: #fff;
-}
-
-
-.sidebar .nav-link:hover {
-  background-color: #495057;
-}
-
-
-.content {
-  flex: 1; 
-  padding: 20px;
-  background-color: #fff;
+  padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; 
+  flex-shrink: 0; /* Empêche le redimensionnement */
 }
 
+.nav-listFaz {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-listFaz li {
+  margin: 10px 0;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  color: #ddd;
+}
+
+/* Contenu principal */
+.content-customFaz {
+  flex: 1; /* Prend l'espace restant */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center; /* Centrer le contenu horizontalement */
+  align-items: center; /* Centrer le contenu verticalement */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container-customFaz {
+    flex-direction: column; /* Disposition en colonne pour petits écrans */
+  }
+
+  .sidebar-customFaz {
+    width: 100%;
+  }
+
+  .content-customFaz {
+    width: 100%;
+  }
+}
