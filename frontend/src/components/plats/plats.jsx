@@ -22,14 +22,42 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
     navigate("/platinfo", {state: { ...(location.state || {}), idplat } })
   }//Elle passe également l'état actuel (s'il existe) et ajoute idplat à cet état. Cela permet de garder une trace du plat sélectionné.
 //Utilisation d'Axios et useEffect 
-  useEffect(() => { //Récupération des Données avec useEffect
-    axios.get('http://localhost:5000/data')
-      .then(response => {
-        setData(response.data);
-        console.log(response.data);
-      })
-      .catch(error => console.error('Error fetching data:', error));
+
+
+  // useEffect(() => { //Récupération des Données avec useEffect
+  //   axios.get('http://localhost:5000/data')
+  //     .then(response => {
+  //       setData(response.data);
+  //       console.log(response.data);
+  //     })
+  //     .catch(error => console.error('Error fetching data:', error));
+  // }, []);
+
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Check if data is already stored (in sessionStorage or localStorage)
+    const cachedData = sessionStorage.getItem('data');
+    
+    if (cachedData) {
+      setData(JSON.parse(cachedData)); // Use cached data
+      setLoading(false);
+    } else {
+      // If no cached data, fetch from the API
+      axios.get('http://localhost:5000/data')
+        .then(response => {
+          setData(response.data);
+          sessionStorage.setItem('data', JSON.stringify(response.data)); // Cache it
+        })
+        .catch(error => {
+          setError(error);
+          setLoading(false);
+        });
+    }
   }, []);
+
   //Gestion des Erreurs d'Image
   console.log("this is the lenght of data:", data.length)
   const handleImageError = (e) => {

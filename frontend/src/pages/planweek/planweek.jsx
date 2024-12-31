@@ -19,14 +19,37 @@ const PlanWeek = () => {
     const [data, setData] = useState([]);
     const semaine = ["Jour 1", "Jour 2", "Jour 3", "Jour 4", "Jour 5", "Jour 6", "Jour 7" ];
 
-    useEffect(() => {
-        axios.get('http://localhost:5000/data')
-          .then(response => {
-            setData(response.data);
-            console.log(response.data);
-          })
-          .catch(error => console.error('Error fetching data:', error));
-      }, []);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+     useEffect(() => {
+    // Check if data is already stored (in sessionStorage or localStorage)
+    const cachedData = sessionStorage.getItem('data');
+    
+    if (cachedData) {
+      setData(JSON.parse(cachedData)); // Use cached data
+      setLoading(false);
+    } else {
+      // If no cached data, fetch from the API
+      axios.get('http://localhost:5000/data')
+        .then(response => {
+          setData(response.data);
+          sessionStorage.setItem('data', JSON.stringify(response.data)); // Cache it
+        })
+        .catch(error => {
+          setError(error);
+          setLoading(false);
+        });
+    }
+  }, []);
+    // useEffect(() => {
+    //     axios.get('http://localhost:5000/data')
+    //       .then(response => {
+    //         setData(response.data);
+    //         console.log(response.data);
+    //       })
+    //       .catch(error => console.error('Error fetching data:', error));
+    //   }, []);
 
     const items = data
                     .filter((plat) => plat.Image != null)
