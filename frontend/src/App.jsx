@@ -23,8 +23,9 @@ function App() {
       <Route path="/planifier" element={<Planifier />} />
       <Route path="/planSemaine" element={<PlanWeek />} />
       <Route path="/planMois" element={<PlanMonth />} />
-      <Route path="/Admin/*" element={<ProfilAdmin />} />
-      <Route path="Dashboard" element={<PlotComponent />} />
+      <Route path="/Admin" element={<ProfilAdmin />} >
+        <Route path="Dashboard" element={<PlotComponent />} />
+      </Route>
       <Route path="recommend" element={<Recommend />} />
       </Routes>
     </Router>

@@ -1,5 +1,5 @@
 /* General styling for the food list container */
-.food-list {
+.food-listFaz {
     font-family: Arial, sans-serif;
     margin: 20px auto;
     padding: 20px 10px;
@@ -8,7 +8,7 @@
   }
   
   /* Heading styling */
-  .food-list h1 {
+  .food-listFaz h1 {
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
@@ -16,7 +16,7 @@
   }
   
   /* Container for horizontal scrolling */
-  .food-items {
+  .food-itemsFaz {
     display: flex;
     gap: 15px;
     overflow-x: auto;
@@ -25,17 +25,17 @@
   }
   
   /* Hide scrollbar for horizontal scrolling */
-  .food-items::-webkit-scrollbar {
+  .food-itemsFaz::-webkit-scrollbar {
     display: none;
   }
   
-  .food-items {
+  .food-itemsFaz {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
   
   /* Individual food item styling */
-  .food-item {
+  .food-itemFaz {
     flex: 0 0 auto; /* Ensures each item stays in its own space */
     width: 200px;
     background-color: #fff;
@@ -46,13 +46,13 @@
   }
   
   /* Hover effect for food items */
-  .food-item:hover {
+  .food-itemFaz:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   }
   
   /* Food item image styling */
-  .food-item img {
+  .food-itemFaz img {
     width: 100%;
     height: 150px;
     object-fit: cover;
@@ -61,7 +61,7 @@
   }
   
   /* Food item title styling */
-  .food-item h2 {
+  .food-itemFaz h2 {
     font-size: 1rem;
     color: #444;
     margin: 0;

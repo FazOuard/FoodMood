@@ -33,11 +33,11 @@ const Recommend = () => {
     }, []);
   
     return (
-      <div className="food-list">
+      <div className="food-listFaz">
         <h1>Liste des Plats</h1>
-        <div className="food-items">
+        <div className="food-itemsFaz">
           {foodItems.map((item, index) => (
-            <div className="food-item" key={index}>
+            <div className="food-itemFaz" key={index}>
               <img src={item.Image} alt={item.Titre} />
               <h2>{item.Titre}</h2>
             </div>
