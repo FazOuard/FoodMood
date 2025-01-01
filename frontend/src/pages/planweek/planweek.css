@@ -57,13 +57,6 @@
     background-color: #2C471B;
 }
 
-.all-to-drag h3{
-    color: #F2FFEA;
-    font-weight: bold;
-    font-size: larger;
-    margin-bottom: 5px;
-}
-
 .dropped-item img{
     width: 6vw;
     height: 6vw;
@@ -111,5 +104,49 @@
 .title-search{
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    width: 88%;
+}
+
+.search-drag img{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.search-drag{
+    position: relative;
+    margin: 0;
+    width: 40%;
+    height: 40px;
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+.search-drag input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50px;
+    padding: 10px 40px;
+    color: #2C471B;
+    margin: 0;
+}
+
+.title-search h3{
+    text-align: left;
+    color: #F2FFEA;
+    font-weight: bold;
+    font-size: larger;
+    margin: 0%;
+    padding: 10px;
+    width: 40%;
+}
+
+.holder01{
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
