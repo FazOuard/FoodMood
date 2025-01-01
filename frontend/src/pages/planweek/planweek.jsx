@@ -7,6 +7,7 @@ import SideBar from '../../components/sidebar/sidebar';
 import cross from '../../assets/icons/cross.png';
 import replace from '../../assets/replace/replace.png'
 import searchicon from '../../assets/icons/search.png'
+import Price from '../../components/price/price';
 
 
 const PlanWeek = () => {
@@ -21,6 +22,8 @@ const PlanWeek = () => {
 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const [selectedPlat, setSelectedPlat] = useState(7);
 
      useEffect(() => {
     // Check if data is already stored (in sessionStorage or localStorage)
@@ -139,6 +142,8 @@ const PlanWeek = () => {
                             <div onDrop={(event) => handleDrop(event, jour)} onDragOver={handleDragOver} key={index} className='ONE-day'>
 
                         <h3>{jour}</h3>
+                        
+                        {/* <h2>this is it: <Price value={selectedPlat} /></h2> */}
                         <div className='dopped-items'>
                         {droppedItemsByDay[jour].map((item, index) => (
                             <div key={index} className='dropped-item'>
