@@ -121,15 +121,6 @@
   color: #333;
 }
 
-.drag-drop-zone {
-  margin-top: 20px;
-  padding: 20px;
-  border: 2px dashed #2C471B;
-  border-radius: 10px;
-  background-color: #f8f8f8;
-  text-align: center;
-  transition: background-color 0.3s ease;
-}
 
 .drag-drop-zone:hover {
   background-color: #e9f7e9;
@@ -236,11 +227,45 @@ button:hover {
   padding: 10px;
   border-radius: 5px;
 }
-.search-bar {
-  position: relative;
-  top: -60px; /* Ajuste cette valeur pour déterminer la hauteur relative */
-  z-index: 2; /* S'assure qu'il est au-dessus des autres éléments */
+.drag-drop-zone {
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px dashed #2C471B;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  text-align: center;
+  position: relative; /* Permet à l'élément enfant de se positionner par rapport à ce parent */
+  transition: background-color 0.3s ease;
 }
+
+.search-bar1 {
+  position: absolute;
+  right: 80px; /* Positionne la barre de recherche à droite avec un espacement de 20px */
+  top: 20px; /* Positionne la barre de recherche un peu en haut, ajustez selon besoin */
+  z-index: 2; /* S'assure qu'il est au-dessus des autres éléments */
+  width: 250px; /* Largeur de la barre de recherche, ajustez selon le besoin */
+}
+
+.search-bar1 input {
+  width: 100%;
+  padding: 10px 20px;
+  padding-left: 35px;
+  font-size: 16px;
+  background-color: #F2FFEA;
+  border: 1px solid #2C471B;
+  border-radius: 50px;
+  color: #2C471B;
+}
+
+.search-bar1 img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
 
 .breakfast {
   position: relative;

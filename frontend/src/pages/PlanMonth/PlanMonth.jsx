@@ -188,7 +188,7 @@ const PlanMonth = () => {
               Glissez-déposez les plats pour{" "}
               {new Date(selectedDay).toLocaleDateString()}
             </h3>
-            <div className="search-bar">
+            <div className="search-bar1">
               <input
                 type="text"
                 placeholder="Rechercher un plat..."
