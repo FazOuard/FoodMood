@@ -120,35 +120,25 @@ const PlanWeek = () => {
                         <div className='to-drag-items'>
                             {data
                             .filter((plat) => plat.Image != null && plat.Titre.toLowerCase().includes(searchText.toLowerCase()))
-                            .map((plat, index) => (
-                                <div key={index} draggable onDragStart={(event) => handleDragStart(event, plat.id)} className='to-drag-item'>
+                            .map((plat, index1) => (
+                                <div key={index1} draggable onDragStart={(event) => handleDragStart(event, plat.id)} className='to-drag-item'>
                                     <img key={plat.id} src={plat.Image} />
                                 </div>
                             ))}
-                            {/* {items
-                            .filter((item) => data.filter((plat) => item == plat.id && plat.Titre.toLowerCase().includes(searchText.toLowerCase())))
-                            .map((item, index) => (
-                                <div key={index} draggable onDragStart={(event) => handleDragStart(event, item)} className='to-drag-item'>
-                                    {data.filter((plat) => item == plat.id )
-                                        .map((plat) => (
-                                            <img key={plat.id} src={plat.Image} />
-                                        ))}
-                                </div>
-                            ))} */}
                         </div>
                     </div>
 
                     {/* Drop Area */}
                     <div className='to-drop'>
-                        {semaine.map((jour, index) => (
-                            <div onDrop={(event) => handleDrop(event, jour)} onDragOver={handleDragOver} key={index} className='ONE-day'>
+                        {semaine.map((jour, index2) => (
+                            <div onDrop={(event) => handleDrop(event, jour)} onDragOver={handleDragOver} key={index2} className='ONE-day'>
 
                         <h3>{jour}</h3>
                         
-                        {/* <h2>this is it: <Price value={selectedPlat} /></h2> */}
+                        {jour == "Jour 1" ? <h2>this is it: <Price value={selectedPlat} /></h2> : <p></p>}
                         <div className='dopped-items'>
-                        {droppedItemsByDay[jour].map((item, index) => (
-                            <div key={index} className='dropped-item'>
+                        {droppedItemsByDay[jour].map((item, index3) => (
+                            <div key={index3} className='dropped-item'>
                                 {data
                                     .filter((plat) => item == plat.id)
                                     .map((plat) => (
