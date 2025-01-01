@@ -10,12 +10,11 @@ const PlanMonth = () => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [draggedItem, setDraggedItem] = useState(null);
   const [plats, setPlats] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(""); // État pour le champ de recherche
 
   // Helper to get month days
   const getDaysInMonth = (year, month) => {
-    return new Array(31)
-      .fill(null)
-      .map((_, index) => new Date(year, month, index + 1))
+    return Array.from({ length: 31 }, (_, index) => new Date(year, month, index + 1))
       .filter((date) => date.getMonth() === month);
   };
 
@@ -33,6 +32,11 @@ const PlanMonth = () => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
+  // Handle search
+  const filteredPlats = plats.filter((plat) =>
+    plat.Titre.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   // Change month
   const handlePrevMonth = () => {
@@ -184,6 +188,14 @@ const PlanMonth = () => {
               Glissez-déposez les plats pour{" "}
               {new Date(selectedDay).toLocaleDateString()}
             </h3>
+            <div className="search-bar">
+              <input
+                type="text"
+                placeholder="Rechercher un plat..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
             <div className="categories">
               {["breakfast", "lunch", "dinner"].map((category) => (
                 <div
@@ -220,8 +232,8 @@ const PlanMonth = () => {
               ))}
             </div>
 
-            <div className="drag-items">
-              {plats.map((plat) => (
+            <div className="drag-items scrollable-list">
+              {filteredPlats.map((plat) => (
                 <div
                   key={plat.id}
                   draggable

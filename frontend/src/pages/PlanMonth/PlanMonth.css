@@ -1,3 +1,4 @@
+
 .planifierMonth0 {
   position: fixed;
   left: 16vw;
@@ -227,4 +228,22 @@ button:hover {
   cursor: pointer;
   margin-left: 5px;
   font-size: 14px;
+}
+.scrollable-list {
+  max-height: 300px; /* Ajustez la hauteur */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+.search-bar {
+  position: relative;
+  top: -60px; /* Ajuste cette valeur pour déterminer la hauteur relative */
+  z-index: 2; /* S'assure qu'il est au-dessus des autres éléments */
+}
+
+.breakfast {
+  position: relative;
+  top: 0;
+  z-index: 1; /* S'assure que "petit déjeuner" est en dessous */
 }
