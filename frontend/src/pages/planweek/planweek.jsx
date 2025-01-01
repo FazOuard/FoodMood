@@ -103,9 +103,10 @@ const PlanWeek = () => {
                 <div className='drag-and-drop'>
                     {/* Draggable Items List */}
                     <div className='all-to-drag'>
+                        <div className='holder01'>
                         <div className='title-search'>
                             <h3>Choisissez vos plats</h3>
-                            <div className="search-bar">
+                            <div className="search-drag">
                                 <input
                                     type="text"
                                     placeholder="Rechercher un plat..."
@@ -114,6 +115,7 @@ const PlanWeek = () => {
                                 />
                                 <img src={searchicon} />
                             </div>
+                        </div>
                         </div>
                         <div className='to-drag-items'>
                             {data
