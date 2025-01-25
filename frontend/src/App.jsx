@@ -19,18 +19,18 @@ function App() {
     <div className="custom-cursor">
     <Router>
       <Routes>
-      <Route path="/" element={<Recommendation />} />
-      <Route path="/plats" element={<Plat_All />} />
-      <Route path="/platinfo" element={<Plat_info />} />
-      <Route path="/planifier" element={<Planifier />} />
-      <Route path="/planSemaine" element={<PlanWeek />} />
-      <Route path="/planMois" element={<PlanMonth />} />
-      <Route path="/Admin" element={<ProfilAdmin />} >
-      <Route path="Dashboard" element={<PlotComponent />} />
-      {/* <Route path="/auth" element={<Authentication />} />  {/* Route pour la page de connexion */}
-      {/* <Route path="/Creat" element={<RegistrationForm />} />  */}
-      </Route>
-      <Route path="recommend" element={<Recommend />} />
+        <Route path="/" element={<Recommendation />} />
+        <Route path="/plats" element={<Plat_All />} />
+        <Route path="/platinfo" element={<Plat_info />} />
+        <Route path="/planifier" element={<Planifier />} />
+        <Route path="/planSemaine" element={<PlanWeek />} />
+        <Route path="/planMois" element={<PlanMonth />} />
+        <Route path="/auth" element={<Authentication />} /> 
+        <Route path="/Creat" element={<RegistrationForm />} />
+        <Route path="/Admin" element={<ProfilAdmin />} >
+          <Route path="Dashboard" element={<PlotComponent />} />
+        </Route>
+        <Route path="recommend" element={<Recommend />} />
       </Routes>
     </Router>
     </div>
