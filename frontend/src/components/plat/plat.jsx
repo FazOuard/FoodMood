@@ -7,7 +7,6 @@ puis filtrées et affichées en fonction de l'ID du plat passé via useLocation 
  */
 
 
-
 import React, { useEffect, useState } from 'react';//useState permet de stocker les données récupérées   useEffect est utilisé pour effectuer la requête API lorsque le composant est monté
 import './plat.css'
 import { useLocation } from 'react-router-dom';
