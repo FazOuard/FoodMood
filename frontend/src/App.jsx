@@ -15,6 +15,7 @@ import Authentication from "./components/Authentification/Authentication.jsx";
 import RegistrationForm from "./components/Create/Creat.jsx";
 import PlatIngredients from "./pages/test.jsx"
 import Rapport from './pages/rapport/rapport.jsx';
+import ManagePlaces from './pages/admin/ManagePlaces.jsx';
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
         <Route path="/Admin" element={<ProfilAdmin />} >
           <Route path="Dashboard" element={<PlotComponent />} />
           <Route path="ManageUsers" element={<ManageUsers/>} />
-          <Route path="Dashboard" element={<PlotComponent />} />
+          <Route path="ManagePlaces" element={<ManagePlaces />} />
         </Route>
         <Route path="recommend" element={<Recommend />} />
       </Routes>
