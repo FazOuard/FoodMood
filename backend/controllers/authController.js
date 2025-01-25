@@ -1,6 +1,6 @@
-import bcrypt from 'bcryptjs'; 
-import { poolPromise } from '../config/db.js'; // Utilisation du poolPromise
-import { sql } from '../config/db.js';
+import bcrypt from 'bcryptjs';
+import { poolPromise } from '../dbConfig.js'; // Utilisation du poolPromise
+import { sql } from '../dbConfig.js';
 
 
 const registerUser = async (req, res) => {
