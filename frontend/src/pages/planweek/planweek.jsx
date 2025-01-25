@@ -8,6 +8,7 @@ import cross from '../../assets/icons/cross.png';
 import replace from '../../assets/replace/replace.png'
 import searchicon from '../../assets/icons/search.png'
 import Price from '../../components/price/price';
+import { fetchDataAllPlat } from '../../../api/plat_data'; 
 
 
 const PlanWeek = () => {
@@ -25,34 +26,19 @@ const PlanWeek = () => {
 
     const [selectedPlat, setSelectedPlat] = useState(7);
 
-     useEffect(() => {
-    // Check if data is already stored (in sessionStorage or localStorage)
-    const cachedData = sessionStorage.getItem('data');
     
-    if (cachedData) {
-      setData(JSON.parse(cachedData)); // Use cached data
-      setLoading(false);
-    } else {
-      // If no cached data, fetch from the API
-      axios.get('http://localhost:5000/data')
-        .then(response => {
-          setData(response.data);
-          sessionStorage.setItem('data', JSON.stringify(response.data)); // Cache it
-        })
-        .catch(error => {
-          setError(error);
-          setLoading(false);
-        });
-    }
-  }, []);
-    // useEffect(() => {
-    //     axios.get('http://localhost:5000/data')
-    //       .then(response => {
-    //         setData(response.data);
-    //         console.log(response.data);
-    //       })
-    //       .catch(error => console.error('Error fetching data:', error));
-    //   }, []);
+    useEffect(() => {
+        const getData = async () => {
+        try {
+            const data = await fetchDataAllPlat(); 
+            setData(data); 
+        } catch (error) {
+            console.error('Error in fetching data:', error);
+        }
+        };
+
+        getData();
+    }, []);
 
     const items = data
                     .filter((plat) => plat.Image != null)

@@ -28,26 +28,6 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // useEffect(() => {
-  //   // Check if data is already stored (in sessionStorage or localStorage)
-  //   const cachedData = sessionStorage.getItem('data');
-    
-  //   if (cachedData) {
-  //     setData(JSON.parse(cachedData)); // Use cached data
-  //     setLoading(false);
-  //   } else {
-  //     // If no cached data, fetch from the API
-  //     axios.get('http://localhost:5000/data')
-  //       .then(response => {
-  //         setData(response.data);
-  //         sessionStorage.setItem('data', JSON.stringify(response.data)); // Cache it
-  //       })
-  //       .catch(error => {
-  //         setError(error);
-  //         setLoading(false);
-  //       });
-  //   }
-  // }, []);
 
   useEffect(() => {
     const getData = async () => {
