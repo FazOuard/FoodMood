@@ -9,6 +9,8 @@ import PlanMonth from './pages/PlanMonth/PlanMonth.jsx';
 import ProfilAdmin from './pages/admin/admin.jsx';
 import PlotComponent from './pages/admin/dashboard.jsx';
 import Recommend from './pages/recommendation/recommend.jsx';
+import Authentication from "./components/Authentification/Authentication.jsx";
+import RegistrationForm from "./components/Create/Creat.jsx";
 
 function App() {
 
@@ -24,7 +26,9 @@ function App() {
       <Route path="/planSemaine" element={<PlanWeek />} />
       <Route path="/planMois" element={<PlanMonth />} />
       <Route path="/Admin" element={<ProfilAdmin />} >
-        <Route path="Dashboard" element={<PlotComponent />} />
+      <Route path="Dashboard" element={<PlotComponent />} />
+      {/* <Route path="/auth" element={<Authentication />} />  {/* Route pour la page de connexion */}
+      {/* <Route path="/Creat" element={<RegistrationForm />} />  */}
       </Route>
       <Route path="recommend" element={<Recommend />} />
       </Routes>
