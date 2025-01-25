@@ -62,11 +62,11 @@ const Estimate = () => {
               <div className='estimate-line'/>
 			  <div className='estimate-all-ing'>
               {idIngList
-              .map((ingid, index) => (
-                <div>
+              .map((ingid, index1) => (
+                <div key={index1}>
                     {ing
                       .filter((item) => item.Id == ingid)
-                      .map((item4) =>(
+                      .map((item4, index) =>(
                         <div key={index} className='estimate-oneIng'>
                           <div className='estimate-ing-price'>
                             <h4>{item4.Ingredient}</h4>

@@ -7,7 +7,7 @@ import SideBar from '../../components/sidebar/sidebar';
 import cross from '../../assets/icons/cross.png';
 import replace from '../../assets/replace/replace.png'
 import searchicon from '../../assets/icons/search.png'
-import Price from '../../components/price/price';
+import next from '../../assets/icons/next.png'
 import { fetchDataAllPlat } from '../../../api/plat_data'; 
 
 
@@ -20,12 +20,6 @@ const PlanWeek = () => {
 
     const [data, setData] = useState([]);
     const semaine = ["Jour 1", "Jour 2", "Jour 3", "Jour 4", "Jour 5", "Jour 6", "Jour 7" ];
-
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    const [selectedPlat, setSelectedPlat] = useState(7);
-
     
     useEffect(() => {
         const getData = async () => {
@@ -80,6 +74,17 @@ const PlanWeek = () => {
             [day]: droppedItemsByDay[day].filter((droppedItem) => droppedItem !== item),
         });
     };
+
+    const handleNextClick = () => {
+        const existingState = location.state || {};
+
+        const newState = {
+            ...existingState, 
+            selectedDishes: droppedItemsByDay, 
+        };
+
+        navigate('/rapport', { state: newState });
+    };
     
     return (
         <div className='planweek'>
@@ -120,8 +125,6 @@ const PlanWeek = () => {
                             <div onDrop={(event) => handleDrop(event, jour)} onDragOver={handleDragOver} key={index2} className='ONE-day'>
 
                         <h3>{jour}</h3>
-                        
-                        {jour == "Jour 1" ? <h2>this is it: <Price value={selectedPlat} /></h2> : <p></p>}
                         <div className='dopped-items'>
                         {droppedItemsByDay[jour].map((item, index3) => (
                             <div key={index3} className='dropped-item'>
@@ -180,6 +183,10 @@ const PlanWeek = () => {
                         ))}
                     </div>
                 </div>
+            </div>
+            <div className='button-suivant' onClick={handleNextClick}>
+                <h3>Suivant</h3>
+                <img src={next} />
             </div>
         </div>
     );

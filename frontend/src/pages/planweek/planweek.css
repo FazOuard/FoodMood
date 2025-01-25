@@ -150,3 +150,35 @@
     align-items: center;
     width: 100%;
 }
+
+.button-suivant{
+    position: fixed;
+    z-index: 200;
+    right: 3vw;
+    bottom: 3vH;
+    background-color: #2C471B;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #D6F1C6;
+    cursor: pointer;
+    color: white;
+}
+
+.button-suivant img {
+    width: 18px;
+    height: 18px;
+    margin: 10px 20px;
+    margin-left: 0;
+}
+
+.button-suivant h3{
+    font-size: medium;
+    margin: 0;
+    padding: 8px 25px;
+    padding-right: 10px;
+}
+
+.button-suivant:hover{
+    background-color: #43692b;
+}

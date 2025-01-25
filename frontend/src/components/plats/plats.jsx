@@ -43,7 +43,6 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
   }, []);
 
   //Gestion des Erreurs d'Image
-  console.log("this is the lenght of data:", data.length)
   const handleImageError = (e) => {
     e.target.src = 'path/to/placeholder-image.jpg'; 
   };
@@ -61,8 +60,6 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
     return matchesSearchText && matchesCaloriesInterval && matchesProteinesInterval &&  matchesGlucideInterval    && LipidesInterval && matchesDuration && matchesType;// &&  matchesTempscuissantInterval    Combinaison : Les plats sont inclus dans filteredData s'ils correspondent aux deux critères.
   });
   
-  console.log("this is the lenght of finltered data:", filteredData.length)
-
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

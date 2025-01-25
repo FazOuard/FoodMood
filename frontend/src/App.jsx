@@ -11,6 +11,8 @@ import PlotComponent from './pages/admin/dashboard.jsx';
 import Recommend from './pages/recommendation/recommend.jsx';
 import Authentication from "./components/Authentification/Authentication.jsx";
 import RegistrationForm from "./components/Create/Creat.jsx";
+import PlatIngredients from "./pages/test.jsx"
+import Rapport from './pages/rapport/rapport.jsx';
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
         <Route path="/" element={<Recommendation />} />
         <Route path="/plats" element={<Plat_All />} />
         <Route path="/platinfo" element={<Plat_info />} />
+        <Route path="/rapport" element={<Rapport />}/>
+        <Route path="/plating" element={<PlatIngredients />} />
         <Route path="/planifier" element={<Planifier />} />
         <Route path="/planSemaine" element={<PlanWeek />} />
         <Route path="/planMois" element={<PlanMonth />} />
