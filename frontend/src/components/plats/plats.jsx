@@ -3,6 +3,7 @@ import axios from 'axios';
 import './plats.css'
 import { useLocation, useNavigate } from 'react-router-dom'; //useLocation permet d'accéder aux informations sur l'URL actuelle, et useNavigate permet de naviguer vers d'autres routes.
 import searchicon from '../../assets/icons/search.png'
+import { fetchDataAllPlat } from '../../../api/plat_data'; 
 //Déclaration du Composant
 const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
   
@@ -21,17 +22,27 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
   const goToOneDish = (idplat) => { //Cette fonction prend un idplat comme argument et utilise la fonction navigate pour rediriger l'utilisateur vers la route /platinfo.
     navigate("/platinfo", {state: { ...(location.state || {}), idplat } })
   }//Elle passe également l'état actuel (s'il existe) et ajoute idplat à cet état. Cela permet de garder une trace du plat sélectionné.
-//Utilisation d'Axios et useEffect 
-  useEffect(() => { //Récupération des Données avec useEffect
-    axios.get('http://localhost:5000/data')
-      .then(response => {
-        setData(response.data);
-        console.log(response.data);
-      })
-      .catch(error => console.error('Error fetching data:', error));
+
+
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await fetchDataAllPlat(); 
+        setData(data); 
+      } catch (error) {
+        console.error('Error in fetching data:', error);
+      }
+    };
+
+    getData();
   }, []);
+
   //Gestion des Erreurs d'Image
-  console.log("this is the lenght of data:", data.length)
   const handleImageError = (e) => {
     e.target.src = 'path/to/placeholder-image.jpg'; 
   };
@@ -49,8 +60,6 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
     return matchesSearchText && matchesCaloriesInterval && matchesProteinesInterval &&  matchesGlucideInterval    && LipidesInterval && matchesDuration && matchesType;// &&  matchesTempscuissantInterval    Combinaison : Les plats sont inclus dans filteredData s'ils correspondent aux deux critères.
   });
   
-  console.log("this is the lenght of finltered data:", filteredData.length)
-
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

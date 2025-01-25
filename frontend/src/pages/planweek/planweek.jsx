@@ -7,6 +7,8 @@ import SideBar from '../../components/sidebar/sidebar';
 import cross from '../../assets/icons/cross.png';
 import replace from '../../assets/replace/replace.png'
 import searchicon from '../../assets/icons/search.png'
+import next from '../../assets/icons/next.png'
+import { fetchDataAllPlat } from '../../../api/plat_data'; 
 
 
 const PlanWeek = () => {
@@ -18,15 +20,19 @@ const PlanWeek = () => {
 
     const [data, setData] = useState([]);
     const semaine = ["Jour 1", "Jour 2", "Jour 3", "Jour 4", "Jour 5", "Jour 6", "Jour 7" ];
-
+    
     useEffect(() => {
-        axios.get('http://localhost:5000/data')
-          .then(response => {
-            setData(response.data);
-            console.log(response.data);
-          })
-          .catch(error => console.error('Error fetching data:', error));
-      }, []);
+        const getData = async () => {
+        try {
+            const data = await fetchDataAllPlat(); 
+            setData(data); 
+        } catch (error) {
+            console.error('Error in fetching data:', error);
+        }
+        };
+
+        getData();
+    }, []);
 
     const items = data
                     .filter((plat) => plat.Image != null)
@@ -68,7 +74,17 @@ const PlanWeek = () => {
             [day]: droppedItemsByDay[day].filter((droppedItem) => droppedItem !== item),
         });
     };
-    
+
+    const handleNextClick = () => {
+        const existingState = location.state || {};
+
+        const newState = {
+            ...existingState, 
+            selectedDishes: droppedItemsByDay, 
+        };
+
+        navigate('/rapport', { state: newState });
+    };
     
     return (
         <div className='planweek'>
@@ -78,9 +94,10 @@ const PlanWeek = () => {
                 <div className='drag-and-drop'>
                     {/* Draggable Items List */}
                     <div className='all-to-drag'>
+                        <div className='holder01'>
                         <div className='title-search'>
                             <h3>Choisissez vos plats</h3>
-                            <div className="search-bar">
+                            <div className="search-drag">
                                 <input
                                     type="text"
                                     placeholder="Rechercher un plat..."
@@ -90,14 +107,13 @@ const PlanWeek = () => {
                                 <img src={searchicon} />
                             </div>
                         </div>
+                        </div>
                         <div className='to-drag-items'>
-                            {items
-                            .map((item, index) => (
-                                <div key={index} draggable onDragStart={(event) => handleDragStart(event, item)} className='to-drag-item'>
-                                    {data.filter((plat) => item == plat.id)
-                                        .map((plat) => (
-                                            <img key={plat.id} src={plat.Image} />
-                                        ))}
+                            {data
+                            .filter((plat) => plat.Image != null && plat.Titre.toLowerCase().includes(searchText.toLowerCase()))
+                            .map((plat, index1) => (
+                                <div key={index1} draggable onDragStart={(event) => handleDragStart(event, plat.id)} className='to-drag-item'>
+                                    <img key={plat.id} src={plat.Image} />
                                 </div>
                             ))}
                         </div>
@@ -105,13 +121,13 @@ const PlanWeek = () => {
 
                     {/* Drop Area */}
                     <div className='to-drop'>
-                        {semaine.map((jour, index) => (
-                            <div onDrop={(event) => handleDrop(event, jour)} onDragOver={handleDragOver} key={index} className='ONE-day'>
+                        {semaine.map((jour, index2) => (
+                            <div onDrop={(event) => handleDrop(event, jour)} onDragOver={handleDragOver} key={index2} className='ONE-day'>
 
                         <h3>{jour}</h3>
                         <div className='dopped-items'>
-                        {droppedItemsByDay[jour].map((item, index) => (
-                            <div key={index} className='dropped-item'>
+                        {droppedItemsByDay[jour].map((item, index3) => (
+                            <div key={index3} className='dropped-item'>
                                 {data
                                     .filter((plat) => item == plat.id)
                                     .map((plat) => (
@@ -167,6 +183,10 @@ const PlanWeek = () => {
                         ))}
                     </div>
                 </div>
+            </div>
+            <div className='button-suivant' onClick={handleNextClick}>
+                <h3>Suivant</h3>
+                <img src={next} />
             </div>
         </div>
     );

@@ -1,0 +1,34 @@
+Hello, had lfile n7ettu fih chnu 5as ydar bach lcode ytexecuta mzyan w fach kulchy ysayebha nmess7uha:
+
+f SSMS diru nouvelle requête
+w executew had la requête:
+
+CREATE FUNCTION dbo.SplitStringWithOrdinal
+(
+    @Input NVARCHAR(MAX),
+    @Delimiter CHAR(1)
+)
+RETURNS @Output TABLE
+(
+    Value NVARCHAR(MAX),
+    Ordinal INT
+)
+AS
+BEGIN
+    DECLARE @Start INT = 1, @End INT, @Ordinal INT = 1;
+
+    WHILE @Start <= LEN(@Input)
+    BEGIN
+        SET @End = CHARINDEX(@Delimiter, @Input, @Start);
+        IF @End = 0
+            SET @End = LEN(@Input) + 1;
+
+        INSERT INTO @Output (Value, Ordinal)
+        VALUES (SUBSTRING(@Input, @Start, @End - @Start), @Ordinal);
+
+        SET @Start = @End + 1;
+        SET @Ordinal = @Ordinal + 1;
+    END;
+
+    RETURN;
+END;
