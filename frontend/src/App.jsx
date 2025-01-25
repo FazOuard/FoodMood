@@ -9,6 +9,7 @@ import PlanMonth from './pages/PlanMonth/PlanMonth.jsx';
 import ProfilAdmin from './pages/admin/admin.jsx';
 import PlotComponent from './pages/admin/dashboard.jsx';
 import Recommend from './pages/recommendation/recommend.jsx';
+import ManageUsers from './pages/admin/ManageUsers.jsx';
 
 function App() {
 
@@ -25,7 +26,9 @@ function App() {
       <Route path="/planMois" element={<PlanMonth />} />
       <Route path="/Admin" element={<ProfilAdmin />} >
         <Route path="Dashboard" element={<PlotComponent />} />
+        <Route path="ManageUsers" element={<ManageUsers />} />
       </Route>
+      <Route path="/ManageUsers" element={<ManageUsers />} />
       <Route path="recommend" element={<Recommend />} />
       </Routes>
     </Router>
