@@ -1,20 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import { poolPromise } from './dbConfig.js';
+import plat from './routers/plat.js'
 
 const app = express();
 app.use(cors()); 
 app.use(express.json());
 
-app.get('/data', async (req, res) => {
-    try {
-        const pool = await poolPromise;
-        const result = await pool.request().query('SELECT * FROM plat');
-        res.json(result.recordset);
-    } catch (err) {
-        res.status(500).send(err.message);
-    }
-});
+app.use('/data', plat);
 
 app.get('/ingredients', async (req, res) => {
     try {

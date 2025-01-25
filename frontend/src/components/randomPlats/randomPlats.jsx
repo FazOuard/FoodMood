@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import './randomPlats.css'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { fetchDataAllPlat } from '../../../api/plat_data'; 
 
 const RandomPlats = () => {
   
@@ -15,12 +15,16 @@ const RandomPlats = () => {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:5000/data')
-      .then(response => {
-        setData(response.data);
-        console.log(response.data);
-      })
-      .catch(error => console.error('Error fetching data:', error));
+    const getData = async () => {
+      try {
+        const data = await fetchDataAllPlat(); 
+        setData(data); 
+      } catch (error) {
+        console.error('Error in fetching data:', error);
+      }
+    };
+
+    getData();
   }, []);
 
   useEffect(() => {
