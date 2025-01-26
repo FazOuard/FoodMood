@@ -81,6 +81,7 @@ const RegistrationForm = () => {
   
 
   return (
+    <div className="containerOfEverything">
     <div className="container">
       <div className="auth-container">
         <div className="auth-card">
@@ -166,6 +167,7 @@ const RegistrationForm = () => {
           <Link to="/login">Déjà inscrit ? Se connecter</Link>
         </div>
       </div>
+    </div>
     </div>
   );
 };

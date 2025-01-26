@@ -39,6 +39,7 @@ function Authentication() {
   };
 
   return (
+    <div className="containerOfEverything">
     <div className="container">
     <div className="auth-container">
       <div className="auth-card">
@@ -62,6 +63,7 @@ function Authentication() {
         {error && <p className="error">{error}</p>}  {/* Affichage de l'erreur si présente */}
         <Link to="/Creat">Register</Link>
       </div>
+    </div>
     </div>
     </div>
   );
