@@ -6,6 +6,7 @@ const Recommend = () => {
     const [foodItems, setFoodItems] = useState([]);
     const navigate = useNavigate();
     const location = useLocation();
+    
 
     const goToOneDish = (idplat) => {
         navigate("/platinfo", {state: { ...(location.state || {}), idplat } })
