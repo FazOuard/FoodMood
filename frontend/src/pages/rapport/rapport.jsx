@@ -8,15 +8,23 @@ const Rapport = () => {
     const location = useLocation();
     const { selectedDishes, ...existingState } = location.state || {};
 
-    console.log('Existing State:', existingState);
-    console.log('Selected Dishes:', selectedDishes);
-
+    console.log(selectedDishes)
     return (
         <div>
             <NavBar/>
             <SideBar/>
-            <h1>Next Page</h1>
-            {/* Render the selected dishes and existing state here */}
+            <div>
+                {Object.entries(selectedDishes).map(([day, item]) => (
+                    <div key={day}>
+                        <h2>{day}</h2>
+                        {item.map((dish, index) => (
+                            <div key={index}>
+                                {dish}
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
