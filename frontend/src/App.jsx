@@ -16,6 +16,7 @@ import RegistrationForm from "./components/Create/Creat.jsx";
 import PlatIngredients from "./pages/test.jsx"
 import Rapport from './pages/rapport/rapport.jsx';
 import ManagePlaces from './pages/admin/ManagePlaces.jsx';
+import Statistique from './components/statistique/statistique.jsx';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="ManagePlaces" element={<ManagePlaces />} />
         </Route>
         <Route path="recommend" element={<Recommend />} />
+        <Route path="statistiques" element={<Statistique />} />
       </Routes>
     </Router>
     </div>

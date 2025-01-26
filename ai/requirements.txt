@@ -11,3 +11,4 @@ surprise
 numpy==1.26.0
 scipy==1.10.1
 pandas==1.5.0
+ApiSQLEngine

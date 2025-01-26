@@ -1,0 +1,100 @@
+/* Style général du composant statistique */
+.statistiqueContainer {
+    position: fixed;
+    left: 16vw;
+    top: 8vh;
+    width: 84vw;
+    height: 92vh;
+    background-color: #FFFEE6;
+    color: #2C471B;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer horizontalement tous les éléments */
+    justify-content: flex-start; /* Aligner en haut de la page */
+    gap: 20px;
+    overflow-y: auto; 
+    padding: 20px; /* Ajouter du padding pour éviter que le contenu touche les bords */
+  }
+  
+  /* Titre principal */
+  .statistiqueContainer h1 {
+    color: #3b7a57; /* Un vert profond pour le titre */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-family: 'Pacifico', cursive; /* Fun font */
+  }
+  
+  /* Bloc contenant le nombre de plats */
+  .totalPlats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #d6f1c6; /* Vert pâle pour un effet frais */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #3b7a57; /* Un vert profond pour le titre */
+    text-align: center;
+    width: 200px;
+    font-family: 'Pacifico', cursive;
+  }
+  
+  /* Icône de pizza */
+  .totalPlats svg {
+    margin-right: 15px;
+    color: #3b7a57; /* Vert profond pour l'icône */
+  }
+  
+  /* Texte du nombre de plats */
+  .totalPlats strong {
+    font-size: 1.5rem;
+    color: #a0d884; /* Vert vif pour le nombre */
+    font-weight: bold;
+  }
+  
+  /* Section des graphiques */
+  .graphique1,
+  .graphique2 {
+    display: flex;
+    justify-content: center; /* Centrer le graphique */
+    align-items: center;
+    margin-bottom: 40px;
+    width: 100%; /* Prendre toute la largeur disponible */
+  }
+  
+  /* Titre des graphiques */
+  .graphique1 h2,
+  .graphique2 h2 {
+    color: #3b7a57; /* Vert pour les titres */
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px; /* Augmenter légèrement l'écart entre le titre et le graphique */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Styles spécifiques aux graphiques */
+  .graphique1 > div,
+  .graphique2 > div {
+    width: 90%; /* Limiter la largeur des graphiques */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a0d884; /* Vert vif pour les fonds des graphiques */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Ajout d'un fond coloré aux graphiques */
+  .graphique1 {
+    margin-top: 30px;
+  }
+  
+  /* Uniformiser les marges entre les graphiques */
+  .graphique1, .graphique2 {
+    margin-top: 20px; /* Un écart uniforme entre le titre et le graphique */
+  }
+  

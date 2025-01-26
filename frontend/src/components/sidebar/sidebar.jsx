@@ -16,6 +16,10 @@ const SideBar = () => {
     const goToPlan = () => {
         navigate('/planifier');
     }
+
+    const goTostatistics = () => {
+        navigate('/statistiques');
+    }
     
     return (
         <div className='sidebar-all'>
@@ -29,7 +33,7 @@ const SideBar = () => {
                     <h4>Tout nos plats</h4>
                 </div>
                 <div className='sidebar-line'/>
-                <div className='sidebar-choice'>
+                <div className='sidebar-choice' onClick={goTostatistics}>
                     <img src={stat} />
                     <h4>Mes statistiques</h4>
                 </div>
@@ -39,7 +43,7 @@ const SideBar = () => {
                     <h4>Plannifier</h4>
                 </div>
                 <div className='sidebar-line'/>
-                <div className='sidebar-choice'>
+                <div className='sidebar-choice' >
                     <img src={profile} />
                     <h4>Mon profile</h4>
                 </div>
