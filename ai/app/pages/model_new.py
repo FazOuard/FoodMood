@@ -86,10 +86,10 @@ def plat_recommended(user_id):
     recommendations = recommend_for_user(user_id)
     plat_resultat = []
 
-
     # Nettoyage pour la recherche des titres
     def clean_search_title(title):
         return str(title).lower().replace(" ", "")
+    
     for i in recommendations:
         # Appliquer le nettoyage dans la condition de recherche
         plat_info = plat[plat["Titre"].apply(clean_search_title) == clean_search_title(i)]
@@ -101,7 +101,13 @@ def plat_recommended(user_id):
                     print(f"Invalid entry skipped: {row['Titre']}")
                     continue
 
-                # Ajouter le plat avec son nom exact, sans transformation
+                # Vérifiez ici si l'ID est valide
+                plat_id = row["id"]
+                if pd.isna(plat_id):
+                    print(f"ID manquant pour le plat : {row['Titre']}")
+                    continue
+
+                # Ajouter le plat avec son ID, son nom exact, et son image
                 plat_resultat.append({
                     "Titre": row["Titre"],
                     "Image": row["Image"]
@@ -110,6 +116,7 @@ def plat_recommended(user_id):
             print(f"Aucune recette trouvée pour {i}")
 
     return plat_resultat
+
 
 
 
