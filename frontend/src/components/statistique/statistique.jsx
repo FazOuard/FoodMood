@@ -41,10 +41,9 @@ const Statistique = () => {
     <div className="statistiqueContainer">
          <NavBar/>
          <SideBar/>
-      <h1>Statistiques utilisateur</h1>
       
       <div className="totalPlats">
-        <FaPizzaSlice size={24} style={{ width: "30px", color: "#3b7a57" }} /> {/* Icône */}
+        <FaPizzaSlice size={24} style={{ width: "30px", color: "#2A2A2A" }} /> {/* Icône */}
         {stats.totalPlats} Plats favoris
       </div>
 
