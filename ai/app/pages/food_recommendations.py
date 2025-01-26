@@ -16,10 +16,10 @@ X=vectorizer.fit_transform(data["Plat_consome"])
 
 
 #normalize numerical features
-data["Taille "] = data["Taille "].str.replace(',', '.').astype(float)
+data["Taille"] = data["Taille"].str.replace(',', '.').astype(float)
 
-input_numerical=["Âge","Poids ","Taille "]
-input_cathegorical=["Statut","Nationalité ", "Région ","type_cuisine", "Poids_etat", "duree_preparation"]
+input_numerical=["age","Poids","Taille"]
+input_cathegorical=["Statut","Nationalite", "Region","type_cuisine", "Poids_etat", "duree_preparation"]
 input_binary=["Genre","Aimer_Plat_marocain","Sport_question","regime_question"]
 
 input_cath=input_cathegorical+input_binary

@@ -7,6 +7,7 @@ import Plat from '../../components/plat/plat';
 import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
 import Estimate from '../../components/estimate/estimate';
+import Recommend from '../recommendation/recommend';
 
 
 const Plat_info = () => {

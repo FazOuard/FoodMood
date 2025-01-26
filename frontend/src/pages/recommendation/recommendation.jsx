@@ -29,7 +29,7 @@ const Recommendation = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch("http://localhost:5000/recommendation", {
+    const response = await fetch("http://localhost:8080/recommendation", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

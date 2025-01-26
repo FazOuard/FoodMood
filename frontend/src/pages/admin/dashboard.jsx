@@ -12,7 +12,7 @@ const PlotComponent = () => {
   const [loading2, setLoading2] = useState(true); 
 
   useEffect(() => {
-    fetch('http://localhost:5000/plot')
+    fetch('http://localhost:8080/plot')
       .then(res => res.json())
       .then(data => {
         setPlot1(data);
@@ -21,7 +21,7 @@ const PlotComponent = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/barPlot') 
+    fetch('http://localhost:8080/barPlot') 
       .then(res => res.json())
       .then(data => {
         setPlot2(data);

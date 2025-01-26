@@ -4,6 +4,7 @@ import './plats.css'
 import Plats from '../../components/plats/plats';
 import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
+import Recommend from '../recommendation/recommend';
 
 const Plat_All = () => {
 
@@ -12,6 +13,7 @@ const Plat_All = () => {
             <NavBar/>
             <SideBar/>
             <div className='plat_all1'> 
+                <Recommend/>
                 <Plats/>
             </div>
         </div>

@@ -1,10 +1,11 @@
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
+from ..database import ApiSQLEngine
 
 # Charger les données
-data = pd.read_csv("Préférences_Alimentaires.csv")
-plat = pd.read_csv("Plats.csv")
+data = pd.read_sql_query("SELECT * FROM users_preferences", ApiSQLEngine)
+plat = pd.read_sql_query("SELECT * FROM plat", ApiSQLEngine)
 
 # Prétraitement des données
 df4 = data.copy()

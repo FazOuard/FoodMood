@@ -5,29 +5,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
+from ..database import ApiSQLEngine
 
-plat=pd.read_table('plat v3.tsv')
-user='Préférences_Alimentaires.csv'
-data = pd.read_csv(user)
-historique = pd.read_csv('historique.csv')
-
-
-# Add a new column 'user_id' with sequential numbers starting from 1
-data.insert(0, 'user_id', range(1, len(data)+1))
-
-# Save the updated dataset
-updated_file = "users_preferences.csv"
-data.to_csv(updated_file, index=False)
-
-users_preferences=pd.read_csv('users_preferences.csv')
-users_preferences["Taille "] = users_preferences["Taille "].str.replace(',', '.').astype(float)
 
 
 # Chargement des données
-data = users_preferences.fillna('')
-
+data = pd.read_sql_query("SELECT * FROM users_preferences", ApiSQLEngine)
+plat= pd.read_sql_query("SELECT * FROM plat", ApiSQLEngine)
 # Table historique simulée
-historique = pd.read_csv('historique.csv')
+historique = pd.read_sql_query("SELECT * FROM historique", ApiSQLEngine)
 
 # Fonction pour nettoyer les chaînes de caractères
 def clean_data(x):
@@ -35,11 +21,11 @@ def clean_data(x):
 
 # Colonnes textuelles et numériques
 text_features = ['Plat_prefere', 'Plat_consome', 'type_cuisine', 'regime_alimentaire',
-                 'Allergies ', 'Allergie_specification', 'sport_pratique',
+                 'Allergies', 'Allergie_specification', 'sport_pratique',
                  'Aimer_Plat_marocain', 'type_viande_prefere', 'regime_raison',
-                 'dejeuner_preference', 'Nationalité ', 'Région ', 'Vegeterien_question',
+                 'dejeuner_preference', 'Nationalite', 'Region', 'Vegeterien_question',
                  'Sport_question', 'Poids_etat', 'duree_preparation']
-numeric_features = ['Âge', 'Poids ', 'Taille ']
+numeric_features = ['age', 'Poids', 'Taille']
 
 # Nettoyage des colonnes textuelles
 for feature in text_features:
