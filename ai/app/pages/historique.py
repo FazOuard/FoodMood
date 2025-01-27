@@ -2,10 +2,12 @@ import pandas as pd
 from datetime import datetime
 
 # Ajouter une interaction à l'historique
-def add_interaction_to_historique(user_id, plat, file_path='historique.csv'):
+def add_interaction_to_historique(user_id, plat):
     try:
+        file_path='historique.csv'
         # Charger le fichier CSV
         historique_df = pd.read_csv(file_path)
+        
 
         # Générer un nouvel ID
         new_id = historique_df['id'].max() + 1 if not historique_df.empty else 1
@@ -30,8 +32,9 @@ def add_interaction_to_historique(user_id, plat, file_path='historique.csv'):
     print(f"Interaction ajoutée : {new_entry.to_dict('records')[0]}")
 
 # Récupérer l'historique d'un utilisateur
-def get_user_historique(user_id, file_path='historique.csv'):
+def get_user_historique(user_id):
     try:
+        file_path='historique.csv'
         # Charger le fichier CSV
         historique = pd.read_csv(file_path)
     except FileNotFoundError:
@@ -52,8 +55,9 @@ def get_user_historique(user_id, file_path='historique.csv'):
 
 
 # Supprimer une interaction de l'historique par ID
-def delete_interaction_by_id(interaction_id, file_path='historique.csv'):
+def delete_interaction_by_id(interaction_id):
     try:
+        file_path='historique.csv'
         # Charger le fichier CSV
         historique_df = pd.read_csv(file_path)
 
@@ -72,8 +76,9 @@ def delete_interaction_by_id(interaction_id, file_path='historique.csv'):
         print("Fichier historique introuvable. Impossible de supprimer une interaction.")
 
 # Supprimer toutes les interactions d'un utilisateur
-def delete_user_historique(user_id, file_path='historique.csv'):
+def delete_user_historique(user_id):
     try:
+        file_path='historique.csv'
         # Charger le fichier CSV
         historique_df = pd.read_csv(file_path)
 
@@ -91,8 +96,9 @@ def delete_user_historique(user_id, file_path='historique.csv'):
     except FileNotFoundError:
         print("Fichier historique introuvable. Impossible de supprimer des interactions.")
 
-def delete_interaction(user_id, plat, file_path='historique.csv'):
+def delete_interaction(user_id, plat):
     try:
+        file_path='historique.csv'
         # Charger le fichier CSV
         historique_df = pd.read_csv(file_path)
 
