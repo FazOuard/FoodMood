@@ -65,7 +65,7 @@ const navigate = useNavigate();
     <div className="statistiqueContainer">
       <NavBar />
       <SideBar />
-      <h1>Vos statistiques</h1>
+      <h1>Mes statistiques</h1>
       <div className="totalTOUTPlats">
         <div className="totalPlats">
             <MdFavorite  size={24} style={{ width: "30px", color: "#2A2A2A" }} />
