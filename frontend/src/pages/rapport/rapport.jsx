@@ -33,8 +33,10 @@ const Rapport = () => {
             <SideBar/>
             <div className='rapport'>
                 {Object.entries(selectedDishes).map(([day, item]) => (
-                    <div key={day}>
-                        <h2>{day}</h2>
+                    <div key={day} className='rapport-day'>
+                        <div className='rotate-rapport'>
+                            <h2>{day}</h2>
+                        </div>
                         <div className='rapport-dish-oneday'>
                             {item.map((dish, index) => (
                                 <div key={index}>
