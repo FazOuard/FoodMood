@@ -11,6 +11,6 @@ surprise
 numpy
 scipy
 pandas
-dotenv
-urllib
 sqlalchemy
+python-dotenv
+pymysql 
