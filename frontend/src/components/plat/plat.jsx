@@ -68,12 +68,8 @@ const Plat = () => {
                                 <h1>{item.Titre}</h1>
                             </div>
                             <div className="plat-like" onClick={handleLikeClick}>
-                                <img
-                                    src={favorites.includes(item.Titre) ? (liked ? like0 : like1) : (liked ? like1 : like0)}
-                                    alt="Like button"
-                                />
+                                <img src={liked ? like1 : like0} alt="Like button" />
                             </div>
-
                         </div>
                         <div className='plat-ingredient'>
                             <h2>Ingrédients</h2>
