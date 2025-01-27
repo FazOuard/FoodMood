@@ -25,7 +25,12 @@
     margin-bottom: 30px;
     
   }
-  
+  .totalTOUTPlats{
+    display:flex;
+    flex-direction: row; 
+   cursor: pointer;
+    gap:20px;
+  }
   /* Bloc contenant le nombre de plats */
   .totalPlats {
     display: flex;
@@ -41,6 +46,11 @@
     text-align: center;
     width: 200px;
    
+  }
+  .totalPlats:hover{
+    
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-3px); 
   }
   
   /* Icône de pizza */
@@ -92,5 +102,34 @@
   /* Ajout d'un fond coloré aux graphiques */
   .graphique1 {
     margin-top: 30px;
+  }
+ 
+.btnPlats {
+    margin: 20px auto; 
+    padding: 12px 24px;
+    background-color: #a0d884; 
+    color: #fff; 
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+  }
+  
+
+  .btnPlats:hover {
+    background-color: #86c671; 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-3px); 
+}
+
+  .btnPlats:active {
+    background-color: #6fa85a; 
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); 
+    transform: translateY(1px); 
   }
   

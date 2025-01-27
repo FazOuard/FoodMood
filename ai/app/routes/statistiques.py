@@ -7,7 +7,7 @@ import json
 import plotly
 
 statistique_bp = Blueprint('recommendationPreferences_bp', __name__)
-
+plat = pd.read_sql_query("SELECT * FROM plat", ApiSQLEngine)
 # Charger les données de la base de données dans un DataFrame
 historique = pd.read_sql_query("SELECT * FROM historique", ApiSQLEngine)
 
@@ -23,6 +23,7 @@ def plot_historique(user_id):
 
         # Nombre total de plats
         total_plats = historique_user['plat'].nunique()
+        titre=historique_user['plat']
 
         # Convertir les dates au format datetime (si ce n'est pas déjà fait)
         historique_user['date_interaction'] = pd.to_datetime(historique_user['date_interaction'])
@@ -71,7 +72,8 @@ def plot_historique(user_id):
 
         # === Convertir les deux graphiques en JSON ===
         graphs = {
-            "totalPlats": total_plats,  # Ajouter le nombre total de plats
+            "totalPlats": total_plats,  
+            "plats": titre.to_list(),
             "bar_chart": json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder),
             "cumulative_chart": json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder),
         }
