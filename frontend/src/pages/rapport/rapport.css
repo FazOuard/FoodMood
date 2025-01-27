@@ -4,4 +4,25 @@
     left: 16vw;
     width: 84vw;
     height: 92vh;
+    color: #2C471B;
+}
+
+.rapport-dish-oneday{
+    display: flex;
+}
+
+.rapport-onedish img{
+    width: 120px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.rapport-onedish h6{
+    text-align: center;
+    margin: 5px;
+}
+
+.rapport-onedish{
+    display: flex;
+    flex-direction: column;
 }
