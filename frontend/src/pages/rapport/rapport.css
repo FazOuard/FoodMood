@@ -6,6 +6,7 @@
     height: 92vh;
     color: #2C471B;
     background-color: #FFFEE6;
+    display: flex;
 }
 
 .rapport-dish-oneday{
@@ -39,5 +40,14 @@
 }
 
 .rapport-day{
+    display: flex;
+}
+
+.rapport-ing-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.rapport-ing-info-all{
     display: flex;
 }

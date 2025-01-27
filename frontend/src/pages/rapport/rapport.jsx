@@ -49,34 +49,81 @@ const Rapport = () => {
     
         getIngData();
       }, []);
-      console.log(ingData)
 
-    console.log(selectedDishes)
+    const calculateTotals = (ingData) => {
+        const totals = ingData.reduce(
+        (acc, item) => {
+            acc.totalQuantity += item.QuantityNeeded;
+    
+            acc.totalPrice += item.TotalPriceForQuantity;
+    
+            return acc;
+        },
+        { totalQuantity: 0, totalPrice: 0 } 
+        );
+    
+        return totals;
+    };
+      
+    const { totalQuantity, totalPrice } = calculateTotals(ingData);
+
     return (
         <div>
             <NavBar/>
             <SideBar/>
             <div className='rapport'>
-                {Object.entries(selectedDishes).map(([day, item]) => (
-                    <div key={day} className='rapport-day'>
-                        <div className='rotate-rapport'>
-                            <h2>{day}</h2>
+                <div className='rapport-part1'>
+                    {Object.entries(selectedDishes).map(([day, item]) => (
+                        <div key={day} className='rapport-day'>
+                            <div className='rotate-rapport'>
+                                <h2>{day}</h2>
+                            </div>
+                            <div className='rapport-dish-oneday'>
+                                {item.map((dish, index) => (
+                                    <div key={index}>
+                                        {data.filter((dish1) => dish1.id == dish)
+                                            .map((dish2, index1) => (
+                                                <div key={index1} className='rapport-onedish'>
+                                                    <h6>{dish2.Titre}</h6>
+                                                    <img src={dish2.Image} />
+                                                </div>
+                                            ))}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div className='rapport-dish-oneday'>
-                            {item.map((dish, index) => (
-                                <div key={index}>
-                                    {data.filter((dish1) => dish1.id == dish)
-                                        .map((dish2, index1) => (
-                                            <div key={index1} className='rapport-onedish'>
-                                                <h6>{dish2.Titre}</h6>
-                                                <img src={dish2.Image} />
-                                            </div>
-                                        ))}
-                                </div>
-                            ))}
+                    ))}
+                </div>
+                <div className='rapport-part2'>
+                    <div className='rapport-ing-info-all'>
+                        <div className='rapport-ing-info'>
+                        {ingData.map((ing, index_ing1) => (
+                            <div key={index_ing1}>
+                                {ing.IngredientName}
+                            </div>
+                        ))}
+                        </div>
+                        <div className='rapport-ing-info'>
+                        {ingData.map((ing, index_ing2) => (
+                            <div key={index_ing2}>
+                                {ing.QuantityNeeded} {ing.Unit}
+                            </div>
+                        ))}
+                        
+                        </div>
+                        <div className='rapport-ing-info'>
+                        {ingData.map((ing, index_ing3) => (
+                            <div key={index_ing3} >
+                                {ing.TotalPriceForQuantity} MAD
+                            </div>
+                        ))}
                         </div>
                     </div>
-                ))}
+                </div>
+
+                <div className='rapport-part3'>
+                    <h4>Total: {totalPrice} MAD</h4>
+                </div>
             </div>
         </div>
     );
