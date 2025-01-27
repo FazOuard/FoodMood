@@ -10,3 +10,5 @@ const ManagePlaces = () => {
 };
 
 export default ManagePlaces;
+
+

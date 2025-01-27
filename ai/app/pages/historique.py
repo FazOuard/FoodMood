@@ -90,3 +90,26 @@ def delete_user_historique(user_id, file_path='historique.csv'):
 
     except FileNotFoundError:
         print("Fichier historique introuvable. Impossible de supprimer des interactions.")
+
+def delete_interaction(user_id, plat, file_path='historique.csv'):
+    try:
+        # Charger le fichier CSV
+        historique_df = pd.read_csv(file_path)
+
+        # Filtrer les interactions qui correspondent au user_id et au plat
+        interactions_to_delete = historique_df[(historique_df['user_id'] == user_id) & (historique_df['plat'] == plat)]
+
+        # Vérifier si des interactions ont été trouvées
+        if not interactions_to_delete.empty:
+            # Supprimer les lignes correspondant à ces interactions
+            historique_df = historique_df[~historique_df.index.isin(interactions_to_delete.index)]
+
+            # Sauvegarder les modifications dans le fichier CSV
+            historique_df.to_csv(file_path, index=False)
+            print(f"Interaction(s) pour user_id {user_id} et plat '{plat}' supprimée(s).")
+        else:
+            print(f"Aucune interaction trouvée pour user_id {user_id} et plat '{plat}'.")
+
+    except FileNotFoundError:
+        print("Fichier historique introuvable. Impossible de supprimer une interaction.")
+
