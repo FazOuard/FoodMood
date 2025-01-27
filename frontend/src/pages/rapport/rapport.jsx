@@ -95,6 +95,8 @@ const Rapport = () => {
                     ))}
                 </div>
                 <div className='rapport-part2'>
+                    <h3>Ingrédients</h3>
+                    <div className='rapport-horizontal-line'/>
                     <div className='rapport-ing-info-all'>
                         <div className='rapport-ing-info'>
                         {ingData.map((ing, index_ing1) => (
@@ -103,6 +105,7 @@ const Rapport = () => {
                             </div>
                         ))}
                         </div>
+                        <div className='rapport-vertical-line'/>
                         <div className='rapport-ing-info'>
                         {ingData.map((ing, index_ing2) => (
                             <div key={index_ing2}>
@@ -111,7 +114,9 @@ const Rapport = () => {
                         ))}
                         
                         </div>
-                        <div className='rapport-ing-info'>
+                        
+                        <div className='rapport-vertical-line'/>
+                        <div className='rapport-ing-info2'>
                         {ingData.map((ing, index_ing3) => (
                             <div key={index_ing3} >
                                 {ing.TotalPriceForQuantity} MAD
@@ -122,7 +127,7 @@ const Rapport = () => {
                 </div>
 
                 <div className='rapport-part3'>
-                    <h4>Total: {totalPrice} MAD</h4>
+                    <h2>Total: {totalPrice.toFixed(2)} MAD</h2>
                 </div>
             </div>
         </div>

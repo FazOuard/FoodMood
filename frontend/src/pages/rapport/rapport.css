@@ -7,6 +7,7 @@
     color: #2C471B;
     background-color: #FFFEE6;
     display: flex;
+    justify-content: space-between;
 }
 
 .rapport-dish-oneday{
@@ -48,6 +49,50 @@
     flex-direction: column;
 }
 
+.rapport-ing-info2{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 10px;
+}
+
 .rapport-ing-info-all{
     display: flex;
+    gap: 20px;
+    overflow-y: scroll;
+    height: 64vh;
+    scrollbar-width: thin;
+}
+.rapport-part2{
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.rapport-part2 h3{
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rapport-horizontal-line{
+    width: 350px;
+    height: 1.5px;
+    background-color: #2C471B;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+.rapport-part3{
+    position: fixed;
+    bottom: 2vh;
+    right: 50px;
+}
+
+.rapport-vertical-line{
+    width: 1.5px;
+    height: 500px;
+    background-color: #2C471B;
 }
