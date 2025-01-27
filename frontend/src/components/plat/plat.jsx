@@ -1,108 +1,133 @@
-/**
- * Objectif général :
-Le composant Plat dans votre projet React est conçu pour afficher les détails d'un plat (image, titre, ingrédients, durée, calories, protéines, recette, etc.). 
-Il utilise les hooks useState et useEffect pour gérer l'état des données et effectuer des requêtes API. 
-Les données sont récupérées depuis un serveur local (localhost:5000/data), 
-puis filtrées et affichées en fonction de l'ID du plat passé via useLocation de react-router-dom.
- */
-
-
-import React, { useEffect, useState } from 'react';//useState permet de stocker les données récupérées   useEffect est utilisé pour effectuer la requête API lorsque le composant est monté
-import './plat.css'
-import { useLocation } from 'react-router-dom';
-import clock from '../../assets/icons/clock.png'
-import calorie from '../../assets/icons/calorie.png'
-import proteine from '../../assets/icons/proteine.png'
-import like0 from '../../assets/icons/like0.png'
-import like1 from '../../assets/icons/like1.png'
-import { fetchDataAllPlat } from '../../../api/plat_data'; 
-import { addToFavorites } from '../../../api/favorites';
+import React, { useEffect, useState } from "react";
+import "./plat.css";
+import { useLocation } from "react-router-dom";
+import clock from "../../assets/icons/clock.png";
+import calorie from "../../assets/icons/calorie.png";
+import proteine from "../../assets/icons/proteine.png";
+import like0 from "../../assets/icons/like0.png";
+import like1 from "../../assets/icons/like1.png";
+import { fetchDataAllPlat } from "../../../api/plat_data";
+import { addToFavorites, deleteFromFavorites } from "../../../api/favorites";
 
 const Plat = () => {
-    const [liked, setLiked] = useState(false);
-    const userId=1;
-    const handleLikeClick = () => {
-        const plat = data.find((item) => item.id == state.idplat); // Récupérer l'objet correspondant
-        if (plat) {
-            setLiked(!liked); 
-            addToFavorites(userId, plat.Titre); // Utiliser l'ID de l'objet trouvé
-        } else {
-            console.error("Plat non trouvé !");
+  const [liked, setLiked] = useState(false);
+  const [data, setData] = useState([]);
+  const location = useLocation();
+  const state = location.state || {};
+  const userId = 1;
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await fetchDataAllPlat();
+        setData(data);
+
+        // Vérifier si le plat est déjà un favori
+        const currentPlat = data.find((item) => item.id == state.idplat);
+        if (currentPlat) {
+          const response = await fetch(`http://localhost:8080/toutHistorique/${userId}`);
+          const historique = await response.json();
+          const isFavori = historique.some((fav) => fav.plat === currentPlat.Titre);
+          setLiked(isFavori);
         }
+      } catch (error) {
+        console.error("Erreur dans la récupération des données :", error);
+      }
     };
 
-    // Déclaration de l'État
-    const [data, setData] = useState([]); //useState([]) : Cela initialise un état local nommé data avec une valeur par défaut d'un tableau vide.
-    //  setData est la fonction qui vous permettra de mettre à jour cet état plus tard
-     //Récupération de l'Emplacement
-    const location = useLocation(); //useLocation() : Ce hook permet d'accéder à l'objet location qui contient des informations sur l'URL actuelle.
-    const state = location.state || {}; //Cela récupère l'état passé via le routeur (s'il y en a) ou initialise state comme un objet vide si aucun état n'est présent.
+    getData();
+  }, [state.idplat]);
 
-    useEffect(() => {
-        const getData = async () => {
-          try {
-            const data = await fetchDataAllPlat();
-            setData(data);
-          } catch (error) {
-            console.error('Error in fetching data:', error);
-          }
-        };
-    
-        getData(); 
-      }, []);
+  const handleLikeClick = async () => {
+    const plat = data.find((item) => item.id == state.idplat);
+    if (!plat) {
+      console.error("Plat non trouvé !");
+      return;
+    }
 
-    return (
-        <div>
-            <div className='plat-all'>
-            {data
-            .filter((item) => item.id == state.idplat)  //Filtre le tableau data pour ne garder que l'élément dont l'ID correspond à state.idplat. Cela signifie que vous affichez uniquement les détails d'un plat spécifique.
-            .map((item, index) => (        //Pour chaque élément filtré, vous créez un nouveau <div> contenant les détails du plat.
-                <div key={index} className='plat'>
-                    <div className='plat-image'>
-                        <img src={item.Image} />                      
-                    </div>
-                    <div className='plat-fixback'/>
-                    <div className='plat-infos'>
-                        <div className='plat-title-like'>
-                            <div className='plat-title'>
-                                <h1>{item.Titre}</h1>
-                            </div>
-                            <div className="plat-like" onClick={handleLikeClick}>
-                                <img src={liked ? like1 : like0} alt="Like button" />
-                            </div>
-                        </div>
-                        <div className='plat-ingredient'>
-                            <h2>Ingrédients</h2>
-                            <h5>{item.Ingredients ? item.Ingredients : <div style={{ color: "#CECECE" }}>Nous allons essayer de définir les ingrédients le plutôt possible!</div>}</h5>
-                        </div>
+    if (liked) {
+      // Supprimer des favoris
+      try {
+        await deleteFromFavorites(userId, plat.Titre);
+        console.log("Plat supprimé des favoris.");
+        setLiked(false);
+      } catch (error) {
+        console.error("Erreur lors de la suppression :", error);
+      }
+    } else {
+      // Ajouter aux favoris
+      try {
+        await addToFavorites(userId, plat.Titre);
+        console.log("Plat ajouté aux favoris.");
+        setLiked(true);
+      } catch (error) {
+        console.error("Erreur lors de l'ajout :", error);
+      }
+    }
+  };
 
-                        <div className='plat-info'>
-                            <div className='plat-duree'>
-                                <img src={clock} />
-                                <h5>{item.Duree ? item.Duree : "NaaaN mins"}</h5>
-                            </div>
-                            <div className='line' />
-                            <div className='plat-duree'>
-                                <img src={calorie} />
-                                <h5>{item.Calories ? item.Calories : "NaaaN"} Kcal</h5>
-                            </div>
-                            <div className='line' />
-                            <div className='plat-duree'>
-                                <img src={proteine} />
-                                <h5>{item.Proteines ? item.Proteines : "NaaaN"} grammes</h5>
-                            </div>
-                        </div>
-                        <div className='plat-recette'>
-                            <h2>Recette</h2>
-                            <h5>{item.Recette ? item.Recette : <div style={{ color: "#CECECE" }}>Nous allons essayer de définir la recette le plutôt possible!</div>}</h5>
-                        </div>
-                    </div>
+  return (
+    <div>
+      <div className="plat-all">
+        {data
+          .filter((item) => item.id == state.idplat)
+          .map((item, index) => (
+            <div key={index} className="plat">
+              <div className="plat-image">
+                <img src={item.Image} />
+              </div>
+              <div className="plat-fixback" />
+              <div className="plat-infos">
+                <div className="plat-title-like">
+                  <div className="plat-title">
+                    <h1>{item.Titre}</h1>
+                  </div>
+                  <div className="plat-like" onClick={handleLikeClick}>
+                    <img src={liked ? like1 : like0} alt="Like button" />
+                  </div>
                 </div>
-            ))
-            }
+                <div className="plat-ingredient">
+                  <h2>Ingrédients</h2>
+                  <h5>
+                    {item.Ingredients || (
+                      <div style={{ color: "#CECECE" }}>
+                        Nous allons essayer de définir les ingrédients le plus tôt possible!
+                      </div>
+                    )}
+                  </h5>
+                </div>
+                <div className="plat-info">
+                  <div className="plat-duree">
+                    <img src={clock} />
+                    <h5>{item.Duree || "N/A"} mins</h5>
+                  </div>
+                  <div className="line" />
+                  <div className="plat-duree">
+                    <img src={calorie} />
+                    <h5>{item.Calories || "N/A"} Kcal</h5>
+                  </div>
+                  <div className="line" />
+                  <div className="plat-duree">
+                    <img src={proteine} />
+                    <h5>{item.Proteines || "N/A"} grammes</h5>
+                  </div>
+                </div>
+                <div className="plat-recette">
+                  <h2>Recette</h2>
+                  <h5>
+                    {item.Recette || (
+                      <div style={{ color: "#CECECE" }}>
+                        Nous allons essayer de définir la recette le plus tôt possible!
+                      </div>
+                    )}
+                  </h5>
+                </div>
+              </div>
             </div>
-        </div>
-    );
+          ))}
+      </div>
+    </div>
+  );
 };
 
 export default Plat;

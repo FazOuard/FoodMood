@@ -7,7 +7,6 @@ flask_cors
 bokeh
 selenium
 plotly
-surprise
 numpy
 scipy
 pandas

@@ -6,7 +6,8 @@ from .routes.model_new_route import recommend_bp
 from .routes.historique_route import historique_bp
 from .routes.data import data_bp
 from .routes.statistiques import statistique_bp
-from .routes.favories import favorites_bp
+from .routes.delete import historiqueDelete_bp
+from .routes.afficherhistorique import gethistorique_bp
 from flask_cors import CORS
 
 def create_app():
@@ -21,8 +22,8 @@ def create_app():
     app.register_blueprint(historique_bp)
     app.register_blueprint(data_bp)
     app.register_blueprint(statistique_bp)
-    app.register_blueprint(favorites_bp)
-
+    app.register_blueprint(historiqueDelete_bp)
+    app.register_blueprint(gethistorique_bp)
 
     
     return app
