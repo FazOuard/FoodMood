@@ -4,14 +4,24 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
 import './rapport.css'
-import { fetchDataAllPlat } from '../../../api/plat_data'; 
+import { fetchDataAllPlat, fetchIngGroupPlat } from '../../../api/plat_data'; 
 
 const Rapport = () => {
     const location = useLocation();
     const { selectedDishes, ...existingState } = location.state || {};
     
     const [data, setData] = useState([]); 
+    const [ingData, setIngData] = useState([]); 
 
+    const extractDishIds = (selectedDishes) => {
+        const dishIds = [];
+        Object.values(selectedDishes || {}).forEach((dishes) => {
+          dishes.forEach((dishId) => {
+            dishIds.push(dishId);
+          });
+        });
+        return dishIds; 
+      };
     
     useEffect(() => {
         const getData = async () => {
@@ -25,6 +35,21 @@ const Rapport = () => {
 
         getData();
     }, []);
+
+    useEffect(() => {
+        const getIngData = async () => {
+          try {
+            const dishIds = extractDishIds(selectedDishes); 
+            const ingData = await fetchIngGroupPlat(dishIds); 
+            setIngData(ingData); 
+          } catch (error) {
+            console.error('Error in fetching data:', error);
+          }
+        };
+    
+        getIngData();
+      }, []);
+      console.log(ingData)
 
     console.log(selectedDishes)
     return (

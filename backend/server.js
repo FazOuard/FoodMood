@@ -5,6 +5,7 @@ import ingredientsRoutes from './routers/ingredientsRoutes.js';
 import platsIngRoutes from './routers/platsIngRoutes.js';
 import router from "./routers/auth.js";
 import ingPlatRoutes from "./routers/ingPlatRoutes.js"
+import IngGroupPlatRoutes from "./routers/IngGroupPlatRoutes.js"
 
 const app = express();
 app.use(cors()); 
@@ -14,6 +15,7 @@ app.use('/data', plat);
 app.use('/ingredients', ingredientsRoutes);
 app.use('/platsIng', platsIngRoutes);
 app.use('/platIng', ingPlatRoutes);
+app.use('/IngGroupPlat', IngGroupPlatRoutes);
 
 app.use("/api/auth", router);
 
