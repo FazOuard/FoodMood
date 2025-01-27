@@ -25,7 +25,7 @@ const Plat = () => {
         // Vérifier si le plat est déjà un favori
         const currentPlat = data.find((item) => item.id == state.idplat);
         if (currentPlat) {
-          const response = await fetch(`http://localhost:8080/toutHistorique/${userId}`);
+          const response = await fetch(`http://localhost:8081/toutHistorique/${userId}`);
           const historique = await response.json();
           const isFavori = historique.some((fav) => fav.plat === currentPlat.Titre);
           setLiked(isFavori);

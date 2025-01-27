@@ -14,7 +14,7 @@ const Recommend = () => {
 
     const fetchFoodItems = async () => {
         try {
-            const response = await fetch('http://localhost:8080/recommend', {
+            const response = await fetch('http://localhost:8081/recommend', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
