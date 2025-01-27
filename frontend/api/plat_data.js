@@ -17,3 +17,6 @@ export const fetchDataAllPlat = async () => {
       throw error;
     }
   };
+
+
+

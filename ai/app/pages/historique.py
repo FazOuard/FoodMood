@@ -48,3 +48,6 @@ def get_user_historique(user_id, file_path='historique.csv'):
     else:
         print("Aucune interaction trouvée pour l'utilisateur.")
         return None  # Return None if no history is found
+    
+
+

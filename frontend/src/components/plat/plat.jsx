@@ -16,8 +16,21 @@ import proteine from '../../assets/icons/proteine.png'
 import like0 from '../../assets/icons/like0.png'
 import like1 from '../../assets/icons/like1.png'
 import { fetchDataAllPlat } from '../../../api/plat_data'; 
+import { addToFavorites } from '../../../api/favorites';
 
 const Plat = () => {
+    const [liked, setLiked] = useState(false);
+    const userId=1;
+    const handleLikeClick = () => {
+        const plat = data.find((item) => item.id == state.idplat); // Récupérer l'objet correspondant
+        if (plat) {
+            setLiked(!liked); 
+            addToFavorites(userId, plat.Titre); // Utiliser l'ID de l'objet trouvé
+        } else {
+            console.error("Plat non trouvé !");
+        }
+    };
+
     // Déclaration de l'État
     const [data, setData] = useState([]); //useState([]) : Cela initialise un état local nommé data avec une valeur par défaut d'un tableau vide.
     //  setData est la fonction qui vous permettra de mettre à jour cet état plus tard
@@ -54,9 +67,13 @@ const Plat = () => {
                             <div className='plat-title'>
                                 <h1>{item.Titre}</h1>
                             </div>
-                            <div className='plat-like'>
-                                <img src={like0} />
+                            <div className="plat-like" onClick={handleLikeClick}>
+                                <img
+                                    src={favorites.includes(item.Titre) ? (liked ? like0 : like1) : (liked ? like1 : like0)}
+                                    alt="Like button"
+                                />
                             </div>
+
                         </div>
                         <div className='plat-ingredient'>
                             <h2>Ingrédients</h2>
