@@ -26,7 +26,7 @@ const Plat = () => {
         // Vérifier si le plat est déjà dans l'historique
         const plat = data.find((item) => item.id == state.idplat);
         if (plat) {
-          const response = await fetch(`http://localhost:8080/toutHistorique/${userId}`, {
+          const response = await fetch(`http://localhost:8081/toutHistorique/${userId}`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -35,6 +35,7 @@ const Plat = () => {
           });
           const result = await response.json();
           setLikedPlats((prev) => ({ ...prev, [plat.id]: result.exists })); // `result.exists` doit être un booléen (true si dans l'historique)
+
         }
       } catch (error) {
         console.error('Error in fetching data:', error);
