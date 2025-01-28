@@ -8,6 +8,7 @@
     background-color: #FFFEE6;
     display: flex;
     justify-content: space-between;
+    align-items: end;
 }
 
 .rapport-dish-oneday{
@@ -110,10 +111,11 @@
 }
 .rapport-part3{
     position: fixed;
-    bottom: 2vh;
-    right: 50px;
+    top: 8vh;
+    right: 20px;
     display: flex;
-    gap: 20px;
+    width: calc(29vw - 40px);
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -130,6 +132,7 @@
     flex-wrap: wrap;
     gap: 0;
     margin: 0%;
+    margin-bottom: 20px;
     max-width: 55vw;
 }
 
@@ -166,8 +169,8 @@
 }
 
 .export-pdf-rapport{
-    background-color: #FFFEE6;
-    border-radius: 5px;
+    background-color: #FF9C9F;
+    border-radius: 50px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     width: fit-content;
     height: fit-content;
@@ -176,7 +179,17 @@
     justify-items: center;
 }
 .export-pdf-rapport img{
-    width: 35px;
-    height: 35px;
-    margin: 10px 5px;
+    width: 40px;
+    height: 40px;
+    margin: 10px 10px;
+}
+
+.rapport-part3 h2{
+    background-color: #6E9955;
+    color: white;
+    width: 21vw;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
