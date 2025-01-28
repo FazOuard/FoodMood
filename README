@@ -32,3 +32,7 @@ BEGIN
 
     RETURN;
 END;
+
+
+runniw hadi :
+npm install jspdf html2canvas jspdf-autotable
