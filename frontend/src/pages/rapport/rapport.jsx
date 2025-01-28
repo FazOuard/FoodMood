@@ -74,6 +74,8 @@ const Rapport = () => {
         exportToPDF(ingData);
       };
 
+    console.log(ingData)
+
     return (
         <div>
             <NavBar/>
