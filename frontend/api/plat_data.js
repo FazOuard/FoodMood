@@ -19,12 +19,13 @@ export const fetchDataAllPlat = async () => {
   };
 
 
-  export const fetchIngGroupPlat = async (idsPlats) => {
+  export const fetchIngGroupPlat = async (idsPlats, nombresPersonnes2) => {
     try {
   
       const response = await axios.post('http://localhost:5000/IngGroupPlat', {
         idsPlats: idsPlats,
-        nombresPersonnes: Array(idsPlats.length).fill(1),
+        nombresPersonnes: nombresPersonnes2,
+        //nombresPersonnes: Array(idsPlats.length).fill(1),
       });
   
       const data = response.data;
