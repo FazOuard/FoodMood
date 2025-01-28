@@ -6,7 +6,7 @@ from ..database import ApiSQLEngine
 import json
 import plotly
 
-statistique_bp = Blueprint('recommendationPreferences_bp', __name__)
+statistique_bp = Blueprint('statistique_bp', __name__)
 plat = pd.read_sql_query("SELECT * FROM plat", ApiSQLEngine)
 # Charger les données de la base de données dans un DataFrame
 historique = pd.read_sql_query("SELECT * FROM historique", ApiSQLEngine)

@@ -4,17 +4,18 @@ import plat from './routers/plat.js'
 import ingredientsRoutes from './routers/ingredientsRoutes.js';
 import platsIngRoutes from './routers/platsIngRoutes.js';
 import router from "./routers/auth.js";
-import ingPlatRoutes from "./routers/ingPlatRoutes.js"
+import ingPlatRoutes from "./routers/ingPlatRoutes.js";
+import userPreferences from "./routers/userPreferenceRouters.js"
+
 
 const app = express();
 app.use(cors()); 
 app.use(express.json());
-
 app.use('/data', plat);
 app.use('/ingredients', ingredientsRoutes);
 app.use('/platsIng', platsIngRoutes);
 app.use('/platIng', ingPlatRoutes);
-
+app.use('/userPreference', userPreferences);
 app.use("/api/auth", router);
 
 const PORT = 5000;
