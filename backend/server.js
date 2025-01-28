@@ -7,9 +7,6 @@ import router from "./routers/auth.js";
 
 import ingPlatRoutes from "./routers/ingPlatRoutes.js";
 import userPreferences from "./routers/userPreferenceRouters.js"
-
-
-import ingPlatRoutes from "./routers/ingPlatRoutes.js"
 import IngGroupPlatRoutes from "./routers/IngGroupPlatRoutes.js"
 
 
