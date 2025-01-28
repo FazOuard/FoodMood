@@ -1,6 +1,5 @@
 import jsPDF from 'jspdf';
 import "jspdf-autotable"; 
-import box from "../assets/icons/box.png"
 
 const exportToPDF = (ingData) => {
     if (!Array.isArray(ingData) || ingData.length === 0) {

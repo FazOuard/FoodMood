@@ -193,3 +193,22 @@
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
+
+.rapport-stats{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 26.7vw;
+    height: 21vh;
+    background-color: #6E9955;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 1vh;
+    margin-left: 0.8vw;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rapport-stats h3{
+    font-size: 14px;
+    color: #FFFEE6;
+}

@@ -8,6 +8,7 @@ import { fetchDataAllPlat, fetchIngGroupPlat } from '../../../api/plat_data';
 import replace2 from "../../assets/replace/replace2.png"
 import exportToPDF from '../../fonctions/exportPDF';
 import pdficon from "../../assets/icons/pdf.png"
+import useCalculateSum from '../../fonctions/CalcSum';
 
 const Rapport = () => {
     const location = useLocation();
@@ -44,6 +45,7 @@ const Rapport = () => {
           try {
             const dishIds = extractDishIds(selectedDishes); 
             const ingData = await fetchIngGroupPlat(dishIds); 
+            
             setIngData(ingData); 
           } catch (error) {
             console.error('Error in fetching data:', error);
@@ -67,8 +69,10 @@ const Rapport = () => {
     
         return totals;
     };
-      
+    
+    const dishIds = extractDishIds(selectedDishes); 
     const { totalQuantity, totalPrice } = calculateTotals(ingData);
+    // const { proteines, lipides, calories, glucides } = useCalculateSum(dishIds);
 
     const handleExportPDF = () => {
         exportToPDF(ingData);
@@ -109,6 +113,15 @@ const Rapport = () => {
                             </div>
                         </div>
                     ))}
+
+                    <div className='rapport-stats'>
+                        <h3>Pour une seule personne avec ces plats vous allez avoir</h3>
+                        {/* <p>Proteins: {proteines}</p>
+                        <p>Lipides: {lipides}</p>
+                        <p>Calories: {calories}</p>
+                        <p>Glucides: {glucides}</p>  */}
+                    </div>
+
                 </div>
                 <div className='rapport-part2'>
                     <h3>Ingrédients</h3>
