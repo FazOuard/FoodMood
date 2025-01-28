@@ -9,6 +9,10 @@ import replace2 from "../../assets/replace/replace2.png"
 import exportToPDF from '../../fonctions/exportPDF';
 import pdficon from "../../assets/icons/pdf.png"
 import useCalculateSum from '../../fonctions/CalcSum';
+import proteines2 from '../../assets/icons/rapport/proteines.png'
+import glucides2 from '../../assets/icons/rapport/glucides.png'
+import calories2 from '../../assets/icons/rapport/calories.png'
+import lipides2 from '../../assets/icons/rapport/lipides.png'
 
 const Rapport = () => {
     const location = useLocation();
@@ -70,10 +74,11 @@ const Rapport = () => {
         return totals;
     };
     
-    const dishIds = extractDishIds(selectedDishes); 
+    const dishIds = extractDishIds(selectedDishes).map(Number); 
     const { totalQuantity, totalPrice } = calculateTotals(ingData);
-    // const { proteines, lipides, calories, glucides } = useCalculateSum(dishIds);
-
+    
+    const { proteines, lipides, calories, glucides } = useCalculateSum(dishIds);
+   
     const handleExportPDF = () => {
         exportToPDF(ingData);
       };
@@ -116,11 +121,51 @@ const Rapport = () => {
 
                     <div className='rapport-stats'>
                         <h3>Pour une seule personne avec ces plats vous allez avoir</h3>
-                        {/* <p>Proteins: {proteines}</p>
-                        <p>Lipides: {lipides}</p>
-                        <p>Calories: {calories}</p>
-                        <p>Glucides: {glucides}</p>  */}
-                    </div>
+                        <div className='stats-vert-line'/>
+                        <div className='stats-hor-line'/>
+                        <div className='rapport-stats-all'>
+                        <div className='rapport-stat-one'>
+                            <img src={proteines2} />
+                            <div className='rapport-stat-one-text'>
+                                <div className='rapport-stat-one-text-details'>
+                                    <h2>{proteines}<div className='rapport-stat-one-text-details2'> g</div></h2>
+                                    
+                                </div>
+                                <div className='rapport-stat-one-text-details3'>
+                                <h5>Proteins</h5></div>
+                            </div>
+                        </div>
+                        <div className='rapport-stat-one'>
+                            <img src={lipides2} />
+                            <div className='rapport-stat-one-text'>
+                                <div className='rapport-stat-one-text-details'>
+                                    <h2>{lipides}<div className='rapport-stat-one-text-details2'> g</div></h2>
+                                    
+                                </div>
+                                <h5>Lipides</h5>
+                            </div>
+                        </div>
+                        <div className='rapport-stat-one'>
+                            <img src={calories2} />
+                            <div className='rapport-stat-one-text'>
+                                <div className='rapport-stat-one-text-details'>
+                                    <h2>{calories}<div className='rapport-stat-one-text-details2'> Kcal</div></h2>
+                                    
+                                </div>
+                                <h5>Calories</h5>
+                            </div>
+                        </div>
+                        <div className='rapport-stat-one'>
+                            <img src={glucides2} />
+                            <div className='rapport-stat-one-text'>
+                                <div className='rapport-stat-one-text-details'>
+                                    <h2>{glucides}<div className='rapport-stat-one-text-details2'> g</div></h2>
+                                    
+                                </div>
+                                <h5>Glucides</h5>
+                            </div>
+                        </div>
+                    </div></div>
 
                 </div>
                 <div className='rapport-part2'>
