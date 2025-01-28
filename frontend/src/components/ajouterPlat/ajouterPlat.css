@@ -8,8 +8,10 @@
     border-radius: 8px;
     background: white;
     width: auto;
-    height:100%;
+    height:auto;
     right: 16vw;
+    overflow-y: unset;
+    scrollbar-width: thin;
   }
   
   .form-group {
@@ -19,11 +21,16 @@
     margin-top: 0px;
     margin-bottom: 0px;
     width:auto;
+    overflow-y: auto;
+    
 
   }
 
   .all-ajout{
     width: 84%;
+    
+    max-height: 550px; /* Définissez une hauteur maximale */
+    overflow-y: auto;
   }
   .all-ajout h1 {
     margin-bottom: 20px;
@@ -65,5 +72,6 @@
     border: 2px solid rgba(255, 255, 255, 0.3);
     margin: 20px;
     border-radius: 10px;
+    
     
   }
