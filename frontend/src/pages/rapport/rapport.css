@@ -12,36 +12,57 @@
 
 .rapport-dish-oneday{
     display: flex;
+    gap: 0.4vw;
 }
 
 .rapport-onedish img{
-    width: 90px;
-    height: calc((92vh / 7) - (4px * 7));
-    border-radius: 5px;
+    width: 6vw;
+    height: 12.5vh;
+    border-radius: 3px;
 }
 
 .rapport-onedish h6{
     text-align: center;
     margin: 5px;
-    width: 90px;
+    width: 5.5vw;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    position: absolute;
+    bottom: 0.5vh;
+    color: #D6F1C6;
+    z-index: 300;
 }
 
 .rapport-onedish{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 6vw;
+    height: 12.5vh;
+    position: relative;
+    border-radius: 3px;
+    overflow: hidden;
 }
 .rapport-day h2{
-    margin: 15px;
+    margin: 5px 15px;
+    margin-left: 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .rapport-day{
     display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 26.7vw;
+    height: 21vh;
+    background-color: #D6F1C6;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 1vh;
+    margin-left: 0.8vw;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .rapport-ing-info{
@@ -58,6 +79,7 @@
 
 .rapport-ing-info-all{
     display: flex;
+    align-items: stretch;
     gap: 20px;
     overflow-y: scroll;
     height: 64vh;
@@ -65,6 +87,7 @@
 }
 .rapport-part2{
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    width: 29vw;
     padding: 20px;
     margin: 20px;
     border-radius: 5px;
@@ -89,10 +112,70 @@
     position: fixed;
     bottom: 2vh;
     right: 50px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
 .rapport-vertical-line{
-    width: 1.5px;
-    height: 500px;
+    width: 1px;
     background-color: #2C471B;
+    margin: 0;
+    padding: 0%;
+}
+
+.rapport-part1{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 0%;
+    max-width: 55vw;
+}
+
+.rotate-rapport{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.rapport-horizontal-line2{
+    width: 20.5vw;
+    height: 0.2vh;
+    background-color: #2C471B;
+}
+
+.linear-background-rapport{
+    position: absolute;
+    width: 6vw;
+    height: 10vh;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); 
+}
+
+.mad{
+    display: inline;
+    font-size: 8px;
+}
+
+.rapport-ing-info3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.export-pdf-rapport{
+    background-color: #FFFEE6;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.export-pdf-rapport img{
+    width: 35px;
+    height: 35px;
+    margin: 10px 5px;
 }

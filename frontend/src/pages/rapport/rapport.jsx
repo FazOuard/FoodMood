@@ -5,6 +5,9 @@ import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
 import './rapport.css'
 import { fetchDataAllPlat, fetchIngGroupPlat } from '../../../api/plat_data'; 
+import replace2 from "../../assets/replace/replace2.png"
+import exportToPDF from '../../fonctions/exportPDF';
+import pdficon from "../../assets/icons/pdf.png"
 
 const Rapport = () => {
     const location = useLocation();
@@ -67,6 +70,10 @@ const Rapport = () => {
       
     const { totalQuantity, totalPrice } = calculateTotals(ingData);
 
+    const handleExportPDF = () => {
+        exportToPDF(ingData);
+      };
+
     return (
         <div>
             <NavBar/>
@@ -77,6 +84,7 @@ const Rapport = () => {
                         <div key={day} className='rapport-day'>
                             <div className='rotate-rapport'>
                                 <h2>{day}</h2>
+                                <div className='rapport-horizontal-line2'/>
                             </div>
                             <div className='rapport-dish-oneday'>
                                 {item.map((dish, index) => (
@@ -85,11 +93,17 @@ const Rapport = () => {
                                             .map((dish2, index1) => (
                                                 <div key={index1} className='rapport-onedish'>
                                                     <h6>{dish2.Titre}</h6>
+                                                    <div className='linear-background-rapport'/>
                                                     <img src={dish2.Image} />
                                                 </div>
                                             ))}
                                     </div>
                                 ))}
+                                {Array.from({ length: 4 - item.length }).map((_, i) =>(
+                                    <div className='rapport-onedish'>
+                                        <img src={replace2}/>
+                                    </div>
+                                )) }
                             </div>
                         </div>
                     ))}
@@ -106,10 +120,10 @@ const Rapport = () => {
                         ))}
                         </div>
                         <div className='rapport-vertical-line'/>
-                        <div className='rapport-ing-info'>
+                        <div className='rapport-ing-info3'>
                         {ingData.map((ing, index_ing2) => (
                             <div key={index_ing2}>
-                                {ing.QuantityNeeded} {ing.Unit}
+                                {ing.QuantityNeeded} <div className='mad'>{ing.Unit}</div>
                             </div>
                         ))}
                         
@@ -119,7 +133,7 @@ const Rapport = () => {
                         <div className='rapport-ing-info2'>
                         {ingData.map((ing, index_ing3) => (
                             <div key={index_ing3} >
-                                {ing.TotalPriceForQuantity} MAD
+                                {ing.TotalPriceForQuantity.toFixed(2)} <div className='mad'>MAD</div>
                             </div>
                         ))}
                         </div>
@@ -128,6 +142,10 @@ const Rapport = () => {
 
                 <div className='rapport-part3'>
                     <h2>Total: {totalPrice.toFixed(2)} MAD</h2>
+                    
+                <div className='export-pdf-rapport' onClick={handleExportPDF}>
+                    <img src={pdficon} />
+                </div>
                 </div>
             </div>
         </div>
