@@ -35,4 +35,4 @@ END;
 
 
 runniw hadi :
-npm install jspdf html2canvas
+npm install jspdf html2canvas jspdf-autotable
