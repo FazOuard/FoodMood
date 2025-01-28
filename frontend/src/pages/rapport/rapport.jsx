@@ -13,6 +13,7 @@ import proteines2 from '../../assets/icons/rapport/proteines.png'
 import glucides2 from '../../assets/icons/rapport/glucides.png'
 import calories2 from '../../assets/icons/rapport/calories.png'
 import lipides2 from '../../assets/icons/rapport/lipides.png'
+import NbrPerson2 from '../../components/nbrPerson2/nbrPerson2';
 
 const Rapport = () => {
     const location = useLocation();
@@ -20,6 +21,12 @@ const Rapport = () => {
     
     const [data, setData] = useState([]); 
     const [ingData, setIngData] = useState([]); 
+    
+    const [nbrpersons, setNbr] = useState(1);
+
+    const handleCountChange = (newCount) => {
+		setNbr(newCount);
+	  };
 
     const extractDishIds = (selectedDishes) => {
         const dishIds = [];
@@ -108,6 +115,8 @@ const Rapport = () => {
                                                     <img src={dish2.Image} />
                                                 </div>
                                             ))}
+                                        
+			                            <NbrPerson2 value={nbrpersons} onChange={handleCountChange}/>
                                     </div>
                                 ))}
                                 {Array.from({ length: 4 - item.length }).map((_, i) =>(
