@@ -1,6 +1,6 @@
 export const addToFavorites = async (userId, platId) => {
     try {
-      const response = await fetch("http://localhost:8081/historique", {
+      const response = await fetch("http://localhost:5000/historique", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export const addToFavorites = async (userId, platId) => {
   export const deleteInteraction = async (user_id, plat) => {
     try {
         // Effectuer la requête fetch
-        const response = await fetch('http://localhost:8081/deleteHistorique', {
+        const response = await fetch(`http://localhost:5000/historique/${user_id}/${plat}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,5 +1,5 @@
 import express from 'express';
-import { getUsersPreferences } from "../controllers/userPreferencesController.js";
+import { getUsersPreferences,deleteUser } from "../controllers/userPreferencesController.js";
  
 
 const userPreferences = express.Router();

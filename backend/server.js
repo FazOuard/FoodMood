@@ -9,6 +9,7 @@ import routerr from "./routers/ajouter.js";
 import userPreferences from "./routers/userPreferenceRouters.js"
 import IngGroupPlatRoutes from "./routers/IngGroupPlatRoutes.js"
 import userRoutes from "./routers/userRoutes.js"
+import historiqueRouter from "./routers/historiqueRouter.js"
 
 
 const app = express();
@@ -25,8 +26,8 @@ app.use('/IngGroupPlat', IngGroupPlatRoutes);
 
 app.use("/api/auth", router);
 app.use("/api/ajouter", routerr);
-
 app.use("/users", userRoutes)
+app.use("/historique", historiqueRouter);
 
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
