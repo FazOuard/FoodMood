@@ -21,7 +21,7 @@ const navigate = useNavigate();
     }
   useEffect(() => {
     // Premier fetch
-    fetch(`http://localhost:8080/statistique/${userId}`)
+    fetch(`http://localhost:8081/statistique/${userId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors du chargement des statistiques");

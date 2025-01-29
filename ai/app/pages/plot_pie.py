@@ -22,10 +22,10 @@ dish_counts["percentage"] = dish_counts["count"] / dish_counts["count"].sum() * 
 # Création des couleurs et des angles pour le graphique
 dish_counts['angle'] = dish_counts['count'] / dish_counts['count'].sum() * 2 * np.pi
 
-# Palette de couleurs plus harmonieuse
+# Palette de couleurs dans la famille des verts
 palette = [
-    '#56B4E9', '#D55E00', '#009E73', '#CC79A7', '#F0E442', '#E69F00', '#0072B2', '#F0A500', 
-    '#7F7F7F', '#A9A9A9'
+    '#2C8A5D', '#66B04F', '#4D8036', '#78C76E', '#A3D38A', '#8DBE5F', '#5A9A3A', '#97D68C',
+    '#3C763E', '#A5D7A1'
 ]
 dish_counts['color'] = [palette[i % len(palette)] for i in range(len(dish_counts))]
 
@@ -36,17 +36,20 @@ def plot_pie():
             values=dish_counts['count'],  
             hoverinfo='label+percent',  
             marker=dict(colors=dish_counts['color']),
-            textinfo='percent',  
-            textfont=dict(size=14, color='white'), 
+            textinfo='none',  
+            textfont=dict(size=14, color='black'), 
             pull=[0.1 if i % 2 == 0 else 0 for i in range(len(dish_counts))],  
             opacity=0.8,  
-            domain=dict(x=[0.1, 0.9], y=[0.1, 0.9]) ,
+            domain=dict(x=[0.1, 0.9], y=[0.1, 0.9]),
             hole=0.3
         )],
         layout=go.Layout(
-            title_font=dict(size=24, family='Arial', color='black'),  
-            showlegend=False,  
-            margin=dict(t=0, b=0, l=0, r=0),  
+           title=dict(text="Plats préférés des utilisateurs", font=dict(size=24, family='Helvetica', color='black', weight='bold'), x=0.5),
+            title_font=dict(size=24, family='Helvetica', color='black', weight='bold'), 
+             title_x=0.5,                 # Centrer le titre (valeur de 0 à 1, 0.5 est au centre)
+            
+            showlegend=True,  
+            
             plot_bgcolor='white',  
             paper_bgcolor='white',  
             hoverlabel=dict(
@@ -55,13 +58,9 @@ def plot_pie():
                 font_family="Arial", 
                 font_color="grey"
             ),
-            font=dict(family='Arial', size=14, color='black'),  
-            autosize=False,
-            width=835,
-            height=835, 
+            font=dict(family='Arial', size=14, color='black'),
+            
         )
     )
     
     return fig
-
-

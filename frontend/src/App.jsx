@@ -20,6 +20,8 @@ import Rapport from './pages/rapport/rapport.jsx';
 import ManagePlaces from './pages/admin/ManagePlaces.jsx';
 import Statistique from './components/statistique/statistique.jsx';
 
+import Profile from './pages/profile/profile.jsx';
+
 
 function App() {
 
@@ -28,7 +30,7 @@ function App() {
     <div className="custom-cursor">
     <Router>
       <Routes>
-        <Route path="/" element={<Recommendation />} />
+        <Route path="/recomm" element={<Recommendation />} />
         <Route path="/plats" element={<Plat_All />} />
         <Route path="/ajouterPlat" element={<AjouterPlat />} />
         <Route path="/platinfo" element={<Plat_info />} />
@@ -37,7 +39,8 @@ function App() {
         <Route path="/planifier" element={<Planifier />} />
         <Route path="/planSemaine" element={<PlanWeek />} />
         <Route path="/planMois" element={<PlanMonth />} />
-        <Route path="/auth" element={<Authentication />} /> 
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<Authentication />} /> 
         <Route path="/Creat" element={<RegistrationForm />} />
         <Route path="/Admin" element={<ProfilAdmin />} >
           <Route path="Dashboard" element={<PlotComponent />} />

@@ -7,12 +7,13 @@ import { IoFastFoodOutline } from "react-icons/io5";
 
 const ProfilAdmin = () => {
   return (
+    
     <div className="wrapperFaz">
      
 
       <div className="sectionFaz back-greyFaz">
         <div className="container-customFaz">
-          {/* Barre latérale */}
+          
           <div className="sidebar-customFaz">
             <ul className="nav-listFaz">
               <li>
@@ -33,7 +34,7 @@ const ProfilAdmin = () => {
             </ul>
           </div>
 
-          {/* Contenu principal */}
+          
           <div className="content-customFaz">
             <Outlet />
           </div>

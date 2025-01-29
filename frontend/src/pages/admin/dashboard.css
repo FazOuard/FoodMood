@@ -1,69 +1,300 @@
 .dashboard-containerFaz {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   padding: 20px;
-  background-color: #f5f5f5;
-  min-height: 100vh;
-  align-items: center; /* Centrer horizontalement */
-  justify-content: center; /* Centrer verticalement */
+  background-color: #fff; /* Couleur de fond plus moderne */
+  
 }
 
 .blocksFaz {
   display: flex;
-  gap: 20px;
-  justify-content: center; /* Centre les blocs horizontalement */
-  flex-wrap: wrap; /* Permet aux blocs de passer à la ligne si nécessaire */
+  gap: 50px;
+  flex-direction: row;
 }
 
 .blockFaz {
-  display: flex;
-  align-items: center; /* Centre verticalement */
-  justify-content: center; /* Centre horizontalement */
-  gap: 10px;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #6b5b95; /* Couleur pour tester */
+  border-radius: 12px;
+  height: 120px; /* Hauteur uniforme */
   padding: 20px;
   color: #fff;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 12px;
-  width: 250px;
-  height: 80px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.9rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .blockFaz:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05); /* Agrandissement au survol */
 }
 
 .block1 {
-  background-color: #ff6f61;
+  background: linear-gradient(135deg, #88b04b, #9dd06b);
+}
+
+/* Style pour le nombre (chiffre) */
+.blockFaz-number {
+  font-size: 3.5rem; /* Taille plus grande pour le chiffre */
+  font-weight: bold; /* Rend le chiffre plus puissant */
+  color: #fff; /* Peut être ajusté pour une meilleure visibilité */
+}
+
+/* Style pour le texte descriptif */
+.blockFaz-text {
+  font-size: 1.2rem; /* Plus petit pour différencier du chiffre */
+  font-weight: normal;
+  display: inline-flex;
+  align-items: center; /* Aligne l'icône et le texte */
+ 
+}
+
+/* Style pour l'icône */
+.blockFaz-icon {
+  font-size: 2.5rem; /* Plus grand que le texte */
+  color: #fff; /* S'aligne avec la couleur générale */
+  flex-shrink: 0; 
+}
+
+
+
+.block1 {
+  background: linear-gradient(135deg, #88b04b, #9dd06b);
 }
 
 .block2 {
-  background-color: #6b5b95;
+  background: linear-gradient(135deg, #2C471B, #538136);
 }
 
 .block3 {
-  background-color: #88b04b;
+  background: linear-gradient(135deg, #88b04b, #9dd06b);
 }
 
-.chart-containerFaz {
+.ImageContainerFaz {
   display: flex;
-  flex-wrap: wrap; /* Permet aux graphiques de passer à la ligne si nécessaire */
-  justify-content: center; /* Centre les graphiques */
-  gap: 20px;
-  width: 100%;
+  justify-content: space-between; 
+  flex-direction: row;
+  gap:50px;
 }
 
-.plotFaz {
-  flex: 1 1 500px; /* S'adapte à la largeur disponible avec une taille minimum */
-  background-color: #fff;
+.imageFaz {
+  position: relative; /* Nécessaire pour positionner les éléments enfants */
+  width: 400px; /* Largeur fixée pour l'image */
+  height: auto; /* Conserver les proportions de l'image */
+  border-radius: 8px;
+  overflow: hidden; /* Empêche les coins arrondis de déborder */
+}
+
+.imageFaz img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Assurer que l'image a aussi les bords arrondis */
+  background: linear-gradient(to top, rgba(144, 238, 144, 0.7), rgba(169, 169, 169, 0.7)); /* Appliquer un dégradé */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(33, 59, 33, 0.6), rgba(198, 235, 195, 0.8)); /* Dégradé vert clair vers gris */
+  border-radius: 8px; /* Coins arrondis */
+  pointer-events: none; /* Empêche l'overlay de bloquer les interactions avec l'image */
+}
+/*
+.plotFaz1 {
+  border-radius: 15px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  display:flex;
+  justify-content: center;
+  align-items: center;
+ 
+
+}*/
+
+
+
+.tableauFaz {
+  width: 100%;
+  background-color: #fff; /* Couleur de fond pour la section de la table */
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px; /* Largeur maximale pour limiter la taille */
-  min-width: 300px; /* Largeur minimale pour maintenir une bonne lisibilité */
+  margin-top: 20px;
+  overflow-x: auto; /* Pour permettre le défilement horizontal si nécessaire */
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse; /* Pour éviter les espaces entre les cellules */
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd; /* Ligne de séparation des cellules */
+}
+
+.data-table th {
+  background-color: #2C471B; /* Couleur de fond pour les en-têtes */
+  color: #fff; /* Couleur du texte des en-têtes */
+  font-size: 1.1rem;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Couleur de fond pour les lignes paires */
+}
+
+.data-table tr:hover {
+  background-color: #f1f1f1; /* Survol de ligne */
+  cursor: pointer; /* Changement du curseur au survol */
+}
+
+/* Style spécifique pour la table en mode mobile */
+@media screen and (max-width: 768px) {
+  .data-table th, .data-table td {
+    padding: 8px 10px;
+  }
+
+  .data-table {
+    font-size: 0.9rem;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background-color: #2C471B;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width:100px;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #538136;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+
+  .graphiqueFaz {
+    
+    justify-content: center; 
+    align-items: center;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  
+ 
+  
+  /* Styles spécifiques aux graphiques */
+
+  .graphiqueFaz > div {
+    width: 90%; /* Limiter la largeur des graphiques */
+    
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Vert vif pour les fonds des graphiques */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Ajout d'un fond coloré aux graphiques */
+  .graphiqueFaz {
+    margin-top: 30px;
+  }
+
+ .plotFaz2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #DFFFE0;
+  border-radius:5px;
+ }
+
+
+
+ .chart-containerFaz {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 5px;
+
+}
+
+.chartFaz {
+  width: 100%;  /* Ajuste la largeur à 45% de l'espace disponible */
+  height: 400px;  /* Ajuste la hauteur de chaque graphique */
+}
+
+.chartFaz > div {
+  width: 90%; /* Limiter la largeur des graphiques */
+  height:100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* Vert vif pour les fonds des graphiques */
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+
+
+.chartFaz2 {
+  width: 100%;  /* Ajuste la largeur à 45% de l'espace disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chartFaz2 > div {
+  width: 100%; /* Limiter la largeur des graphiques */
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* Vert vif pour les fonds des graphiques */
+
+
+
+}
+
+
+.textFazH2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.textFazH2:hover {
+  color: #88b04b;  /* Changer la couleur du texte au survol */
+  transform: scale(1.1);  /* Agrandir légèrement le texte */
 }

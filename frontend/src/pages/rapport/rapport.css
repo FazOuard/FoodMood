@@ -4,4 +4,271 @@
     left: 16vw;
     width: 84vw;
     height: 92vh;
+    color: #2C471B;
+    background-color: #FFFEE6;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.rapport-dish-oneday{
+    display: flex;
+    gap: 0.4vw;
+}
+
+.rapport-onedish img{
+    width: 6vw;
+    height: 12.5vh;
+    border-radius: 3px;
+}
+
+.rapport-onedish h6{
+    text-align: center;
+    margin: 5px;
+    width: 5.5vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 0.5vh;
+    color: #D6F1C6;
+    z-index: 300;
+}
+
+.rapport-onedish{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 6vw;
+    height: 12.5vh;
+    position: relative;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.rapport-day h2{
+    margin: 5px 15px;
+    margin-left: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+.rapport-day{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 26.7vw;
+    height: 21vh;
+    background-color: #D6F1C6;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 1vh;
+    margin-left: 0.8vw;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rapport-ing-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.rapport-ing-info2{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 10px;
+}
+
+.rapport-ing-info-all{
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    overflow-y: scroll;
+    height: 64vh;
+    scrollbar-width: thin;
+}
+.rapport-part2{
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    width: 29vw;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.rapport-part2 h3{
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rapport-horizontal-line{
+    width: 350px;
+    height: 1.5px;
+    background-color: #2C471B;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+.rapport-part3{
+    position: fixed;
+    top: 8vh;
+    right: 20px;
+    display: flex;
+    width: calc(29vw - 40px);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rapport-vertical-line{
+    width: 1px;
+    background-color: #2C471B;
+    margin: 0;
+    padding: 0%;
+    height: 200%;
+}
+
+.rapport-part1{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 0%;
+    margin-bottom: 20px;
+    max-width: 55vw;
+}
+
+.rotate-rapport{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.rapport-horizontal-line2{
+    width: 20.5vw;
+    height: 0.2vh;
+    background-color: #2C471B;
+}
+
+.linear-background-rapport{
+    position: absolute;
+    width: 6vw;
+    height: 10vh;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); 
+}
+
+.mad{
+    display: inline;
+    font-size: 8px;
+}
+
+.rapport-ing-info3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.export-pdf-rapport{
+    background-color: #FF9C9F;
+    border-radius: 50px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.export-pdf-rapport img{
+    width: 40px;
+    height: 40px;
+    margin: 10px 10px;
+}
+
+.rapport-part3 h2{
+    background-color: #6E9955;
+    color: white;
+    width: 21vw;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rapport-stats{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 26.7vw;
+    height: 21vh;
+    background-color: #6E9955;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 1vh;
+    margin-left: 0.8vw;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.rapport-stats h3{
+    font-size: 13px;
+    color: #D6F1C6;
+    margin: 5px 0;
+}
+
+.rapport-stat-one img{
+    width: 38px;
+    height: 38px;
+}
+
+.rapport-stat-one{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin: 0px 20px 10px 20px;
+}
+
+.rapport-stat-one-text{
+    color: #FFFEE6;
+    display: flex;
+    flex-direction: column;
+}
+
+.rapport-stat-one-text-details{
+    display: flex;
+    align-items: end;
+    gap: 2px;
+}
+
+.rapport-stat-one-text-details h2{
+    margin: 0%;
+}
+
+.rapport-stat-one-text-details2{
+    display: inline;
+    font-size: 10px;
+}
+
+.rapport-stat-one-text h5{
+    margin: 0%;
+}
+
+.rapport-stats-all{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.stats-vert-line{
+    position: absolute;
+    width: 1px;
+    height: 100px;
+    background-color: #FFFEE6;
+    top: 6vh;
+}
+.stats-hor-line{
+    position: absolute;
+    width: 23vw;
+    height: 1px;
+    background-color: #FFFEE6;
+    top: 12vh;
 }

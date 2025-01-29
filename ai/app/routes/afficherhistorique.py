@@ -2,9 +2,9 @@ from flask import Blueprint, request, jsonify
 import pandas as pd
 from ..pages.historique import get_user_historique  # Importer la fonction
 
-gethistorique_bp = Blueprint('getUserHistorique', __name__)
+gethistorique_bp = Blueprint('toutHistorique', __name__)
 
-@gethistorique_bp.route('/getUserHistorique', methods=['GET'])
+@gethistorique_bp.route('/toutHistorique', methods=['GET'])
 def get_historique():
     # Lire les paramètres de la requête
     user_id = request.args.get('user_id', type=int)  # Récupérer le user_id depuis les paramètres

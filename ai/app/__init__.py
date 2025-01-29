@@ -8,6 +8,7 @@ from .routes.data import data_bp
 from .routes.statistiques import statistique_bp
 from .routes.delete import historiqueDelete_bp
 from .routes.afficherhistorique import gethistorique_bp
+from .routes.tendancePlot import statistiquementPlot_bp
 from flask_cors import CORS
 
 def create_app():
@@ -24,6 +25,6 @@ def create_app():
     app.register_blueprint(statistique_bp)
     app.register_blueprint(historiqueDelete_bp)
     app.register_blueprint(gethistorique_bp)
-
+    app.register_blueprint(statistiquementPlot_bp)
     
     return app

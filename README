@@ -32,3 +32,13 @@ BEGIN
 
     RETURN;
 END;
+
+
+runniw hadi :
+npm install jspdf html2canvas jspdf-autotable
+
+
+Structure dyal state 7ed l2an:
+{
+    "iduser": "id dyal l'utilisateur li mconnecter"
+}
