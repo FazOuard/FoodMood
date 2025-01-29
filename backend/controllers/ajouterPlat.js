@@ -10,21 +10,21 @@ const addDish = async (req, res) => {
 
     // Vérifier si le plat existe déjà
     request.input("titre", sql.VarChar, titre);
-    const result = await request.query("SELECT * FROM Plat WHERE Titre = @titre");
+    const result = await request.query("SELECT * FROM plat WHERE Titre = @titre");
 
     if (result.recordset.length > 0) {
       return res.status(400).json({ success: false, error: "Ce plat existe déjà." });
     }
 
-    // Insérer le plat dans la base de données
+    // Insérer le plat dans la base de données avec l'URL de l'image
     request.input("recette", sql.Text, recette);
     request.input("duree", sql.Int, duree);
-    request.input("ingredients", sql.VarChar, ingredients.join(",")); // Stocker les ingrédients sous forme de chaîne
+    request.input("ingredients", sql.Text, ingredients);
     request.input("calories", sql.Int, calories);
     request.input("proteines", sql.Int, proteines);
     request.input("lipides", sql.Int, lipides);
     request.input("glucides", sql.Int, glucides);
-    request.input("image", sql.VarChar, image);
+    request.input("image", sql.VarChar, image); // Utiliser l'URL de l'image
     request.input("cuisine", sql.VarChar, cuisine);
     request.input("categorie", sql.VarChar, categorie);
     request.input("youtube", sql.VarChar, null); // La vidéo est toujours null
@@ -49,3 +49,4 @@ const addDish = async (req, res) => {
 };
 
 export { addDish };
+
