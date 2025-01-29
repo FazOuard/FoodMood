@@ -6,7 +6,9 @@ import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import des icônes
 import "./Creat.css";
 
 const RegistrationForm = () => {
+
   const [step, setStep] = useState(1);
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -15,9 +17,12 @@ const RegistrationForm = () => {
     city: "",
     favoriteDishes: [],
   });
+
   const [error, setError] = useState("");
+
   const [showPassword, setShowPassword] = useState(false); // État pour afficher ou masquer le mot de passe
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // État pour afficher ou masquer le mot de passe de confirmation
+
   const navigate = useNavigate(); // Hook pour la redirection
 
   const handleChange = (e) => {
@@ -70,7 +75,7 @@ const RegistrationForm = () => {
   
       if (response.ok && data.success) {
         alert(data.message);
-        navigate("/login");  // Rediriger vers la page de login après inscription
+        navigate("/plats");  // Rediriger vers la page de login après inscription
       } else {
         setError(data.error || "Erreur lors de l'inscription.");
       }

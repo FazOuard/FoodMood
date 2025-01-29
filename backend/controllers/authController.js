@@ -44,7 +44,7 @@ const registerUser = async (req, res) => {
 
 
       await request.query(
-        "INSERT INTO Users (username, password, age, city, favoriteDishes) VALUES (@username, @password, @age, @city, @favoriteDishes)"
+        "INSERT INTO Users (username, password, age, city, favoriteDishes, type) VALUES (@username, @password, @age, @city, @favoriteDishes, 'user')"
       );
 
       return res.status(201).json({
