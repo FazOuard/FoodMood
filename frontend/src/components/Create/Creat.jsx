@@ -75,7 +75,7 @@ const RegistrationForm = () => {
   
       if (response.ok && data.success) {
         alert(data.message);
-        navigate("/plats");  // Rediriger vers la page de login après inscription
+        navigate("/");  // Rediriger vers la page de login après inscription
       } else {
         setError(data.error || "Erreur lors de l'inscription.");
       }

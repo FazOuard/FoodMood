@@ -9,7 +9,7 @@ import femme from "../../assets/icons/femme.png"
 import { fetchDataUser } from '../../../api/userData';
 import loc from '../../assets/icons/loc.png'
 import age from '../../assets/icons/age.png'
-import { processPreferredDishes } from '../../../api/userPreferencesData';
+import { processPreferredDishes, processPreferredDishesAge } from '../../../api/userPreferencesData';
 import like1 from "../../assets/icons/like1.png"
 
 
@@ -20,10 +20,9 @@ const Profile = () => {
 
     const [user, setUser] = useState();
     const [prefReg, setPrefReg] = useState([]);
+    const [prefAge, setPrefAge] = useState([]);
 
     const iduser = state?.iduser || 2;
-
-    console.log("this is the id in the frontend: ",iduser)
 
     useEffect(() => {
         const getData = async () => {
@@ -43,7 +42,7 @@ const Profile = () => {
     useEffect(() => {
         const getData = async () => {
           try {
-            const data = await processPreferredDishes("Rabat-Salé-Kenitra"); 
+            const data = await processPreferredDishes("Fès-Meknès"); 
             setPrefReg(data); 
           } catch (error) {
             console.error('Error in fetching data:', error);
@@ -51,9 +50,24 @@ const Profile = () => {
         };
     
         getData();
-    }, []);
+    }, [iduser]);
 
-    console.log("this is: ", prefReg)
+    useEffect(() => {
+        if (user?.age) {
+            const getData = async () => {
+                try {
+                    const data = await processPreferredDishesAge(user.age); 
+                    setPrefAge(data); 
+                } catch (error) {
+                    console.error('Error in fetching data:', error);
+                }
+            };
+        
+            getData();
+        }
+    }, [user?.age]);
+
+    console.log("this is: ", prefAge)
 
     return (
         <div>
@@ -106,7 +120,21 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className='profile4'>
-                        
+                    <h4>Plats préférés des personnes dans la tranche d'âge de {user?.age - 5} à {user?.age + 5} ans</h4>
+                        <div className='profile3-dishes'>
+                            {prefAge.map((dish2, key2) => (
+                                <div className='profile3-dish' key={key2}>
+                                    <img src={dish2.image} />
+                                    
+                                    <div className='profile-dish-image-shadow'/>
+                                    <h3>{dish2.dish.charAt(0).toUpperCase() + dish2.dish.slice(1)}</h3>
+                                    <div className='profile-dish-like'>
+                                        <img src={like1} />
+                                        <h5>{dish2.count}</h5>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
                 <div className='profile2'>

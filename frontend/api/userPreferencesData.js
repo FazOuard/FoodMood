@@ -62,18 +62,6 @@ export const getTopPreferredDishes = (data) => {
     return sortedDishes;
 };
 
-// export const processPreferredDishes = async (region) => {
-//     try {
-//         const data = await fetchDataPrefreg(region); 
-//         const sortedDishes = getTopPreferredDishes(data);
-
-//         console.log("Most preferred dishes:", sortedDishes);
-//         return sortedDishes;
-//     } catch (error) {
-//         console.error("Error processing dishes:", error);
-//     }
-// };
-
 export const processPreferredDishes = async (region) => {
     try {
         const data = await fetchDataPrefreg(region);
@@ -104,13 +92,38 @@ export const getTop5Dishes = (dishes) => {
         .slice(0, 5); 
 };
 
+////////////////////////////////////////////////////////////////
+// export const fetchDataPrefage = async (age) => {
+//     try {
+//       const cachedData = sessionStorage.getItem('pref2');
+//       if (cachedData) {
+//         const data = JSON.parse(cachedData);
+//         const filteredData = data.filter((item) => (item.age <= age + 5 && item.age >= age - 5)); 
+//         return filteredData;
+//       }
+
+//       const response = await axios.get('http://localhost:5000/userPreference');
+//       const data = response.data;
+//       sessionStorage.setItem('pref2', JSON.stringify(data));
+
+//       const filteredData = data.filter((item) => (item.age <= age + 5 && item.age >= age - 5)); 
+
+//       return filteredData;
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//       throw error;
+//     }
+// };
 
 export const fetchDataPrefage = async (age) => {
     try {
       const cachedData = sessionStorage.getItem('pref2');
       if (cachedData) {
         const data = JSON.parse(cachedData);
-        const filteredData = data.filter((item) => (item.age === age)); 
+        const filteredData = data.filter((item) => {
+          const itemAge = parseInt(item.age, 10);
+          return itemAge <= age + 5 && itemAge >= age - 5;
+        });
         return filteredData;
       }
 
@@ -118,11 +131,38 @@ export const fetchDataPrefage = async (age) => {
       const data = response.data;
       sessionStorage.setItem('pref2', JSON.stringify(data));
 
-      const filteredData = data.filter((item) => (item.age === age)); 
+      const filteredData = data.filter((item) => {
+        const itemAge = parseInt(item.age, 10);
+        return itemAge <= age + 5 && itemAge >= age - 5;
+      });
 
       return filteredData;
     } catch (error) {
       console.error('Error fetching data:', error);
       throw error;
+    }
+};
+
+export const processPreferredDishesAge = async (age) => {
+    try {
+        const data = await fetchDataPrefage(age);
+        const sortedDishes = getTopPreferredDishes(data);
+
+        const allDishes = await fetchDataAllPlat();
+
+        const mergedDishes = sortedDishes.map(dish => {
+            const matchedDish = allDishes.find(item => item.Titre.toLowerCase() === dish.dish);
+            return {
+                ...dish,
+                id: matchedDish ? matchedDish.id : null,
+                image: matchedDish? matchedDish.Image : null,
+            };
+        });
+
+        const top5 = getTop5Dishes(mergedDishes);
+        return top5;
+    } catch (error) {
+        console.error("Error processing dishes:", error);
+        return [];
     }
 };

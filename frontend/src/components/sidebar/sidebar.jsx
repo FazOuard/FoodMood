@@ -30,6 +30,10 @@ const SideBar = () => {
     const goToProfile = () => {
         navigate("/profile", {state})
     }
+
+    const logOut = () => {
+        navigate("/")
+    }
     
     return (
         <div className='sidebar-all'>
@@ -60,7 +64,7 @@ const SideBar = () => {
             </div>
             <div className='sidebar-choices2'>
                 <div className='sidebar-line'/>
-                <div className='sidebar-choice'>
+                <div className='sidebar-choice' onClick={logOut}>
                     <img src={logout} />
                     <h4>Se déconnecter</h4>
                 </div>
