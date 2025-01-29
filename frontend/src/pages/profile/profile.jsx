@@ -9,6 +9,8 @@ import femme from "../../assets/icons/femme.png"
 import { fetchDataUser } from '../../../api/userData';
 import loc from '../../assets/icons/loc.png'
 import age from '../../assets/icons/age.png'
+import { processPreferredDishes } from '../../../api/userPreferencesData';
+import like1 from "../../assets/icons/like1.png"
 
 
 const Profile = () => {
@@ -17,6 +19,7 @@ const Profile = () => {
     const state = location.state || {};
 
     const [user, setUser] = useState();
+    const [prefReg, setPrefReg] = useState([]);
 
     const iduser = state?.iduser || 2;
 
@@ -36,6 +39,21 @@ const Profile = () => {
     }, [iduser]);
 
     console.log(user)
+
+    useEffect(() => {
+        const getData = async () => {
+          try {
+            const data = await processPreferredDishes("Rabat-Salé-Kenitra"); 
+            setPrefReg(data); 
+          } catch (error) {
+            console.error('Error in fetching data:', error);
+          }
+        };
+    
+        getData();
+    }, []);
+
+    console.log("this is: ", prefReg)
 
     return (
         <div>
@@ -68,11 +86,24 @@ const Profile = () => {
                             </div>
                         </div>
                         <div className='profile5'>
-
                         </div>
                     </div>
                     <div className='profile3'>
-                        
+                        <h4>Plats aimés dans votre région</h4>
+                        <div className='profile3-dishes'>
+                            {prefReg.map((dish1, key1) => (
+                                <div className='profile3-dish' key={key1}>
+                                    <img src={dish1.image} />
+                                    
+                                    <div className='profile-dish-image-shadow'/>
+                                    <h3>{dish1.dish.charAt(0).toUpperCase() + dish1.dish.slice(1)}</h3>
+                                    <div className='profile-dish-like'>
+                                        <img src={like1} />
+                                        <h5>{dish1.count}</h5>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className='profile4'>
                         
