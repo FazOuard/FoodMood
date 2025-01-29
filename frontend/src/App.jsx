@@ -18,6 +18,8 @@ import Rapport from './pages/rapport/rapport.jsx';
 import ManagePlaces from './pages/admin/ManagePlaces.jsx';
 import Statistique from './components/statistique/statistique.jsx';
 
+import Profile from './pages/profile/profile.jsx';
+
 
 function App() {
 
@@ -34,6 +36,7 @@ function App() {
         <Route path="/planifier" element={<Planifier />} />
         <Route path="/planSemaine" element={<PlanWeek />} />
         <Route path="/planMois" element={<PlanMonth />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<Authentication />} /> 
         <Route path="/Creat" element={<RegistrationForm />} />
         <Route path="/Admin" element={<ProfilAdmin />} >
