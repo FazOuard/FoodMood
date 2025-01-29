@@ -6,19 +6,33 @@ import stat from '../../assets/icons/stat.png'
 import dish from '../../assets/icons/dish.png'
 import magic from '../../assets/icons/magic.png'
 import logout from '../../assets/icons/logout.png'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const SideBar = () => {
+
     const navigate = useNavigate();
+
+    
+    const location = useLocation();
+    const state = location.state || {};
+
     const goToAllDishes = () => {
-        navigate('/plats');
+        navigate('/plats', {state});
     }
     const goToPlan = () => {
-        navigate('/planifier');
+        navigate('/planifier', {state});
     }
 
     const goTostatistics = () => {
-        navigate('/statistiques');
+        navigate('/statistiques', {state});
+    }
+
+    const goToProfile = () => {
+        navigate("/profile", {state})
+    }
+
+    const logOut = () => {
+        navigate("/")
     }
     
     return (
@@ -43,14 +57,14 @@ const SideBar = () => {
                     <h4>Plannifier</h4>
                 </div>
                 <div className='sidebar-line'/>
-                <div className='sidebar-choice' >
+                <div className='sidebar-choice' onClick={goToProfile}>
                     <img src={profile} />
                     <h4>Mon profile</h4>
                 </div>
             </div>
             <div className='sidebar-choices2'>
                 <div className='sidebar-line'/>
-                <div className='sidebar-choice'>
+                <div className='sidebar-choice' onClick={logOut}>
                     <img src={logout} />
                     <h4>Se déconnecter</h4>
                 </div>

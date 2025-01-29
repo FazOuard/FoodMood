@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../../components/navbar/navbar';
@@ -9,6 +9,11 @@ import replace2 from "../../assets/replace/replace2.png"
 import exportToPDF from '../../fonctions/exportPDF';
 import pdficon from "../../assets/icons/pdf.png"
 import useCalculateSum from '../../fonctions/CalcSum';
+import proteines2 from '../../assets/icons/rapport/proteines.png'
+import glucides2 from '../../assets/icons/rapport/glucides.png'
+import calories2 from '../../assets/icons/rapport/calories.png'
+import lipides2 from '../../assets/icons/rapport/lipides.png'
+import NbrPerson2 from '../../components/nbrPerson2/nbrPerson2';
 
 const Rapport = () => {
     const location = useLocation();
@@ -17,6 +22,33 @@ const Rapport = () => {
     const [data, setData] = useState([]); 
     const [ingData, setIngData] = useState([]); 
 
+    const [nbrpersons, setNbrpersons] = useState({});
+
+
+    const prevNombresPersonnes2 = useRef();
+
+    // kaninitialisiw nbr persons b 1 1 1 1...
+    useEffect(() => {
+        if (selectedDishes) {
+            const initialNbrpersons = {};
+            Object.entries(selectedDishes).forEach(([day, dishSet]) => {
+                Array.from(dishSet).forEach((dishId) => {
+                    initialNbrpersons[`${day}-${dishId}`] = 1;
+                });
+            });
+            setNbrpersons(initialNbrpersons);
+        }
+    }, [selectedDishes]);
+
+    // hadi dyal ch7al dnas lkula plat
+    const handleCountChange = (day, dishId, newCount) => {
+        setNbrpersons((prevNbrpersons) => ({
+            ...prevNbrpersons,
+            [`${day}-${dishId}`]: newCount, 
+        }));
+    };
+    
+    // hadi bach na5ed ghir l id mn selected dishes
     const extractDishIds = (selectedDishes) => {
         const dishIds = [];
         Object.values(selectedDishes || {}).forEach((dishes) => {
@@ -27,6 +59,21 @@ const Rapport = () => {
         return dishIds; 
       };
     
+
+    // important
+    const dishIds = extractDishIds(selectedDishes).map(Number); 
+    
+    // hadi 3la 9bel lformat
+    const formatNbrPersons = (dishIds, nbrpersons) => {
+        return dishIds.map((dishId) => {
+            const key = Object.keys(nbrpersons).find((key) => key.endsWith(`-${dishId}`));
+            return key ? nbrpersons[key] : 1; 
+        });
+    };
+
+    const nombresPersonnes2 = formatNbrPersons(dishIds, nbrpersons);
+
+    // hadi bach njib ga3 les plats
     useEffect(() => {
         const getData = async () => {
         try {
@@ -40,21 +87,37 @@ const Rapport = () => {
         getData();
     }, []);
 
+    // hadi bach njib les ingredients dyal ga3 les plats li t5taru
     useEffect(() => {
-        const getIngData = async () => {
-          try {
-            const dishIds = extractDishIds(selectedDishes); 
-            const ingData = await fetchIngGroupPlat(dishIds); 
+        // const getIngData = async () => {
+        //   try {
+        //     const dishIds = extractDishIds(selectedDishes); 
+        //     const ingData = await fetchIngGroupPlat(dishIds, nombresPersonnes2); 
             
-            setIngData(ingData); 
-          } catch (error) {
-            console.error('Error in fetching data:', error);
-          }
-        };
+        //     setIngData(ingData); 
+        //   } catch (error) {
+        //     console.error('Error in fetching data:', error);
+        //   }
+        // };
     
-        getIngData();
-      }, []);
+        // getIngData();
+        
+        if (JSON.stringify(prevNombresPersonnes2.current) !== JSON.stringify(nombresPersonnes2)) {
+            const fetchData = async () => {
+              try {
+                const dishIds = extractDishIds(selectedDishes);
+                const ingData = await fetchIngGroupPlat(dishIds, nombresPersonnes2);
+                setIngData(ingData); 
+              } catch (error) {
+                console.error('Error fetching ingredients:', error);
+              }
+            };
+            fetchData();
+            prevNombresPersonnes2.current = nombresPersonnes2; 
+          }
+      }, [nombresPersonnes2]);
 
+    // hadi bach n7sseb le prix total
     const calculateTotals = (ingData) => {
         const totals = ingData.reduce(
         (acc, item) => {
@@ -70,15 +133,21 @@ const Rapport = () => {
         return totals;
     };
     
-    const dishIds = extractDishIds(selectedDishes); 
     const { totalQuantity, totalPrice } = calculateTotals(ingData);
-    // const { proteines, lipides, calories, glucides } = useCalculateSum(dishIds);
 
+    // hadi bach n7sseb la somme dyal proteines, glucides, ...
+    
+    const { proteines, lipides, calories, glucides } = useCalculateSum(dishIds);
+   
+    // hadi dyal export to pdf
     const handleExportPDF = () => {
         exportToPDF(ingData);
       };
 
     console.log(ingData)
+    console.log("this iss nbr persons: ",nbrpersons)
+
+    console.log("this is nbr afteeeer", nombresPersonnes2); 
 
     return (
         <div>
@@ -103,6 +172,10 @@ const Rapport = () => {
                                                     <img src={dish2.Image} />
                                                 </div>
                                             ))}
+                                        <NbrPerson2
+                                            value={nbrpersons[`${day}-${dish}`] || 1} 
+                                            onChange={(newCount) => handleCountChange(day, dish, newCount)}
+                                        />
                                     </div>
                                 ))}
                                 {Array.from({ length: 4 - item.length }).map((_, i) =>(
@@ -116,11 +189,51 @@ const Rapport = () => {
 
                     <div className='rapport-stats'>
                         <h3>Pour une seule personne avec ces plats vous allez avoir</h3>
-                        {/* <p>Proteins: {proteines}</p>
-                        <p>Lipides: {lipides}</p>
-                        <p>Calories: {calories}</p>
-                        <p>Glucides: {glucides}</p>  */}
-                    </div>
+                        <div className='stats-vert-line'/>
+                        <div className='stats-hor-line'/>
+                        <div className='rapport-stats-all'>
+                        <div className='rapport-stat-one'>
+                            <img src={proteines2} />
+                            <div className='rapport-stat-one-text'>
+                                <div className='rapport-stat-one-text-details'>
+                                    <h2>{proteines}<div className='rapport-stat-one-text-details2'> g</div></h2>
+                                    
+                                </div>
+                                <div className='rapport-stat-one-text-details3'>
+                                <h5>Proteins</h5></div>
+                            </div>
+                        </div>
+                        <div className='rapport-stat-one'>
+                            <img src={lipides2} />
+                            <div className='rapport-stat-one-text'>
+                                <div className='rapport-stat-one-text-details'>
+                                    <h2>{lipides}<div className='rapport-stat-one-text-details2'> g</div></h2>
+                                    
+                                </div>
+                                <h5>Lipides</h5>
+                            </div>
+                        </div>
+                        <div className='rapport-stat-one'>
+                            <img src={calories2} />
+                            <div className='rapport-stat-one-text'>
+                                <div className='rapport-stat-one-text-details'>
+                                    <h2>{calories}<div className='rapport-stat-one-text-details2'> Kcal</div></h2>
+                                    
+                                </div>
+                                <h5>Calories</h5>
+                            </div>
+                        </div>
+                        <div className='rapport-stat-one'>
+                            <img src={glucides2} />
+                            <div className='rapport-stat-one-text'>
+                                <div className='rapport-stat-one-text-details'>
+                                    <h2>{glucides}<div className='rapport-stat-one-text-details2'> g</div></h2>
+                                    
+                                </div>
+                                <h5>Glucides</h5>
+                            </div>
+                        </div>
+                    </div></div>
 
                 </div>
                 <div className='rapport-part2'>

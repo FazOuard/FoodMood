@@ -20,7 +20,7 @@ const exportToPDF = (ingData) => {
     
     
     data.push(["", "", "", ""]);
-    data.push(["", "", "Total", `${total} MAD`]);
+    data.push(["", "", "Total", `${total.toFixed(2)} MAD`]);
 
     doc.autoTable({
     head: headers,
