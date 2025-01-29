@@ -164,7 +164,7 @@ const RegistrationForm = () => {
           <h1> </h1>
 
           {error && <p className="error">{error}</p>}
-          <Link to="/login">Déjà inscrit ? Se connecter</Link>
+          <Link to="/">Déjà inscrit ? Se connecter</Link>
         </div>
       </div>
     </div>
