@@ -88,14 +88,18 @@ const loginUser = async (req, res) => {
 
     // Récupération des informations de l'utilisateur
     const user = result.recordset[0];
-
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    
     // Comparaison du mot de passe en clair
-    if (user.passwd !== password) {
+    if (!isPasswordValid) {
       return res.status(401).json({ error: "Mot de passe incorrect." });
     }
 
     // Connexion réussie, on renvoie un message de succès
-    res.status(200).json({ message: "Connexion réussie." });
+    res.status(200).json({ 
+      message: "Connexion réussie." ,
+      id: user.id
+    });
     
   } catch (err) {
     console.error('Erreur lors de la connexion:', err);

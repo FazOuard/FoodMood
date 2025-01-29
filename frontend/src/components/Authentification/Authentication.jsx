@@ -23,12 +23,12 @@ function Authentication() {
         },
         body: JSON.stringify({ username, password }),  // Envoi du nom d'utilisateur et du mot de passe
       });
-
+    
       const data = await response.json();
 
       if (response.ok) {
         // Si la connexion réussit, rediriger vers le tableau de bord ou une autre page
-        navigate("/dashboard");  // Remplacez "/dashboard" par l'URL vers laquelle vous voulez rediriger
+        navigate("/plats", {state: { iduser: data.id} });  // Remplacez "/dashboard" par l'URL vers laquelle vous voulez rediriger
       } else {
         // Si la connexion échoue, afficher le message d'erreur
         setError(data.error || "Une erreur est survenue.");
