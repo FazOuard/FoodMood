@@ -17,7 +17,25 @@ const Profile = () => {
             <NavBar/>
             <SideBar/>
             <div className='Profile'>
-                {state.iduser}
+                <div className='profile1345'>
+                    <div className='profile15'>
+                        <div className='profile1'>
+                            {state.iduser}
+                        </div>
+                        <div className='profile5'>
+
+                        </div>
+                    </div>
+                    <div className='profile3'>
+                        
+                    </div>
+                    <div className='profile4'>
+                        
+                    </div>
+                </div>
+                <div className='profile2'>
+
+                </div>
             </div>
         </div>
     );
