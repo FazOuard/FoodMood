@@ -1,0 +1,188 @@
+
+
+.tableauFaz1 {
+    width: 100%;
+    background-color: #fff; /* Couleur de fond pour la section de la table */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    table-layout: auto; /* Permet à la table de s'adapter au contenu */
+    border-collapse: collapse;
+    
+  }
+  
+  .data-table1 {
+    table-layout: fixed; 
+    width: 100%;
+    border-collapse: collapse; /* Pour éviter les espaces entre les cellules */
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  
+  .data-table1 th,
+  .data-table1 td {
+    text-align: left;
+    padding: 25px;
+    border-bottom: 1px solid #ddd; 
+    max-width: 220px;
+    
+}
+.data-table1 td{
+    padding: 12px 15px;
+    word-wrap: break-word;  
+}
+  
+  .data-table1 th {
+    background-color: #2C471B; /* Couleur de fond pour les en-têtes */
+    color: #fff; /* Couleur du texte des en-têtes */
+    font-size: 1.1rem;
+  }
+  
+  .data-table1 tr:nth-child(even) {
+    background-color: #f9f9f9; /* Couleur de fond pour les lignes paires */
+  }
+  
+  .data-table1 tr:hover {
+    background-color: #f1f1f1; /* Survol de ligne */
+    cursor: pointer; /* Changement du curseur au survol */
+  }
+  
+  /* Style spécifique pour la table en mode mobile */
+  @media screen and (max-width: 768px) {
+    .data-table1 th, .data-table1 td {
+      padding: 8px 10px;
+    }
+  
+    .data-table1 {
+      font-size: 0.9rem;
+    }
+  }
+  
+
+  /* Style pour le titre */
+.quoiFaz {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+   
+    left: 0;
+  }
+  
+  
+  /* Style pour le select */
+  .selectFaz {
+    border: 2px solid #2C471B;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+  
+    display: block;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .selectFaz:hover {
+    background: linear-gradient(45deg, #538136, #2C471B); /* Inverse du dégradé au survol */
+  }
+  
+  .selectFaz:focus {
+    border-color: #2C471B; /* Change la bordure en orange clair */
+  }
+  
+  /* Style pour le bouton */
+  .AllonsYFaz {
+    background-color: #2C471B; /* Couleur de fond */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 20px auto;
+    width:300px
+  }
+  
+  .AllonsYFaz:hover {
+    background-color: #538136; /* Changement de couleur au survol */
+    transform: translateY(-5px); /* Effet de levée au survol */
+  }
+  
+  .AllonsYFaz:active {
+    background-color: #2C471B; /* Changement de couleur quand le bouton est pressé */
+    transform: translateY(0);
+  }
+  
+
+
+/*modal ajout*/
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 700px;
+    text-align: center;
+  }
+  
+  .modal-content  input,.modal-content  textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .buttonAjoutPlat{
+    display:flex;
+    flex-direction: row;
+  }
+  
+  .ajoutplat {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .ajoutplat:hover {
+    background-color: #45a049;
+  }
+
+  .fermerPlat{
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+  }
+  

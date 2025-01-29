@@ -27,7 +27,7 @@ const ProfilAdmin = () => {
                 </Link>
               </li>
               <li>
-                <Link to="ManagePlaces" className="nav-link">
+                <Link to="PlatsAdmin" className="nav-link">
                   <IoFastFoodOutline /> Plats
                 </Link>
               </li>

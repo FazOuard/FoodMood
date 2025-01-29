@@ -1,0 +1,140 @@
+.user-containerFaz {
+    display: flex;
+    flex-direction: column;
+    width: 800px; /* Largeur fixe */
+    height: 1100px;
+   
+    padding: 20px;
+  }
+
+.user-containerFaz h2 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0px;
+    
+    left: 0;
+  }
+
+  .detailsUserFaz p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 50px; 
+    border-bottom: 2px solid #333;
+  }
+
+  .user-containerFaz p{
+    font-size: 16px;
+    color: #666;
+    
+  }
+  .users-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    max-width: 800px;
+  }
+  
+  .user-card {
+    width: 150px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+  }
+  
+  .user-card:hover {
+    background-color: #ddd;
+  }
+  
+  .see-more-btnFaz {
+    background-color: #2C471B; /* Couleur de fond */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 20px auto;
+    width:300px
+  }
+  
+  .see-more-btnFaz:hover {
+    background-color: #538136; /* Changement de couleur au survol */
+    transform: translateY(-5px);
+  }
+  
+  /* MODALE */
+  .modal-overlayUser {
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end; /* Positionne la modale à droite */
+  align-items: flex-start;
+  z-index: 1000;
+  overflow-y: auto;
+  }
+
+.modal-contentUser h2{
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .modal-contentUser {
+    background: white;
+    padding: 20px;
+    border-radius: 5px 0 0 5px; /* Bord arrondi à gauche */
+    width: 500px;
+    height: 100%; /* S'étend sur toute la hauteur de la page */
+    position: relative;
+  }
+  
+  .close-btnUserFaz {
+    background-color: transparent;
+  border: none;
+  color: inherit;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  color: #000;
+  width:50px;
+  margin-bottom: 20px;
+  }
+  
+  .close-btnUserFaz:hover{
+    background-color: transparent;
+    border: none;
+  }
+.UserFazavatar{
+    font-size: 6em;
+    color: #2C471B;
+}
+
+.filter-sectionFaz{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btnUserFaz{
+    background-color: transparent;
+}
