@@ -25,7 +25,10 @@ function AjouterPlat() {
     image: "",
     ingredients: "",
     recette: "",
+    idIng: "",
+    quantite: ""
   });
+
   const [error, setError] = useState("");
   console.log("this is formData: ", formData)
   const handleChange = (e) => {
@@ -56,6 +59,15 @@ function AjouterPlat() {
       setError("Le titre, l'image, les ingrédients et la recette sont obligatoires.");
       return;
     }
+
+    const result = [
+        ingplat.map(item => item[1]).join(","),  // Extract indexes [1] (19, 2, 5)
+        ingplat.map(item => item[3]).join(", ")  // Extract indexes [3] (200, 220, 250)
+    ];
+
+    setFormData({ ...formData, idIng: result[0], quantite: result[1] })
+    console.log("this is formdata hello: ", formData)
+    console.log("this is result", result, result[0], result[1])
 
     // // Si vous utilisez une URL d'image, vous pouvez directement assigner l'URL
     // const imageURL = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fphotos-premium%2Ffarine-avoine-bol-bouillie-avoine-bananes-mures-graines-chia-fond-table-ancienne-beton-gris-vue-dessus-dans-style-plat-ingredients-naturels-petit-dejeuner-chaud-sain-aliments-dietetiques_253362-20257.jpg%3Fw%3D1480&f=1&nofb=1&ipt=6e107d8f17a84297da81df6801b83ce5448e83720dcb1d8918a8a9ee72c4d911&ipo=images";
@@ -132,6 +144,7 @@ function AjouterPlat() {
         setIngPlat(prevIngplat => prevIngplat.filter((_, index) => index !== indexToRemove));
     };
     
+    console.log(ingplat)
 
     return (
         <div className="all-ajout">
@@ -249,7 +262,6 @@ function AjouterPlat() {
                                 name="ingredients"
                                 value={inputValue}
                                 onChange={handleInputChange}
-                                required
                         />
                         
                         <div className="ing-list">
@@ -273,7 +285,6 @@ function AjouterPlat() {
                                         name="Quantity"
                                         value={Quantity}
                                         onChange={handleQuantityChange}
-                                        required
                             />
                         <div>{unite? "("+unite[0]+")" : "(-)"}</div>
                     </div>
@@ -300,7 +311,6 @@ function AjouterPlat() {
                     name="ingredients"
                     value={formData.ingredients}
                     onChange={handleChange}
-                    required
                 />
                 </div>
             </div>
