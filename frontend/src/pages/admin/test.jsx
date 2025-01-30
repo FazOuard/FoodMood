@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import "./Plats.css";
-import { FaArrowLeft, FaArrowRight, FaClock, FaEye, FaPen, FaSearch, FaTrash, FaYoutube } from 'react-icons/fa'; // Import des icônes
-import { IoCloseSharp, IoFastFoodOutline } from "react-icons/io5";
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Import des icônes
+import { IoFastFoodOutline } from "react-icons/io5";
 import { AiOutlineHolder } from "react-icons/ai";
-import { FaPlus } from "react-icons/fa6";
 
 const PlatsAdmin = () => {
   const [data, setData] = useState([]); // état pour stocker les données récupérées
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6); // Nombre d'éléments par page
+  const [itemsPerPage] = useState(2); // Nombre d'éléments par page
   const [addModalOpen, setAddModalOpen] = useState(false); // Contrôle de l'ouverture de la fenêtre modale pour ajouter
   const [editModalOpen, setEditModalOpen] = useState(false); // Contrôle de l'ouverture de la fenêtre modale pour modifier
   const [editModalOpen2, setEditModalOpen2] = useState(false);
-  const [informationModalOpen, setinformationModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false); // Contrôle de l'ouverture de la fenêtre modale pour supprimer
   const [confirmationModalOpen, setConfirmationModalOpen] = useState(false); // Contrôle de l'ouverture de la fenêtre modale pour confirmation
   const [selectedAction, setSelectedAction] = useState("");
-  const [selectedTri, setSelectedTri] = useState("");
   const [modifiedPlat, setModifiedPlat] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(10);
   const [selectedPlat, setSelectedPlat] = useState(null); // Plat sélectionné pour modification ou suppression
-  const [searchTerm, setSearchTerm] = useState('');
-
   const [newPlat, setNewPlat] = useState({
     Titre: '',
     Recette: '',
@@ -36,8 +32,6 @@ const PlatsAdmin = () => {
     Cathegorie: ''
   });
 
-
-  
   useEffect(() => {
     fetch("http://localhost:5000/data")
       .then((response) => response.json())
@@ -46,20 +40,12 @@ const PlatsAdmin = () => {
       });
   }, []);
 
-  const filteredPlats = data.filter((item) => {
-    const matchDuration = selectedTri ? item.Duree === selectedTri : true;
-    const matchSearch = searchTerm ? item.Titre.toLowerCase().includes(searchTerm.toLowerCase()) : true;
-  
-    return matchDuration && matchSearch; 
-  });
-  
-  
+  // Calcul de la pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredPlats.slice(indexOfFirstItem, indexOfLastItem);
-  
-  // Recalculer le nombre total de pages en fonction des résultats filtrés
-  const totalPages = Math.ceil(filteredPlats.length / itemsPerPage);
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(data.length / itemsPerPage);
 
   const goToNextPage = () => {
     if (currentPage < totalPages) {
@@ -90,17 +76,6 @@ const PlatsAdmin = () => {
 
   const closeEditModal = () => {
     setEditModalOpen(false); // Fermer la fenêtre modale de modification
-    resetForm();
-  };
-  
-  const openinformationModal = (plat) => {
-    console.log("Ouverture de la modale de modification", plat); 
-    setSelectedPlat(plat);
-    setinformationModalOpen(true); 
-  };
-  const closeinformationModal = (plat) => {
-    
-    setinformationModalOpen(false); 
     resetForm();
   };
   const openEditModal2 = (plat) => {
@@ -247,76 +222,69 @@ const PlatsAdmin = () => {
   };
   
 
- 
+  const handleActionChange = (e) => {
+    setSelectedAction(e.target.value);
+  };
+  
+  const handleActionClick = () => {
+    if (selectedAction === "Ajout") openAddModal();
+    else if (selectedAction === "Modification" ) openEditModal(selectedPlat);
+    else if (selectedAction === "Suppression" ) openDeleteModal(selectedPlat);
+    else if (selectedAction === "Utilisateur") openConfirmationModal();
+  };
+
   return (
     <div>
-      <div className="ActionsbeforeFaz">
-        <button className="buttonAjoutPlatFaz" onClick={openAddModal}><FaPlus /> Ajouter un plat</button>
-        <div className='selectionmultipleFaz'>
-          <div className='rechercheTotalFaz'>
-            <label className='searchPlatFaz'><FaSearch /></label>
-            <input
-              type="text"
-              placeholder="Rechercher un plat..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="border p-2 rounded"
-            />
-          </div>
-          <select className='triFaz' value={selectedTri} onChange={(e) => setSelectedTri(e.target.value)}>
-            <option value="">Duree</option> 
-            <option value="15-30 minutes">15-30 minutes</option>
-            <option value="30-60 minutes">30-60 minutes</option>
-            <option value="1-3 heures">1-3 heures</option>
-            <option value="Plus">Plus</option>
+       <div>
+        <h1 className='quoiFaz'>Que désiriez-vous effectuer ?</h1>
+        <div className='buttonAjoutPlat'>   
+          <select className='selectFaz' onChange={handleActionChange} value={selectedAction}>
+            <option value="">Sélectionner une action</option>
+            <option value="Ajout">Ajouter un plat</option>
+            <option value="Modification">Modifier un plat</option>
+            <option value="Suppression">Supprimer un plat</option>
+            <option value="Utilisateur">Confirmer un ajout d'un plat par utilisateur</option>
           </select>
+          <button className='AllonsYFaz' onClick={handleActionClick}>Allons-y!</button>
         </div>
       </div>
+      <br />
+      
+      <h1 className='quoiFaz'><IoFastFoodOutline /> Plats</h1>
+     
       <div className="tableauFaz1">
         <table className="data-table1">
           <thead>
-          
             <tr>
-             
               <th>Titre</th>
               <th>Recette</th>
               <th>Duree</th>
               <th>Ingredients</th>
-             {/** <th>Calories</th>
+              <th>Calories</th>
               <th>Proteines</th>
               <th>Lipides</th>
               <th>Glucides</th>
               <th>Youtube</th>
               <th>Image</th>
               <th>Cuisine</th>
-              <th>Cathegorie</th>*/} 
-              <th>Operations</th>
+              <th>Cathegorie</th>
             </tr>
-         
           </thead>
           <tbody>
-            
             {currentItems.map((item, index) => (
-              
               <tr key={index} onClick={() => setSelectedPlat(item)}>
-                
                 <td>{item.Titre}</td>
                 <td>{item.Recette}</td>
                 <td>{item.Duree}</td>
                 <td>{item.Ingredients}</td>
-               {/**<td>{item.Calories}</td>
+                <td>{item.Calories}</td>
                 <td>{item.Proteines}</td>
                 <td>{item.Lipides}</td>
                 <td>{item.Glucides}</td>
-                 <td>{item.Youtube}</td>
+                <td>{item.Youtube}</td>
                 <td>{item.Image}</td>
                 <td>{item.Cuisine}</td>
-                <td>{item.Cathegorie}</td>*/}
-                <td className='operationsFaz'>
-                  <button className='buttonOperationsFaz' onClick={() => openinformationModal(item)}><FaEye /></button>
-                  <button className="buttonOperationsFaz" onClick={() => openEditModal2(item)}><FaPen /></button>
-                  <button className="buttonOperationsFaz trashF" onClick={() => openDeleteModal(item)}><FaTrash/></button>
-                </td>
+                <td>{item.Cathegorie}</td>
                 
               </tr>
             ))}
@@ -340,9 +308,9 @@ const PlatsAdmin = () => {
         <div className="modal">
           <div className="modal-content">
           <h2>Ajouter un nouveau plat</h2>
-          <button className="close-btnUserFaz" onClick={closeAddModal}><IoCloseSharp /></button>
+          <button className="close-btnUserFaz" onClick={closeAddModal}>x</button>
             <form onSubmit={e => e.preventDefault()}>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Titre"
@@ -358,7 +326,7 @@ const PlatsAdmin = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Duree"
@@ -374,7 +342,7 @@ const PlatsAdmin = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Calories"
@@ -390,7 +358,7 @@ const PlatsAdmin = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Lipides"
@@ -406,7 +374,7 @@ const PlatsAdmin = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Youtube"
@@ -422,7 +390,7 @@ const PlatsAdmin = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Cuisine"
@@ -439,7 +407,7 @@ const PlatsAdmin = () => {
                 />
               </div>
               <div className="buttonAjoutPlat">
-                <button className="YesDelete" onClick={handleSubmit}>Ajouter</button>
+                <button className="ajoutplat" onClick={handleSubmit}>Ajouter</button>
               </div>
 
             </form>
@@ -447,14 +415,135 @@ const PlatsAdmin = () => {
         </div>
       )}
 
+      {editModalOpen  && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Modifier un plat</h2>
+          <button className="close-btnUserFaz" onClick={closeEditModal}>x</button>
+
+            <select onChange={(e) => {
+              const selectedId = Number(e.target.value); // Assurer que l'id est un nombre
+              const selected = data.find(plat => plat.id === selectedId);
+              console.log("Plat sélectionné :", selected); // Vérifie ce qui est sélectionné
+              setSelectedPlat(selected); // Met à jour selectedPlat
+            }}>
+              {data.map(plat => (
+                <option key={plat.id} value={plat.id}>{plat.Titre}</option>
+              ))}
+            </select>
+           {/**  <form onSubmit={e => e.preventDefault()}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="Titre"
+                  placeholder="Titre"
+                  value={selectedPlat.Titre}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="Recette"
+                  placeholder="Recette"
+                  value={selectedPlat.Recette}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="Duree"
+                  placeholder="Durée"
+                  value={selectedPlat.Duree}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="Ingredients"
+                  placeholder="Ingrédients"
+                  value={selectedPlat.Ingredients}
+                  onChange={handleChange}
+                />  
+              </div>
+
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="Calories"
+                  placeholder="Calories"
+                  value={selectedPlat.Calories}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="Proteines"
+                  placeholder="Protéines"
+                  value={selectedPlat.Proteines}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="Lipides"
+                  placeholder="Lipides"
+                  value={selectedPlat.Lipides}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="Glucides"
+                  placeholder="Glucides"
+                  value={selectedPlat.Glucides}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="Youtube"
+                  placeholder="Youtube"
+                  value={selectedPlat.Youtube}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="Image"
+                  placeholder="Image"
+                  value={selectedPlat.Image}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="Cuisine"
+                  placeholder="Cuisine"
+                  value={selectedPlat.Cuisine}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="Cathegorie"
+                  placeholder="Catégorie"
+                  value={selectedPlat.Cathegorie}
+                  onChange={handleChange}
+                />
+              </div>
+            </form>*/}
+
+            <button onClick={openEditModal2}>Enregistrer</button>
+            <button onClick={closeEditModal}>Annuler</button>
+          </div>
+        </div>
+      )}
+
+
       {editModalOpen2 &&(
         <div className="modal">
           <div className="modal-content">
-          <button className="close-btnUserFaz" onClick={closeEditModal2}><IoCloseSharp/></button>
-          <h2 className='supprimerTitleFaz'> Modifier un plat</h2>
-          <p className='paragrapheSupprimer'>Vous pouvez modifier les champs ci-dessous</p>
+            <h2>Modifier un plat</h2>
             <form onSubmit={e => e.preventDefault()}>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Titre"
@@ -470,7 +559,7 @@ const PlatsAdmin = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Duree"
@@ -487,7 +576,7 @@ const PlatsAdmin = () => {
                 />  
               </div>
 
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Calories"
@@ -503,7 +592,7 @@ const PlatsAdmin = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Lipides"
@@ -519,7 +608,7 @@ const PlatsAdmin = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Youtube"
@@ -535,7 +624,7 @@ const PlatsAdmin = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-groupFaz">
+              <div className="form-group">
                 <input
                   type="text"
                   name="Cuisine"
@@ -552,68 +641,43 @@ const PlatsAdmin = () => {
                 />
               </div>
             </form>
-            <div className="confirmationsupprimerPlat">
-              <button className="noDelete"  onClick={closeEditModal2}>Annuler</button>
-              <button className="YesDelete" onClick={handleEditSubmit}>Enregistrer</button>
-              
-            </div>
+            <button onClick={handleEditSubmit}>Enregistrer</button>
+            <button onClick={closeEditModal2}>Annuler</button>
           </div>
         </div>
 
       )
       }
       {deleteModalOpen  && (
-        <div className="modalsupprimerFaz">
-          <div className="modal-contentsupprimerFaz">
-            <h2 className='supprimerTitleFaz'> Supprimer un plat</h2>
-            <p className='paragrapheSupprimer'>Voulez-vous vraiment supprimer ce plat ?</p>
-            <div className="confirmationsupprimerPlat">
-              
-              <button className="noDelete" onClick={closeDeleteModal}>Non</button>
-              <button className="YesDelete" onClick={handleDelete}>Oui</button>
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Voulez-vous vraiment supprimer ce plat ?</h2>
+            <select onChange={(e) => {
+              const selectedId = Number(e.target.value); // Assurer que l'id est un nombre
+              const selected = data.find(plat => plat.id === selectedId);
+              console.log("Plat sélectionné :", selected); // Vérifie ce qui est sélectionné
+              setSelectedPlat(selected); // Met à jour selectedPlat
+            }}>
+              {data.map(plat => (
+                <option key={plat.id} value={plat.id}>{plat.Titre}</option>
+              ))}
+            </select>
 
-            </div>
-
+            <button onClick={handleDelete}>Oui</button>
+            <button onClick={closeDeleteModal}>Non</button>
           </div>
         </div>
       )}
 
-      {informationModalOpen && (
-        <div className='modalInformation'>
-          <div className='modal-contentInformation'>
-          <button onClick={closeinformationModal} className='close-btnUserFaz'><IoCloseSharp /></button>
-          <div className='nameInformationPlats'>
-            <img src={selectedPlat.Image} alt="Plat" className='imageDetailsPlats'/>
-            <div className='titreFazYoutube'>
-              <h3>{selectedPlat.Titre}</h3>
-              <p className='categorieFaz'><strong>Catégorie:</strong> {selectedPlat.Cathegorie}</p>
-              
-              <p><strong>Cuisine:</strong> {selectedPlat.Cuisine}</p>
-            </div>
-
-          </div>
-          
-          <div className='musclesFaz'>
-          
-            <p><strong>Calories:</strong><br/> {selectedPlat.Calories}</p>
-            <p><strong>Protéines:</strong><br/> {selectedPlat.Proteines}</p>
-            <p><strong>Lipides:</strong><br/> {selectedPlat.Lipides}</p>
-            <p><strong>Glucides:</strong><br/> {selectedPlat.Glucides}</p>
-
-          </div>
-
-          <p className='youtubeisYoutubing'><FaYoutube />   <a href={selectedPlat.Youtube} target="_blank" rel="noopener noreferrer">Voir la vidéo</a></p>
-          <p><FaClock />    {selectedPlat.Duree}</p>
-          <p><strong>Recette</strong></p>
-          <p>{selectedPlat.Recette}</p>
-          <p><strong>Ingredients</strong></p>
-          <p>{selectedPlat.Ingredients}</p>
+      {confirmationModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Confirmer l'ajout par un utilisateur</h2>
+            <button onClick={closeConfirmationModal}>Confirmer</button>
+            <button onClick={closeConfirmationModal}>Annuler</button>
           </div>
         </div>
-
       )}
-
-
     </div>
   );
 };
