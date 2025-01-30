@@ -42,3 +42,51 @@ Structure dyal state 7ed l2an:
 {
     "iduser": "id dyal l'utilisateur li mconnecter"
 }
+
+///////////////////// POUR LES TABLES ////////////////////////
+
+-- {La table validation}
+
+USE [FoodMood]
+CREATE TABLE [dbo].[validation](
+    [id] TINYINT IDENTITY(1,1) PRIMARY KEY,
+    [Titre] NVARCHAR(50) NULL,
+    [Recette] NVARCHAR(2050) NULL,
+    [Duree] NVARCHAR(50) NULL,
+    [Ingredients] NVARCHAR(2050) NULL,
+    [Calories] INT NULL,
+    [Proteines] INT NULL,
+    [Lipides] INT NULL,
+    [Glucides] INT NULL,
+    [Youtube] NVARCHAR(250) NULL,
+    [Image] NVARCHAR(2050) NULL,
+    [Cuisine] NVARCHAR(50) NULL,
+    [Cathegorie] NVARCHAR(50) NULL,
+    [idIng] NVARCHAR(50) NULL,
+    [Quantite] NVARCHAR(50) NULL,
+);
+
+
+
+-- {La table users}
+USE [FoodMood]
+
+CREATE TABLE [dbo].[users](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[username] [nvarchar](255) NOT NULL,
+	[password] [nvarchar](500) NULL,
+	[age] [int] NULL,
+	[city] [nvarchar](100) NULL,
+	[favoriteDishes] [nvarchar](500) NULL,
+	[type] [nvarchar](10) NOT NULL,
+)
+
+ALTER TABLE [dbo].[users]  WITH CHECK ADD CHECK  (([age]>=(0)))
+GO
+
+ALTER TABLE [dbo].[users]  WITH CHECK ADD CHECK  (([type]='admin' OR [type]='user'))
+GO
+
+
+
+

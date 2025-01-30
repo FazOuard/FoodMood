@@ -2,8 +2,9 @@ import { poolPromise } from '../dbConfig.js';
 import { sql } from '../dbConfig.js';
 
 const addDish = async (req, res) => {
+  console.log(req.body)
   const { titre, recette, duree, ingredients, calories, proteines, lipides, glucides, image, cuisine, categorie } = req.body;
-
+  console.log(req.body)
   try {
     const pool = await poolPromise;
     const request = pool.request();
@@ -30,7 +31,7 @@ const addDish = async (req, res) => {
     request.input("youtube", sql.VarChar, null); // La vidéo est toujours null
 
     await request.query(
-      "INSERT INTO ajoutPlat (Titre, Recette, Duree, Ingredients, Calories, Proteines, Lipides, Glucides, Youtube, Image, Cuisine, Cathegorie) " +
+      "INSERT INTO validation (Titre, Recette, Duree, Ingredients, Calories, Proteines, Lipides, Glucides, Youtube, Image, Cuisine, Cathegorie) " +
       "VALUES (@titre, @recette, @duree, @ingredients, @calories, @proteines, @lipides, @glucides, @youtube, @image, @cuisine, @categorie)"
     );
 
