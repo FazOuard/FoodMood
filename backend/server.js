@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import plat from './routers/plat.js'
-import ingredientsRoutes from './routers/ingredientsRoutes.js';
+
 import platsIngRoutes from './routers/platsIngRoutes.js';
 import router from "./routers/auth.js";
 import ingPlatRoutes from "./routers/ingPlatRoutes.js";
@@ -10,13 +10,14 @@ import userPreferences from "./routers/userPreferenceRouters.js"
 import IngGroupPlatRoutes from "./routers/IngGroupPlatRoutes.js"
 import userRoutes from "./routers/userRoutes.js"
 import historiqueRouter from "./routers/historiqueRouter.js"
+import ingr from "./routers/ingredient.js"
 
 
 const app = express();
 app.use(cors()); 
 app.use(express.json());
 app.use('/data', plat);
-app.use('/ingredients', ingredientsRoutes);
+app.use('/ingredients', ingr);
 app.use('/platsIng', platsIngRoutes);
 app.use('/platIng', ingPlatRoutes);
 app.use('/addDish', ingPlatRoutes);

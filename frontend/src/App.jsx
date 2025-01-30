@@ -22,6 +22,7 @@ import Statistique from './components/statistique/statistique.jsx';
 
 import Profile from './pages/profile/profile.jsx';
 import Ingredients from './pages/admin/Ingredients.jsx';
+import IngredientsTable from './components/ingrediants/ingrediant.jsx';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
     <div className="custom-cursor">
     <Router>
       <Routes>
+        <Route path="/IngredientsTable" element={<IngredientsTable />} />
         <Route path="/recomm" element={<Recommendation />} />
         <Route path="/plats" element={<Plat_All />} />
         <Route path="/ajouterPlat" element={<AjouterPlat />} />
