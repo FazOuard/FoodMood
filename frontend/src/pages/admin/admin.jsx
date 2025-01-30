@@ -31,6 +31,11 @@ const ProfilAdmin = () => {
                   <IoFastFoodOutline /> Plats
                 </Link>
               </li>
+              <li>
+                <Link to="Ingredient" className="nav-link">
+                  <IoFastFoodOutline /> Ingredients
+                </Link>
+              </li>
             </ul>
           </div>
 
