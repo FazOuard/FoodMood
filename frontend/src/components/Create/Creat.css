@@ -122,3 +122,125 @@
     text-decoration: underline;
   }
   
+.create-form-one-field{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+  .create-form-one-field h4{
+    margin: 0 0 2px 2px;
+    color: #558b4f;
+  }
+
+  .create-form-one-field select{
+    background-color: #fffff5;
+    color: #2A2A2A;
+    border-radius: 5px;
+    width: 15vw;
+  }
+  .create-form-one-field input{
+    background-color: #fffff5;
+    color: #2A2A2A;
+    border-radius: 5px;
+    width: 13.5vw;
+  }
+
+.create-form-one-side{
+  display: flex;
+  width: 31vw;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.form-create-all1{
+  display: flex;
+  flex-direction: column;
+}
+
+  
+.create-form-one-field2{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+  .create-form-one-field2 h4{
+    margin: 0 0 2px 2px;
+    color: #558b4f;
+  }
+
+  .create-form-one-field2 select{
+    background-color: #fffff5;
+    color: #2A2A2A;
+    border-radius: 5px;
+    width: 13.5vw;
+  }
+  .create-form-one-field2 input{
+    background-color: #fffff5;
+    color: #2A2A2A;
+    border-radius: 5px;
+    width: 5.6vw;
+  }
+  .create-form-one-side2{
+    display: flex;
+    width: 15vw;
+    justify-content: space-between;
+  }
+
+  .create-form-one-field h5{
+    margin: 0 0 2px 2px;
+    color: #558b4f;
+  }
+
+  .create-form-one-side1{
+    display: flex;
+    width: 15vw;
+    justify-content: space-between;
+  }
+
+  .form-create-all {
+    display: flex;
+    width: 60vw;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .form-create-all0{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fffff5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: max-content;
+    width: 65vw;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .create-form-one-field0 input{
+    width: 26vw;
+    border-radius: 5px;
+  }
+
+  .create-form-one-field0 h4{
+    margin: 0 0 2px 2px;
+    color: #558b4f;
+  }
+
+  .create-form-one-field0{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .form-create-all0 button{
+    width: max-content;
+    padding: 12px 20px 20px 20px;
+    margin: 0 0 20px 0;
+    font-weight: bold;
+  }
