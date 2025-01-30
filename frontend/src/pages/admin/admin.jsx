@@ -4,6 +4,7 @@ import "./admin.css"; // Ajoutez vos styles ici
 import { MdDashboard } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import { IoFastFoodOutline } from "react-icons/io5";
+import { PiBowlFoodFill } from "react-icons/pi";
 
 const ProfilAdmin = () => {
   return (
@@ -29,6 +30,11 @@ const ProfilAdmin = () => {
               <li>
                 <Link to="PlatsAdmin" className="nav-link">
                   <IoFastFoodOutline /> Plats
+                </Link>
+              </li>
+              <li>
+                <Link to="Ingredient" className="nav-link">
+                  <PiBowlFoodFill /> Ingredients
                 </Link>
               </li>
             </ul>
