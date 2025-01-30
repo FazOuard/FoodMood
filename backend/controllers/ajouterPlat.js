@@ -2,9 +2,9 @@ import { poolPromise } from '../dbConfig.js';
 import { sql } from '../dbConfig.js';
 
 const addDish = async (req, res) => {
-  console.log(req.body)
+  
   const { titre, recette, duree, ingredients, calories, proteines, lipides, glucides, image, cuisine, categorie } = req.body;
-  console.log(req.body)
+
   try {
     const pool = await poolPromise;
     const request = pool.request();

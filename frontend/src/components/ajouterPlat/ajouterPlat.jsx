@@ -50,22 +50,21 @@ function AjouterPlat() {
 
     // // Si vous utilisez une URL d'image, vous pouvez directement assigner l'URL
     // const imageURL = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fphotos-premium%2Ffarine-avoine-bol-bouillie-avoine-bananes-mures-graines-chia-fond-table-ancienne-beton-gris-vue-dessus-dans-style-plat-ingredients-naturels-petit-dejeuner-chaud-sain-aliments-dietetiques_253362-20257.jpg%3Fw%3D1480&f=1&nofb=1&ipt=6e107d8f17a84297da81df6801b83ce5448e83720dcb1d8918a8a9ee72c4d911&ipo=images";
-    const formDataObj = new FormData();
+    // const formDataObj = new FormData();
 
     // // Remplacer le champ image avec l'URL
     // formData.image = imageURL;
 
-    for (const key in formData) {
-      formDataObj.append(key, formData[key]);
-    }
-    console.log("this is formdata inside the call: ", formData)
+    // for (const key in formData) {
+    //   formDataObj.append(key, formData[key]);
+    // }
     try {
       const response = await fetch("http://localhost:5000/api/ajouter/addDish", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: formDataObj,
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
