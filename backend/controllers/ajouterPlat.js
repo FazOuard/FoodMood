@@ -2,9 +2,9 @@ import { poolPromise } from '../dbConfig.js';
 import { sql } from '../dbConfig.js';
 
 const addDish = async (req, res) => {
-  console.log(req.body)
-  const { titre, recette, duree, ingredients, calories, proteines, lipides, glucides, image, cuisine, categorie } = req.body;
-  console.log(req.body)
+  
+  const { titre, recette, duree, ingredients, calories, proteines, lipides, glucides, image, cuisine, categorie, idIng, quantite } = req.body;
+
   try {
     const pool = await poolPromise;
     const request = pool.request();
@@ -29,10 +29,12 @@ const addDish = async (req, res) => {
     request.input("cuisine", sql.VarChar, cuisine);
     request.input("categorie", sql.VarChar, categorie);
     request.input("youtube", sql.VarChar, null); // La vidéo est toujours null
+    request.input("idIng", sql.VarChar, idIng);
+    request.input("quantite", sql.VarChar, quantite);
 
     await request.query(
-      "INSERT INTO validation (Titre, Recette, Duree, Ingredients, Calories, Proteines, Lipides, Glucides, Youtube, Image, Cuisine, Cathegorie) " +
-      "VALUES (@titre, @recette, @duree, @ingredients, @calories, @proteines, @lipides, @glucides, @youtube, @image, @cuisine, @categorie)"
+      "INSERT INTO validation (Titre, Recette, Duree, Ingredients, Calories, Proteines, Lipides, Glucides, Youtube, Image, Cuisine, Cathegorie, idIng, Quantite) " +
+      "VALUES (@titre, @recette, @duree, @ingredients, @calories, @proteines, @lipides, @glucides, @youtube, @image, @cuisine, @categorie, @idIng, @quantite)"
     );
 
     return res.status(201).json({
