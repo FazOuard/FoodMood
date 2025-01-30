@@ -93,6 +93,27 @@ function AjouterPlat() {
 
       if (response.ok && data.success) {
         alert("Plat ajouté avec succès !");
+        setFormData({
+            titre: "",
+            cuisine: "",
+            categorie: "",
+            duree: "",
+            calories: "",
+            proteines: "",
+            lipides: "",
+            glucides: "",
+            image: "",
+            ingredients: "",
+            recette: "",
+            idIng: "",
+            quantite: ""
+        })
+        
+        setQuantity("")
+        setInputValue("")
+        setIngPlat([])
+        setImageUrl2("")
+
       } else {
         setError(data.error || "Erreur lors de l'ajout du plat.");
       }
@@ -116,7 +137,6 @@ function AjouterPlat() {
     }, []);
 
     
-    const [selectedIngredient, setSelectedIngredient] = useState("");
     const [unite, setUnite] = useState("");
     const [Quantity, setQuantity] = useState("");
 
