@@ -1,8 +1,8 @@
 .user-containerFaz {
     display: flex;
     flex-direction: column;
-    width: 800px; /* Largeur fixe */
-    height: 1100px;
+    width: 100%; /* Largeur fixe */
+    height: 100%;
    
     padding: 20px;
   }
@@ -28,28 +28,33 @@
     color: #666;
     
   }
-  .users-list {
+  .users-listFaz {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    max-width: 800px;
+    gap: 20px;
+    
+    
   }
   
-  .user-card {
-    width: 150px;
+  .user-cardFaz {
+    width: 300px;
     padding: 15px;
     background-color: #f0f0f0;
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
     transition: 0.3s;
+    position: relative;
   }
   
-  .user-card:hover {
+  .user-cardFaz:hover {
     background-color: #ddd;
+    border-color: #2C471B;
   }
   
+  .user-cardFaz:active{
+    border-color: #2C471B;
+  }
   .see-more-btnFaz {
     background-color: #2C471B; /* Couleur de fond */
     color: white;
@@ -125,16 +130,112 @@
 .UserFazavatar{
     font-size: 6em;
     color: #2C471B;
+    justify-content: center;
+    align-items: center;
 }
+
+.usernameFaz p{
+  font-size: 40px;
+  font-size: 2em;
+    font-weight: bold;  
+}
+
+.NationaliteRegion{
+  display: flex;
+  flex-direction: column;
+  gap:0px;
+}
+.NationaliteRegion p{
+  font-size:12px;
+}
+
+.userFazGenreAge{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  gap: 20px; 
+}
+
+
+
+.user-cardFaz .NationaliteRegion p,
+.user-cardFaz .userFazGenreAge p {
+  margin: 0;  
+}
+
 
 .filter-sectionFaz{
     display: flex;
     flex-direction: row;
     gap:20px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .delete-btnUserFaz{
-    background-color: transparent;
+  background-color: transparent;
+    color:#2C471B;
+    position: absolute;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btnUserFaz:hover{
+  background-color: transparent;
+}
+
+.avataremail{
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.agegenre2,.poidtaillestatut{
+  display: flex;
+  flex-direction: row;
+  
+  gap:10px;
+  
+}
+.agegenre2 p{
+  background-color: #e5f3ea;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 0;
+  font-size: 14px;
+  
+}
+.poidtaillestatut{
+  border-bottom: 1px solid #ccc;
+}
+.poidtaillestatut p{
+  background-color: #e5f3f1;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px;
+
+}
+
+.preferenceUserFaz p{
+  font-size:13px;
+  border-bottom: 1px solid #e9e4e4;
+  padding-bottom: 5px;
+}
+
+.preferenceUserFaz strong {
+  color:#aca8a8;
+}
+
+
+.ouiOuNon p{
+  font-size:13px;
+}
+.ouiOuNon strong{
+  color:#aca8a8;
 }

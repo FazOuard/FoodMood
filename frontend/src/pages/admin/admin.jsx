@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import "./admin.css"; // Ajoutez vos styles ici
 import { MdDashboard } from "react-icons/md";
-import { FaRegUser } from "react-icons/fa";
+import { FaCheck, FaRegUser } from "react-icons/fa";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { PiBowlFoodFill } from "react-icons/pi";
 
@@ -35,6 +35,11 @@ const ProfilAdmin = () => {
               <li>
                 <Link to="Ingredient" className="nav-link">
                   <PiBowlFoodFill /> Ingredients
+                </Link>
+              </li>
+              <li>
+                <Link to="Confirmer" className="nav-link">
+                  <FaCheck />  Confirmer
                 </Link>
               </li>
             </ul>

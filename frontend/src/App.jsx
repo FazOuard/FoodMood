@@ -22,6 +22,7 @@ import Statistique from './components/statistique/statistique.jsx';
 
 import Profile from './pages/profile/profile.jsx';
 import Ingredients from './pages/admin/Ingredients.jsx';
+import Confirmer from './pages/admin/Confirmer.jsx';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path="ManageUsers" element={<ManageUsers/>} />
           <Route path="PlatsAdmin" element={<PlatsAdmin />} />
           <Route path="Ingredient" element={<Ingredients/>} />
+          <Route path="Confirmer" element={<Confirmer/>} />
         </Route>
         <Route path="recommend" element={<Recommend />} />
         <Route path="statistiques" element={<Statistique />} />
