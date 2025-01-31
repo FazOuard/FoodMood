@@ -15,6 +15,8 @@ import userwithpreferences from "./routers/userAdminRouter.js"
 
 import ingr from "./routers/ingredient.js"
 
+import ingredientsRouters from "./routers/ingredientsRoutes.js"
+
 
 
 const app = express();
@@ -22,6 +24,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/data', plat);
 app.use('/ingredients', ingr);
+app.use('/ingredients2', ingredientsRouters);
 app.use('/platsIng', platsIngRoutes);
 app.use('/platIng', ingPlatRoutes);
 app.use('/addDish', ingPlatRoutes);
