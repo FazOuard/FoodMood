@@ -3,9 +3,9 @@ import axios from 'axios';
 import { FaEdit, FaTrash, FaPlus, FaSearch } from 'react-icons/fa';
 import "./Ingredients.css";
 
-
 const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
+  const [filteredIngredients, setFilteredIngredients] = useState([]);
   const [selectedIngredient, setSelectedIngredient] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false); // Modale pour ajout
@@ -15,19 +15,33 @@ const Ingredients = () => {
     Unite: '',
     Prix: '',
   });
+  const [searchTerm, setSearchTerm] = useState(''); // Etat pour gérer la recherche
 
   // Charger les ingrédients depuis l'API
   useEffect(() => {
     fetchIngredients();
   }, []);
 
+  // Charger les ingrédients depuis l'API
   const fetchIngredients = async () => {
     try {
       const response = await axios.get('http://localhost:5000/ingredients/ingredients');
       setIngredients(response.data);
+      setFilteredIngredients(response.data); // Au début, on montre tous les ingrédients
     } catch (error) {
       console.error('Erreur lors de la récupération des ingrédients:', error);
     }
+  };
+
+  // Filtrer les ingrédients en fonction de la recherche
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+
+    // Filtrer les ingrédients en fonction du terme de recherche
+    const filtered = ingredients.filter((ingredient) =>
+      ingredient.Ingredient.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    setFilteredIngredients(filtered); // Mettre à jour les ingrédients affichés
   };
 
   // Ouvrir la modale avec les valeurs actuelles
@@ -78,6 +92,7 @@ const Ingredients = () => {
       console.error("Erreur lors de la mise à jour :", error);
     }
   };
+
   // Ajouter un ingrédient
   const handleAddIngredient = async () => {
     try {
@@ -94,31 +109,30 @@ const Ingredients = () => {
     try {
       await axios.delete(`http://localhost:5000/ingredients/ingredients/${id}`);
       setIngredients(ingredients.filter((ingredient) => ingredient.Id !== id));
+      setFilteredIngredients(filteredIngredients.filter((ingredient) => ingredient.Id !== id)); // Mise à jour de la liste filtrée
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
     }
   };
 
   return (
-    
     <div className="page_ingrediants">
-      
-
       <div className="ingredients">
         <h1 className="text">Ingrédients</h1>
         <div className="pre_ing">
-          
-            <div className='rechercheTotalahlam'>
-              <label className='searchPlatFaz'><FaSearch /></label>
-              <input
-                type="text"
-                placeholder="Rechercher un plat..."
-                className="serach_input"
-              />
-            </div>
+          <div className='rechercheTotalahlam'>
+            <label className='searchPlatahlam'><FaSearch /></label>
+            <input
+              type="text"
+              placeholder="Rechercher un ingrédient..."
+              className="serach_input"
+              value={searchTerm} // Contrôler l'input
+              onChange={handleSearchChange} // Filtrer en fonction de la recherche
+            />
+          </div>
           <button className="buttonAjouting" onClick={openAddModal}><FaPlus /> Ajouter un ingrédient</button>
         </div>
-        
+
         <table className="ingredients-table">
           <thead>
             <tr>
@@ -130,7 +144,7 @@ const Ingredients = () => {
             </tr>
           </thead>
           <tbody>
-            {ingredients.map((ingredient, index) => (
+            {filteredIngredients.map((ingredient, index) => (
               <tr key={index}>
                 <td>{ingredient.Ingredient}</td>
                 <td>{ingredient.Valeur}</td>
@@ -154,33 +168,33 @@ const Ingredients = () => {
       {isModalOpen && (
         <div className="modal1">
           <div className='modal1-content'>
-          <h3>Modifier l'Ingrédient</h3>
-          <div className='blocks_all'>
-          <div className='block_ingr'>
-          <label>Nom:</label>
-          <input type="text" name="Ingredient" value={formData.Ingredient} onChange={handleChange} />
+            <h3>Modifier l'Ingrédient</h3>
+            <div className='blocks_all'>
+              <div className='block_ingr'>
+                <label>Nom:</label>
+                <input type="text" name="Ingredient" value={formData.Ingredient} onChange={handleChange} />
+              </div>
+              <div className='block_ingr'>
+                <label>Valeur:</label>
+                <input type="number" name="Valeur" value={formData.Valeur} onChange={handleChange} />
+              </div>
+              <div className='block_ingr'>
+                <label>Unité:</label>
+                <input type="text" name="Unite" value={formData.Unite} onChange={handleChange} />
+              </div>
+              <div className='block_ingr'>
+                <label>Prix :</label>
+                <input type="text" name="Prix" value={formData.Prix} onChange={handleChange} />
+              </div>
+            </div>
+            <div className='blok_bot'>
+              <button onClick={handleUpdate}>OK</button>
+              <button onClick={closeModal}>Annuler</button>
+            </div>
           </div>
-          <div className='block_ingr'>
-          <label>Valeur:</label>
-          <input type="number" name="Valeur" value={formData.Valeur} onChange={handleChange} />
-          </div>
-          <div className='block_ingr'>
-          <label>Unité:</label>
-          <input type="text" name="Unite" value={formData.Unite} onChange={handleChange} />
-          </div>
-          <div className='block_ingr'>
-          <label>Prix :</label>
-          <input type="text" name="Prix" value={formData.Prix} onChange={handleChange} />
-          </div>
-          </div>
-          <div className='blok_bot'>
-          <button onClick={handleUpdate}>OK</button>
-          <button onClick={closeModal}>Annuler</button>
-          </div>
-          </div>
-
         </div>
       )}
+
       {/* Modale pour ajouter un ingrédient */}
       {isAddModalOpen && (
         <div className="modal1">
