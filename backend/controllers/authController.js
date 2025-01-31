@@ -11,7 +11,7 @@ const registerUser = async (req, res) => {
     Sport_question, sport_pratique, regime_question,
     regime_alimentaire, regime_raison, maladie,
     dejeuner_preference, favoriteDishes, ConsumedDishes, step } = req.body;
-    console.log("this is the data in backend: ", req.body)
+    
   // Validation des mots de passe
   if (password !== confirmPassword) {
     return res.status(400).json({ success: false, error: "Les mots de passe ne correspondent pas." });
@@ -64,7 +64,6 @@ const registerUser = async (req, res) => {
       const result = await request.query(insertUserQuery);
       const userId = result.recordset[0].id;
       
-      console.log("User inserted successfully. User ID:", userId);
 
       const insertUserDetailsQuery = `
         INSERT INTO users_preferences (
