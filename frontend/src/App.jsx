@@ -23,6 +23,11 @@ import Statistique from './components/statistique/statistique.jsx';
 import Profile from './pages/profile/profile.jsx';
 import Ingredients from './pages/admin/Ingredients.jsx';
 
+import Confirmer from './pages/admin/Confirmer.jsx';
+
+import IngredientsTable from './components/ingrediants/ingrediant.jsx';
+
+
 
 function App() {
 
@@ -31,6 +36,7 @@ function App() {
     <div className="custom-cursor">
     <Router>
       <Routes>
+        <Route path="/IngredientsTable" element={<IngredientsTable />} />
         <Route path="/recomm" element={<Recommendation />} />
         <Route path="/plats" element={<Plat_All />} />
         <Route path="/ajouterPlat" element={<AjouterPlat />} />
@@ -48,6 +54,7 @@ function App() {
           <Route path="ManageUsers" element={<ManageUsers/>} />
           <Route path="PlatsAdmin" element={<PlatsAdmin />} />
           <Route path="Ingredient" element={<Ingredients/>} />
+          <Route path="Confirmer" element={<Confirmer/>} />
         </Route>
         <Route path="recommend" element={<Recommend />} />
         <Route path="statistiques" element={<Statistique />} />

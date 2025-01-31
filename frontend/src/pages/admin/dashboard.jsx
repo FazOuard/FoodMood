@@ -52,7 +52,7 @@ const PlotComponent = () => {
         setNombrePlat(extraData.length);
 
         // Récupérer le nombre de plats et les autres données supplémentaires
-        const usersResponse = await fetch('http://localhost:5000/userPreference');
+        const usersResponse = await fetch('http://localhost:5000/userWithPreferences');
         const usersData = await usersResponse.json();
         setUsersData(usersData.length);
        

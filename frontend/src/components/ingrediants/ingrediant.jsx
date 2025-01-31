@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaEdit, FaTrash, FaPlus, FaSearch } from 'react-icons/fa';
-import './Ingredients.css';
+import './ingrediant.css';
 
-const Ingredients = () => {
+const IngredientsTable = () => {
   const [ingredients, setIngredients] = useState([]);
   const [selectedIngredient, setSelectedIngredient] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -76,9 +76,16 @@ const Ingredients = () => {
 
   return (
     <div className="page_ingrediants">
-      
+      <div className="border">
+        <ul className="nav-listFaz">
+          <li>Dashboard</li>
+          <li>Utilisateurs</li>
+          <li>Plats</li>
+          <li>Ingredients</li>
+        </ul>
+      </div>
 
-      <div className="ingredients">
+      <div className="ingredient">
         <h1 className="text">Ingrédients</h1>
         <div className="pre-ing">
           <div className='selectionmultipleFaz'>
@@ -94,7 +101,7 @@ const Ingredients = () => {
 
           <button className="buttonAjouting"><FaPlus /> Ajouter un ingrédient</button>
         </div>
-        
+
         <table className="ingredients-table">
           <thead>
             <tr>
@@ -150,4 +157,4 @@ const Ingredients = () => {
   );
 };
 
-export default Ingredients;
+export default IngredientsTable;
