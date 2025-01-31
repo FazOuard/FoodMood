@@ -5,8 +5,14 @@ import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import des icônes
 import "./Creat.css";
 import { nationalities } from "../../../api/NationalityData";
+import ImageSelector from "../imageSelector/imageSelector";
+import img1 from "../../assets/breakfast/1.png"
+import img2 from "../../assets/breakfast/2.png"
+import img3 from "../../assets/breakfast/3.png"
 
-const RegistrationForm = () => {
+const RegistrationForm = () => { 
+
+  const images = [ img1, img2, img3 ]
 
   const [step, setStep] = useState(1);
 
@@ -25,6 +31,18 @@ const RegistrationForm = () => {
     Aimer_Plat_marocain: "",
     type_cuisine: "",
     duree_preparation: "",
+    Vegeterien_question: "",
+    Allergies: "",
+    Allergie_specification: "",
+    type_viande_prefere: "",
+    Poids_etat: "",
+    Sport_question: "",
+    sport_pratique: "",
+    regime_question: "",
+    regime_alimentaire: "",
+    regime_raison: "",
+    maladie: "",
+    dejeuner_preference: "",
     favoriteDishes: [],
     ConsumedDishes: [],
   });
@@ -39,6 +57,10 @@ const RegistrationForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleImageSelect = (selectedIndex) => {
+    setFormData({ ...formData, dejeuner_preference: selectedIndex });
   };
 
   const handleNextStep = async (e) => {
@@ -149,7 +171,7 @@ const RegistrationForm = () => {
           {step === 2 && (
             <>
               <form onSubmit={handleRegister}>
-                
+                <div className="form-create-all-0">
               <div className="form-create-all0">
                 
               <h1>Informations générales</h1>
@@ -157,7 +179,7 @@ const RegistrationForm = () => {
                     <div className="form-create-all1">
                         <div className="create-form-one-side">
                             <div className="create-form-one-field">
-                                <h4>Genre:</h4>
+                                <h5>Genre:</h5>
                                 <select
                                     name="genre"
                                     value={formData.genre}
@@ -170,7 +192,7 @@ const RegistrationForm = () => {
                             </div>
                             
                             <div className="create-form-one-field">
-                                <h4>Âge:</h4>
+                                <h5>Âge:</h5>
                                 <input
                                     type="number"
                                     name="age"
@@ -183,7 +205,7 @@ const RegistrationForm = () => {
 
                         <div className="create-form-one-side">
                             <div className="create-form-one-field">
-                                <h4>Nationalité:</h4>
+                                <h5>Nationalité:</h5>
                                 <select
                                     name="nationalité"
                                     value={formData.nationalité}
@@ -197,7 +219,7 @@ const RegistrationForm = () => {
                             </div>
 
                             <div className="create-form-one-field">
-                                <h4>Région:</h4>
+                                <h5>Région:</h5>
                                 <select
                                     name="genre"
                                     value={formData.region}
@@ -224,7 +246,7 @@ const RegistrationForm = () => {
                         <div className="create-form-one-side">
 
                             <div className="create-form-one-field">
-                                <h4>Ville:</h4>
+                                <h5>Ville:</h5>
                                 <input
                                 type="text"
                                 name="city"
@@ -235,7 +257,7 @@ const RegistrationForm = () => {
                             </div>
 
                             <div className="create-form-one-field">
-                                <h4>Status:</h4>
+                                <h5>Status:</h5>
                                 <select
                                     name="status"
                                     value={formData.status}
@@ -254,7 +276,7 @@ const RegistrationForm = () => {
                         <div className="create-form-one-side">
                             <div className="create-form-one-side1">
                                 <div className="create-form-one-field2">
-                                    <h4>Poids:</h4>
+                                    <h5>Poids:</h5>
                                     <input
                                     type="number"
                                     name="poids"
@@ -264,7 +286,7 @@ const RegistrationForm = () => {
                                     />
                                 </div>
                                 <div className="create-form-one-field2">
-                                    <h4>Taille:</h4>
+                                    <h5>Taille:</h5>
                                     <input
                                     type="number"
                                     name="taille"
@@ -314,12 +336,10 @@ const RegistrationForm = () => {
                                 </select>
                             </div>
                         </div>
-
-                    </div>
-                    
-                    <div className="form-create-all1">
-                    <div className="create-form-one-field0">
-                            <h4>Plats préférés:</h4>
+                        
+                        <div className="create-form-one-side">
+                        <div className="create-form-one-field">
+                        <h5>Plats préférés:</h5>
                             <input
                                 type="text"
                                 name="favoriteDishes"
@@ -330,9 +350,9 @@ const RegistrationForm = () => {
                                 }
                             />
                         </div>
-
-                        <div className="create-form-one-field0">
-                            <h4>Plats consommés:</h4>
+                        
+                        <div className="create-form-one-field">
+                        <h5>Plats consommés:</h5>
                             <input
                                 type="text"
                                 name="ConsumedDishes"
@@ -343,9 +363,175 @@ const RegistrationForm = () => {
                                 }
                             />
                         </div>
+
+                        </div>
+
                     </div>
+                    <div className="vertical-line-form-create"/>
+                    <div className="form-create-all1">
+                      
+                      <div className="create-form-one-side-part2">
+                        <div className="create-form-one-side-part2-1">
+                          <div className="create-form-one-field-part21">
+                              <h5>Végétarien(ne)?</h5>
+                              <select
+                                    name="Vegeterien_question"
+                                    value={formData.Vegeterien_question}
+                                    onChange={handleChange}
+                              >
+                                    <option value="">Sélectionner une réponse</option>
+                                    <option value="Oui">Oui</option>
+                                    <option value="Non">Non</option>
+                              </select>
+                          </div>
+                          <div className="create-form-one-field-part21">
+                              <h5>Allergique?</h5>
+                              <select
+                                    name="Allergies"
+                                    value={formData.Allergies}
+                                    onChange={handleChange}
+                                >
+                                <option value="">Sélectionner une réponse</option>
+                                <option value="Oui">Oui</option>
+                                <option value="Non">Non</option>
+                              </select>
+                          </div>
+                        </div>
+                        <div className="create-form-one-field0">
+                                <h5>Si oui, laquelle?</h5>
+                                <input
+                                type="text"
+                                name="Allergie_specification"
+                                placeholder="Votre allergie"
+                                value={formData.Allergie_specification}
+                                onChange={handleChange}
+                                />
+                        </div>
+                    </div>
+
+                    <div className="create-form-one-side-part2">
+                        <div className="create-form-one-side-part2-1">
+                          <div className="create-form-one-field-part21">
+                              <h5>Vous préférez..</h5>
+                              <select
+                                    name="type_viande_prefere"
+                                    value={formData.type_viande_prefere}
+                                    onChange={handleChange}
+                              >
+                                    <option value="">Sélectionner une réponse</option>
+                                    <option value="Poulet">Poulet</option>
+                                    <option value="Viande">Viande</option>
+                                    <option value="Poisson">Poisson</option>
+                              </select>
+                          </div>
+                          <div className="create-form-one-field-part21">
+                              <h5>Vous voulez..</h5>
+                              <select
+                                    name="Poids_etat"
+                                    value={formData.Poids_etat}
+                                    onChange={handleChange}
+                                >
+                                <option value="">Sélectionner une réponse</option>
+                                <option value="Perdre du poids">Perdre du poids</option>
+                                <option value="Maintenir votre poids">Maintenir votre poids</option>
+                                <option value="Gagner du poids">Gagner du poids</option>
+                              </select>
+                          </div>
+                          </div>
+                          <div className="create-form-one-side-part2-1">
+                          <div className="create-form-one-field-part21">
+                              <h5>Sport?</h5>
+                              <select
+                                    name="Sport_question"
+                                    value={formData.Sport_question}
+                                    onChange={handleChange}
+                              >
+                                    <option value="">Sélectionner une réponse</option>
+                                    <option value="Oui">Oui</option>
+                                    <option value="Non">Non</option>
+                              </select>
+                          </div>
+                          <div className="create-form-one-field-part21">
+                              <h5>Si oui, lequel?</h5>
+                              <input
+                                type="text"
+                                name="sport_pratique"
+                                placeholder="Votre sport"
+                                value={formData.sport_pratique}
+                                onChange={handleChange}
+                              />
+                          </div>
+                          </div>
+                          </div>
+                          
+                          <div className="create-form-one-side-part2">
+                            
+                                <div className="create-form-one-field0">
+                                    <h5>Un régime?</h5>
+                                    <select
+                                            name="regime_question"
+                                            value={formData.regime_question}
+                                            onChange={handleChange}
+                                    >
+                                            <option value="">Sélectionner une réponse</option>
+                                            <option value="Oui">Oui</option>
+                                            <option value="Non">Non</option>
+                                    </select>
+                                </div>
+                                
+                                <div className="create-form-one-field0">
+                                    <h5>Si oui, lequel?</h5>
+                                    <input
+                                        type="text"
+                                        name="regime_alimentaire"
+                                        placeholder="Votre régime"
+                                        value={formData.regime_alimentaire}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+                          </div>
+                          
+                          <div className="create-form-one-side-part2">
+                                
+                            <div className="create-form-one-field0">
+                            <h5>Si oui, pourquoi?</h5>
+                              <input
+                                type="text"
+                                name="regime_raison"
+                                placeholder="Votre raison"
+                                value={formData.regime_raison}
+                                onChange={handleChange}
+                              />
+                            </div>
+                            
+                            <div className="create-form-one-field0">
+                            <h5>Une maladie?</h5>
+                              <input
+                                type="text"
+                                name="maladie"
+                                placeholder="Votre maladie"
+                                value={formData.maladie}
+                                onChange={handleChange}
+                              />
+                            </div>
+                          </div>
+                          
+                          <div className="create-form-one-side-part2">
+                        <div className="create-form-one-field5">
+                            <h5>Lequel ressemble le plus à un petit-déjeuner selon vous?</h5>
+                            <div style={{ width: "37vw"}}>
+                              <ImageSelector images={images} onSelect={handleImageSelect}/>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    
+                    
                 </div>
                 <button type="submit">S'inscrire</button>
+                </div>
                 </div>
               </form>
             </>
@@ -354,6 +540,7 @@ const RegistrationForm = () => {
 
           {error && <p className="error">{error}</p>}
           <Link to="/">Déjà inscrit ? Se connecter</Link>
+        
         </div>
       </div>
     </div>
