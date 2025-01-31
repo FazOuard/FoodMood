@@ -27,9 +27,17 @@
   background-color: #2C471B;
   color: #fff;
   padding: 20px;
+  padding-top:60px;
   border-radius: 12px;
-  flex-shrink: 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  
+  height: 100vh; /* Permet au sidebar de couvrir toute la hauteur de l'écran */
+  position: fixed; /* Fixe le sidebar pour qu'il ne dépende pas du contenu */
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  border-radius: 0;
 }
 
 .nav-listFaz {
@@ -74,6 +82,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  margin-left: 220px; /* Décale le contenu principal pour éviter qu'il ne soit masqué */
+  width: calc(100% - 220px);
  
 }
 
