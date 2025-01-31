@@ -70,38 +70,35 @@ const Statistique = () => {
       
       <div className="totalTOUTPlats">
         <div className="totalPlats">
-            <MdFavorite  size={24} style={{ width: "30px", color: "#2A2A2A" }} />
+            <MdFavorite  className="blockFaz-icon"  />
             {stats.totalPlats} Plats favoris
         </div>
         <div className="totalPlats" onClick={goToAllDishes}>
-            <FaPizzaSlice size={24} style={{ width: "30px", color: "#2A2A2A" }} />
+            <FaPizzaSlice className="blockFaz-icon"  />
             {extraDataCount} Plats
         </div>
         </div>
+      <div className="bothgraphiques">
+        <div className="graphique1">
+          
+          <Plot
+            data={stats.barChart.data}
+            layout={stats.barChart.layout}
+            config={stats.barChart.config || {}}
+          />
+        </div>
+          
+      
+        <div className="graphique2">
+          
+          <Plot
+            data={stats.cumulativeChart.data}
+            layout={stats.cumulativeChart.layout}
+            config={stats.cumulativeChart.config || {}}
+          />
+        </div>
 
-      <div className="graphique1">
-        <h2>
-          <FaBowlFood /> Plats favoris
-        </h2>
-        <Plot
-          data={stats.barChart.data}
-          layout={stats.barChart.layout}
-          config={stats.barChart.config || {}}
-        />
       </div>
-        
-
-      <div className="graphique2">
-        <h2>
-          <MdOutlineTimeline /> Interactions cumulées
-        </h2>
-        <Plot
-          data={stats.cumulativeChart.data}
-          layout={stats.cumulativeChart.layout}
-          config={stats.cumulativeChart.config || {}}
-        />
-      </div>
-
       
     </div>
   );
