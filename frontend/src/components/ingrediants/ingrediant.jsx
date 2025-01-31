@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaEdit, FaTrash, FaPlus, FaSearch } from 'react-icons/fa';
-import './ingrediant.css';
+
 
 const IngredientsTable = () => {
   const [ingredients, setIngredients] = useState([]);

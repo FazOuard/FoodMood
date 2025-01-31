@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaEdit, FaTrash, FaPlus, FaSearch } from 'react-icons/fa';
-import './Ingredients.css';
+import "./Ingredients.css";
+
 
 const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -75,6 +76,7 @@ const Ingredients = () => {
   };
 
   return (
+    
     <div className="page_ingrediants">
       
 
@@ -129,6 +131,7 @@ const Ingredients = () => {
       {/* Modale pour modifier un ingrédient */}
       {isModalOpen && (
         <div className="modal">
+          <div className='modal-content'>
           <h3>Modifier l'Ingrédient</h3>
           <label>Nom:</label>
           <input type="text" name="Ingredient" value={formData.Ingredient} onChange={handleChange} />
@@ -144,6 +147,8 @@ const Ingredients = () => {
 
           <button onClick={handleUpdate}>OK</button>
           <button onClick={closeModal}>Annuler</button>
+          </div>
+
         </div>
       )}
     </div>
