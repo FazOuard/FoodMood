@@ -52,7 +52,7 @@
 .ingredients-table th,
 .ingredients-table td {
     padding: 0px;
-    
+    text-align: center;
     border: 1px solid #d1e7dd;
 }
 .text{
@@ -100,17 +100,40 @@
     margin-bottom: 20px;
     background-color: #2d6a4f;
     flex-direction: row;
-   
-  margin: 5px;
-  width:200px;
+    margin: 5px;
+    width:200px;
+}
+.rechercheTotalahlam input{
+  width: 90%;
+  padding: 10px;
+  padding-right: 0px; /* Pour laisser de la place à l'icône */
+  border:0px;
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.pre-ing{
+.rechercheTotalahlam{
+    height: 32px;
+    border: 1px solid #cdd9c6;
+    border-radius: 8px;
+    padding: 10px;
+    padding-bottom: 0px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+}
+.rechercheTotalahlam label{
+  width: 10%;
+  margin-right: 2px;
+  color: #999;
+}
+
+
+.pre_ing{
     display: flex;
   flex-direction:row;
   justify-content: space-between;
   margin-bottom: 20px;
-  align-items: center; 
+  align-items: center;
 }
 .rechercheTotalFaz{
     display: flex;
@@ -123,28 +146,37 @@
 
 
 
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.677);
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    z-index: 1000;
+.modal1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
   }
-  
-  .modal h3 {
+  .modal1-content {
+    background: white;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 8px;
+    width: 700px;
+    text-align: center;
+    
+  }
+  .modal1 h3 {
     margin-bottom: 10px;
   }
   
-  .modal label {
-    display: block;
+  .modal1 label {
+    display:flex;
     margin-top: 10px;
   }
   
-  .modal input {
+  .modal1 input {
     width: 100%;
     padding: 5px;
     margin-top: 5px;
@@ -152,18 +184,40 @@
     border-radius: 4px;
   }
   
-  .modal button {
+  .modal1 button {
     margin-top: 10px;
     margin-right: 10px;
     padding: 8px 12px;
-    background: #007bff;
+    background: #2d6a4f;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  .modal button:last-child {
-    background: red;
+  .modal1 button:last-child {
+    background: #d90429;
   }
+  
+.blocks_all{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.block_ingr{
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.blok_bot{
+  display: flex;
+  margin-top: 50px;
+  flex-direction: row;
+  gap: 10px;
+  justify-content:right; 
+  width: 100%; 
+  cursor: pointer;
+}
+.blok_bot button{
+  width: 20%;
+}
   
