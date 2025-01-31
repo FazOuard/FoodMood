@@ -18,7 +18,7 @@ const Estimate = () => {
     const state = location.state || {};
 
     useEffect(() => {
-        axios.get('http://localhost:5000/ingredients')
+        axios.get('http://localhost:5000/ingredients2')
           .then(response => {
             setIng(response.data);
           })
