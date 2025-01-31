@@ -6,15 +6,17 @@ import { FaBowlFood } from "react-icons/fa6";
 import "./statistique.css";
 import NavBar from "../navbar/navbar";
 import SideBar from "../sidebar/sidebar";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Statistique = () => {
   const [stats, setStats] = useState(null); 
   const [extraData, setExtraData] = useState(null); // Pour les données du deuxième fetch
   const [error, setError] = useState(null);
   const [extraDataCount, setExtraDataCount] = useState(null);
-  const userId = 1; 
-const navigate = useNavigate();
+  const location = useLocation();
+  const state = location.state || {};
+  const userId =  state?.iduser || 1;
+  const navigate = useNavigate();
 
   const goToAllDishes = () => { 
     navigate("/plats");
@@ -65,7 +67,7 @@ const navigate = useNavigate();
     <div className="statistiqueContainer">
       <NavBar />
       <SideBar />
-      <h1>Mes statistiques</h1>
+      
       <div className="totalTOUTPlats">
         <div className="totalPlats">
             <MdFavorite  size={24} style={{ width: "30px", color: "#2A2A2A" }} />

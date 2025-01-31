@@ -1,16 +1,17 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import "./admin.css"; // Ajoutez vos styles ici
-import { MdDashboard } from "react-icons/md";
+import { MdDashboard, MdOutlineLogin } from "react-icons/md";
 import { FaCheck, FaRegUser } from "react-icons/fa";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { PiBowlFoodFill } from "react-icons/pi";
+import NavBar from "../../components/navbar/navbar";
 
 const ProfilAdmin = () => {
   return (
     
     <div className="wrapperFaz">
-     
+     <NavBar/>
 
       <div className="sectionFaz back-greyFaz">
         <div className="container-customFaz">
@@ -40,6 +41,11 @@ const ProfilAdmin = () => {
               <li>
                 <Link to="Confirmer" className="nav-link">
                   <FaCheck />  Confirmer
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="nav-link">
+                <MdOutlineLogin />  Se deconnecter
                 </Link>
               </li>
             </ul>
