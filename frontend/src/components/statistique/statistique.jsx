@@ -6,15 +6,17 @@ import { FaBowlFood } from "react-icons/fa6";
 import "./statistique.css";
 import NavBar from "../navbar/navbar";
 import SideBar from "../sidebar/sidebar";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Statistique = () => {
   const [stats, setStats] = useState(null); 
   const [extraData, setExtraData] = useState(null); // Pour les données du deuxième fetch
   const [error, setError] = useState(null);
   const [extraDataCount, setExtraDataCount] = useState(null);
-  const userId = 1; 
-const navigate = useNavigate();
+  const location = useLocation();
+  const state = location.state || {};
+  const userId =  state?.iduser || 1;
+  const navigate = useNavigate();
 
   const goToAllDishes = () => { 
     navigate("/plats");
@@ -65,41 +67,38 @@ const navigate = useNavigate();
     <div className="statistiqueContainer">
       <NavBar />
       <SideBar />
-      <h1>Mes statistiques</h1>
+      
       <div className="totalTOUTPlats">
         <div className="totalPlats">
-            <MdFavorite  size={24} style={{ width: "30px", color: "#2A2A2A" }} />
+            <MdFavorite  className="blockFaz-icon"  />
             {stats.totalPlats} Plats favoris
         </div>
         <div className="totalPlats" onClick={goToAllDishes}>
-            <FaPizzaSlice size={24} style={{ width: "30px", color: "#2A2A2A" }} />
+            <FaPizzaSlice className="blockFaz-icon"  />
             {extraDataCount} Plats
         </div>
         </div>
+      <div className="bothgraphiques">
+        <div className="graphique1">
+          
+          <Plot
+            data={stats.barChart.data}
+            layout={stats.barChart.layout}
+            config={stats.barChart.config || {}}
+          />
+        </div>
+          
+      
+        <div className="graphique2">
+          
+          <Plot
+            data={stats.cumulativeChart.data}
+            layout={stats.cumulativeChart.layout}
+            config={stats.cumulativeChart.config || {}}
+          />
+        </div>
 
-      <div className="graphique1">
-        <h2>
-          <FaBowlFood /> Plats favoris
-        </h2>
-        <Plot
-          data={stats.barChart.data}
-          layout={stats.barChart.layout}
-          config={stats.barChart.config || {}}
-        />
       </div>
-        
-
-      <div className="graphique2">
-        <h2>
-          <MdOutlineTimeline /> Interactions cumulées
-        </h2>
-        <Plot
-          data={stats.cumulativeChart.data}
-          layout={stats.cumulativeChart.layout}
-          config={stats.cumulativeChart.config || {}}
-        />
-      </div>
-
       
     </div>
   );

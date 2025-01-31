@@ -12,10 +12,9 @@ import { addToFavorites, deleteInteraction } from '../../../api/favorites';
 const Plat = () => {
   const [data, setData] = useState([]);
   const [likedPlats, setLikedPlats] = useState({});
-  const userId = 1;
-
   const location = useLocation();
   const state = location.state || {};
+  const userId =  state?.iduser || 1;
 
   useEffect(() => {
     const getData = async () => {

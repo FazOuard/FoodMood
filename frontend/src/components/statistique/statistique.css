@@ -34,8 +34,7 @@
   /* Bloc contenant le nombre de plats */
   .totalPlats {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    
     padding: 15px;
     background-color: #d6f1c6; /* Vert pâle pour un effet frais */
     border-radius: 15px;
@@ -43,8 +42,20 @@
     font-size: 1.3rem;
     margin-bottom: 30px;
     color: #2A2A2A; /* Un vert profond pour le titre */
-    text-align: center;
+    
     width: 200px;
+    width: 300px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ 
+  border-radius: 12px;
+  height: 120px; 
+  padding: 20px;
+ 
+  font-size: 1.9rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
    
   }
   .totalPlats:hover{
@@ -69,40 +80,24 @@
   /* Section des graphiques */
   .graphique1,
   .graphique2 {
-    
-    justify-content: center; 
+    flex: 1;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
-    width: 100%;
   }
   
-  /* Titre des graphiques */
-  .graphique1 h2,
-  .graphique2 h2 {
-    color: #2A2A2A; /* Vert pour les titres */
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 15px;
-    
-  }
-  
+ 
   /* Styles spécifiques aux graphiques */
   .graphique1 > div,
   .graphique2 > div {
-    width: 90%; /* Limiter la largeur des graphiques */
+    width: 100%;
     
-    justify-content: center;
-    align-items: center;
-    background-color: #a0d884; /* Vert vif pour les fonds des graphiques */
-    padding: 20px;
+
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Ajout d'un fond coloré aux graphiques */
-  .graphique1 {
-    margin-top: 30px;
-  }
+  
  
 .btnPlats {
     margin: 20px auto; 
@@ -133,3 +128,11 @@
     transform: translateY(1px); 
   }
   
+
+  .bothgraphiques{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:10px;
+  }

@@ -73,7 +73,7 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
 //Affichage du Composant
   return (
     <div className='ALL'>
-      <h1>Nos plats</h1>
+      <h2 className='ALL-TITLE'>Nos plats</h2>
       <div className='search'>
         <div className="search-bar">
           <input       //Champ de Saisie
@@ -196,13 +196,14 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
           </select>
         </div>
       </div>
-      <div className='plats0'>
+      <div className='plats1'>
+        <div className='plats01'>
         {scrambledData
         .filter((item) => item.Image != null) //Filtre les plats pour ne garder que ceux qui ont une image définie.
         .map((item, index) => ( // Pour chaque plat filtré, crée un nouveau <div>
           <div key={index} className='un_plat' onClick={() => goToOneDish(item.id)}>  
             {item.Image ? (
-              <div className='plats_img'>
+              <div className='plats_img2'>
                 <img src={item.Image} alt={item.Titre} onError={handleImageError} />
                 <div className='shadow'></div>
                 <h2>{item.Titre}</h2>
@@ -210,7 +211,7 @@ const Plats = () => { //C'est la déclaration du composant fonctionnel Plats.
             ) : null}
           </div>
         ))}
-    </div>
+    </div></div>
     </div>
   );
 };

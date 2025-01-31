@@ -88,5 +88,9 @@ ALTER TABLE [dbo].[users]  WITH CHECK ADD CHECK  (([type]='admin' OR [type]='use
 GO
 
 
+//////////////////////// IMPORTANT
+
+-- Pouur la table users
+DBCC CHECKIDENT ('users', RESEED, 319);
 
 
