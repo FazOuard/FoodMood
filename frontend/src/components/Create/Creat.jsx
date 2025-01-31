@@ -221,7 +221,7 @@ const RegistrationForm = () => {
                             <div className="create-form-one-field">
                                 <h5>Région:</h5>
                                 <select
-                                    name="genre"
+                                    name="region"
                                     value={formData.region}
                                     onChange={handleChange}
                                 >
@@ -317,7 +317,7 @@ const RegistrationForm = () => {
                                 type="text"
                                 name="type_cuisine"
                                 placeholder="Type de cuisine"
-                                value={formData.poids}
+                                value={formData.type_cuisine}
                                 onChange={handleChange}
                                 />
                             </div>

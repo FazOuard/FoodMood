@@ -4,8 +4,14 @@ import { sql } from '../dbConfig.js';
 
 
 const registerUser = async (req, res) => {
-  const { username, password, confirmPassword, age, city, favoriteDishes, step } = req.body;
-
+  const { username, password, confirmPassword, genre, age, city, region,
+    nationalité, status, poids, taille, Aimer_Plat_marocain,
+    type_cuisine, duree_preparation, Vegeterien_question, Allergies,
+    Allergie_specification,  type_viande_prefere, Poids_etat,
+    Sport_question, sport_pratique, regime_question,
+    regime_alimentaire, regime_raison, maladie,
+    dejeuner_preference, favoriteDishes, ConsumedDishes, step } = req.body;
+    console.log("this is the data in backend: ", req.body)
   // Validation des mots de passe
   if (password !== confirmPassword) {
     return res.status(400).json({ success: false, error: "Les mots de passe ne correspondent pas." });
@@ -36,6 +42,11 @@ const registerUser = async (req, res) => {
       // Hachage du mot de passe
       const hashedPassword = await bcrypt.hash(password, 10);
 
+      const insertUserQuery = 
+      `INSERT INTO Users (username, password, age, city, favoriteDishes, type)
+      OUTPUT INSERTED.id
+      VALUES (@username, @password, @age, @city, @favoriteDishes, 'user')`
+
       // Insertion dans la base de données
       request.input("password", sql.VarChar, hashedPassword);
       request.input("age", sql.Int, age);
@@ -43,9 +54,64 @@ const registerUser = async (req, res) => {
       request.input("favoriteDishes", sql.VarChar, favoriteDishes.join(","));
 
 
-      await request.query(
-        "INSERT INTO Users (username, password, age, city, favoriteDishes, type) VALUES (@username, @password, @age, @city, @favoriteDishes, 'user')"
-      );
+      // await request.query(
+      //   `INSERT INTO Users (username, password, age, city, favoriteDishes, type)
+      //   OUTPUT INSERTED.id
+      //   VALUES (@username, @password, @age, @city, @favoriteDishes, 'user')"`
+      // );
+
+      
+      const result = await request.query(insertUserQuery);
+      const userId = result.recordset[0].id;
+      
+      console.log("User inserted successfully. User ID:", userId);
+
+      const insertUserDetailsQuery = `
+        INSERT INTO users_preferences (
+          user_id, Region, Nationalite, Statut, Poids, Taille, Aimer_Plat_marocain,
+          type_cuisine, duree_preparation, Vegeterien_question, Allergies,
+          Allergie_specification, type_viande_prefere, Poids_etat,
+          Sport_question, sport_pratique, regime_question,
+          regime_alimentaire, regime_raison, maladie,
+          dejeuner_preference, Plat_consome, age, Genre, Plat_prefere
+        )
+        VALUES (
+          @user_id, @region, @nationalité, @status, @poids, @taille, @Aimer_Plat_marocain,
+          @type_cuisine, @duree_preparation, @Vegeterien_question, @Allergies,
+          @Allergie_specification, @type_viande_prefere, @Poids_etat,
+          @Sport_question, @sport_pratique, @regime_question,
+          @regime_alimentaire, @regime_raison, @maladie,
+          @dejeuner_preference, @ConsumedDishes, @age, @genre, @PlatPrefere
+        );
+      `;
+
+      // Add all the remaining inputs
+      request.input("user_id", sql.Int, userId);
+      request.input("region", sql.VarChar, region);
+      request.input("nationalité", sql.VarChar, nationalité);
+      request.input("status", sql.VarChar, status);
+      request.input("poids", sql.VarChar, poids);
+      request.input("taille", sql.VarChar, taille);
+      request.input("Aimer_Plat_marocain", sql.VarChar, Aimer_Plat_marocain);
+      request.input("type_cuisine", sql.VarChar, type_cuisine);
+      request.input("duree_preparation", sql.VarChar, duree_preparation);
+      request.input("Vegeterien_question", sql.VarChar, Vegeterien_question);
+      request.input("Allergies", sql.VarChar, Allergies);
+      request.input("Allergie_specification", sql.VarChar, Allergie_specification);
+      request.input("type_viande_prefere", sql.VarChar, type_viande_prefere);
+      request.input("Poids_etat", sql.VarChar, Poids_etat);
+      request.input("Sport_question", sql.VarChar, Sport_question);
+      request.input("sport_pratique", sql.VarChar, sport_pratique);
+      request.input("regime_question", sql.VarChar, regime_question);
+      request.input("regime_alimentaire", sql.VarChar, regime_alimentaire);
+      request.input("regime_raison", sql.VarChar, regime_raison);
+      request.input("maladie", sql.VarChar, maladie);
+      request.input("genre", sql.VarChar, genre);
+      request.input("dejeuner_preference", sql.Int, dejeuner_preference);
+      request.input("ConsumedDishes", sql.VarChar, ConsumedDishes.join(","));
+      request.input("PlatPrefere", sql.VarChar, favoriteDishes.join(","));
+
+      await request.query(insertUserDetailsQuery);
 
       return res.status(201).json({
         success: true,
