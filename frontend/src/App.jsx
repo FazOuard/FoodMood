@@ -22,7 +22,11 @@ import Statistique from './components/statistique/statistique.jsx';
 
 import Profile from './pages/profile/profile.jsx';
 import Ingredients from './pages/admin/Ingredients.jsx';
+<<<<<<< HEAD
 import Confirmer from './pages/admin/Confirmer.jsx';
+=======
+import IngredientsTable from './components/ingrediants/ingrediant.jsx';
+>>>>>>> b4b1d7849bb4e7f8d9d7e40d6aa06c2956af317f
 
 
 function App() {
@@ -32,6 +36,7 @@ function App() {
     <div className="custom-cursor">
     <Router>
       <Routes>
+        <Route path="/IngredientsTable" element={<IngredientsTable />} />
         <Route path="/recomm" element={<Recommendation />} />
         <Route path="/plats" element={<Plat_All />} />
         <Route path="/ajouterPlat" element={<AjouterPlat />} />
