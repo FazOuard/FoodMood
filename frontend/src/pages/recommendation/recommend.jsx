@@ -60,8 +60,9 @@ const Recommend = () => {
 
     return (
         <div className="containerofallandnothing">
-            <h1>Plats que vous pourrez aimer</h1>
+            <h2 className='ALL-TITLE'>Plats que vous pourrez aimer</h2>
             <div className='plats0'>
+                <div className='plats00'>
                 {foodItems
                     .filter((item) => item.Image != null) // Filtre les plats pour ne garder que ceux qui ont une image
                     .map((item, index) => ( // Pour chaque plat filtré, crée un nouveau <div>
@@ -80,6 +81,7 @@ const Recommend = () => {
                             ) : null}
                         </div>
                     ))}
+            </div>
             </div>
         </div>
     );
