@@ -68,4 +68,6 @@
 
 .estimate-all-ing:hover{
     overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(44, 71, 27, 1) rgba(44, 71, 27, 0);
 }
