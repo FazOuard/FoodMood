@@ -58,7 +58,6 @@
     width: 23vw;
     max-width: 220px;
     height: 17vw;
-    max-height: 160px;
     overflow: hidden;
     transition: transform 0.3s ease;
     border-radius: 5px;
@@ -366,7 +365,7 @@
   width: calc(100vw - 18vw - 16vw);
   max-width: calc(100vw - 160px - 16vw);
   justify-content: center;
-  height: 55.5vh;
+  height: 39vh;
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: thin;

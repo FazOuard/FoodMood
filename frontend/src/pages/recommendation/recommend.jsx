@@ -60,7 +60,7 @@ const Recommend = () => {
 
     return (
         <div className="containerofallandnothing">
-            <h2 className='ALL-TITLE'>Plats que vous pourrez aimer</h2>
+            <h1>Plats que vous pourrez aimer</h1>
             <div className='plats0'>
                 <div className='plats00'>
                 {foodItems
