@@ -12,7 +12,7 @@ import userRoutes from "./routers/userRoutes.js"
 import historiqueRouter from "./routers/historiqueRouter.js"
 
 import userwithpreferences from "./routers/userAdminRouter.js"
-
+import  validationRouter from "./routers/validationRouter.js"
 import ingr from "./routers/ingredient.js"
 
 import ingredientsRouters from "./routers/ingredientsRoutes.js"
@@ -37,6 +37,7 @@ app.use("/api/ajouter", routerr);
 app.use("/users", userRoutes)
 app.use("/historique", historiqueRouter);
 app.use("/userWithPreferences",userwithpreferences);
+app.use("/validation",validationRouter)
 
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
