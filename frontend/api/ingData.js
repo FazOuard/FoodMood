@@ -7,7 +7,7 @@ export const fetchIngData = async () => {
         return JSON.parse(cachedData);
       }
 
-      const response = await axios.get('http://localhost:5000/ingredients');
+      const response = await axios.get('http://localhost:5000/ingredients2');
       const data = response.data;
   
       sessionStorage.setItem('Ingredients', JSON.stringify(data));

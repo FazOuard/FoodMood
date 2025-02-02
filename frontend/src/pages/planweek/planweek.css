@@ -6,6 +6,7 @@
     height: 92vh;
     overflow-y: scroll;
     color: #2C471B;
+    scrollbar-color: rgba(214, 241, 198, 1) rgba(44, 71, 27, 0);
 }
 
 .to-drag-item{
@@ -41,6 +42,8 @@
     top: 8vh;
     background-color: #D6F1C6;
     z-index: -100;
+    scrollbar-color: rgba(44, 71, 27, 1) rgba(44, 71, 27, 0);
+    scrollbar-width: thin;
 }
 
 .all-to-drag{
