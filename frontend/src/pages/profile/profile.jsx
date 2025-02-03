@@ -11,6 +11,7 @@ import loc from '../../assets/icons/loc.png'
 import age from '../../assets/icons/age.png'
 import { processPreferredDishes, processPreferredDishesAge } from '../../../api/userPreferencesData';
 import like1 from "../../assets/icons/like1.png"
+import { fetchLikedDishes } from '../../../api/likedDishes';
 
 
 const Profile = () => {
@@ -21,7 +22,7 @@ const Profile = () => {
     const [user, setUser] = useState();
     const [prefReg, setPrefReg] = useState([]);
     const [prefAge, setPrefAge] = useState([]);
-
+    const [likedDishes , setLikedDishes] = useState();
     const iduser = state?.iduser || 2;
 
     useEffect(() => {
@@ -37,7 +38,17 @@ const Profile = () => {
         getData();
     }, [iduser]);
 
-    console.log(user)
+    useEffect(() => {
+        const getLikedDishes = async () => {
+          try {
+            const data = await fetchLikedDishes(iduser); 
+            setLikedDishes(data); 
+          } catch (error) {
+            console.error('Error in fetching data:', error);
+          }
+        };
+        getLikedDishes();
+    }, [iduser]);
 
     useEffect(() => {
         const getData = async () => {
@@ -138,7 +149,24 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className='profile2'>
-
+                    {likedDishes?.map((likeddish, indexlike) => (
+                        <div className='fixprofile2'>
+                            <div className='profile2-likeddish' key={indexlike}>
+                                <div className='profile2-likeddish-info'>
+                                    <div className='profile2-likeddish-info1'>
+                                        <div className='profile2-likeddish-info1-titre'>{likeddish.Titre}</div>
+                                        <img src={like1}/>
+                                    </div>
+                                    <div className='profile2-likeddish-info2'>
+                                        {likeddish.Recette}
+                                    </div>
+                                </div>
+                                <div className='imglikeddish0'>
+                                    <img src={likeddish.Image} alt='' className='imglikeddish'/>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

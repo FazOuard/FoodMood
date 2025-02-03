@@ -16,7 +16,7 @@ import  validationRouter from "./routers/validationRouter.js"
 import ingr from "./routers/ingredient.js"
 
 import ingredientsRouters from "./routers/ingredientsRoutes.js"
-
+import likedDishesRoutes from "./routers/likedDishesRoutes.js"
 
 
 const app = express();
@@ -29,7 +29,7 @@ app.use('/platsIng', platsIngRoutes);
 app.use('/platIng', ingPlatRoutes);
 app.use('/addDish', ingPlatRoutes);
 app.use('/userPreference', userPreferences);
-
+app.use('/likedDishes', likedDishesRoutes)
 app.use('/IngGroupPlat', IngGroupPlatRoutes);
 
 app.use("/api/auth", router);
