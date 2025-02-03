@@ -3,7 +3,7 @@ import axios from 'axios';
 import './profile.css'
 import NavBar from '../../components/navbar/navbar';
 import SideBar from '../../components/sidebar/sidebar';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import homme from "../../assets/icons/homme.png"
 import femme from "../../assets/icons/femme.png"
 import { fetchDataUser } from '../../../api/userData';
@@ -18,12 +18,16 @@ const Profile = () => {
     
     const location = useLocation();
     const state = location.state || {};
-
+    const navigate = useNavigate();
     const [user, setUser] = useState();
     const [prefReg, setPrefReg] = useState([]);
     const [prefAge, setPrefAge] = useState([]);
     const [likedDishes , setLikedDishes] = useState();
     const iduser = state?.iduser || 2;
+
+    const handleAjouterPlat = () => {
+        navigate("/ajouterplat", {state})
+    }
 
     useEffect(() => {
         const getData = async () => {
@@ -53,7 +57,7 @@ const Profile = () => {
     useEffect(() => {
         const getData = async () => {
           try {
-            const data = await processPreferredDishes("Fès-Meknès"); 
+            const data = await processPreferredDishes(user.Region); 
             setPrefReg(data); 
           } catch (error) {
             console.error('Error in fetching data:', error);
@@ -61,7 +65,7 @@ const Profile = () => {
         };
     
         getData();
-    }, [iduser]);
+    }, [user]);
 
     useEffect(() => {
         if (user?.age) {
@@ -78,8 +82,6 @@ const Profile = () => {
         }
     }, [user?.age]);
 
-    console.log("this is: ", prefAge)
-
     return (
         <div>
             <NavBar/>
@@ -89,7 +91,11 @@ const Profile = () => {
                     <div className='profile15'>
                         <div className='profile1'>
                             <div className='profile1-1'>
-                                <img src={femme} />
+                                {user?.Genre === "femme" ? 
+                                    <img src={femme} />
+                                    :
+                                    <img src={homme} />}
+                                
                                 <div className='profile1-1-1'>
                                     <h2>{user?.username.split('@')[0].toUpperCase()}</h2>
                                     <h5>{user?.username}</h5>
@@ -111,6 +117,24 @@ const Profile = () => {
                             </div>
                         </div>
                         <div className='profile5'>
+                            <div className='profile5-infos'>
+                                <div className='profile5-info-t'>Vos informations:</div>
+                                <div>Nationalité: {user?.Nationalite}</div>
+                                <div>Région: {user?.Region}</div>
+                                <div>Status: {user?.Statut}</div>
+                                <div>Type de cuisine préféré: {user?.type_cuisine}</div>
+                                <div>Durée de préparation préférée: {user?.duree_preparation}</div>
+                                <div>Vous préférez: {user?.type_viande_prefere}</div>
+                                <div>Objectif: {user?.Poids_etat}</div>
+                            </div>
+                            <div className='vertical-line-profile5'/>
+                            <div className='profile5-actions'>
+                                <div className='profile5-info-t'>Actions</div>
+                                
+                                <div className='profile5-button2' onClick={() => handleAjouterPlat()}>
+                                    Ajouter un plat
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className='profile3'>

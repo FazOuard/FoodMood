@@ -36,6 +36,9 @@
     width: 44vw;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .profile3{
@@ -274,4 +277,55 @@
     height: calc(8vw + 5px);
     margin: 5px;
     margin-bottom: 0;
+}
+
+.profile5-infos{
+    padding: 10px;
+    width: 55%;
+    font-size: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 20px);
+    justify-content: space-between;
+}
+.profile5-actions{
+    padding: 10px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.profile5-info-t{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.profile5-button1{
+    padding: 10px 15px;
+    background-color: #FFFEE6;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile5-button2{
+    padding: 10px 15px;
+    background-color: #2C471B;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    color: #FFFEE6;
+    text-align: center;
+    cursor: pointer;
+}
+
+.vertical-line-profile5{
+    width: 1px;
+    height: 90%;
+    background-color: #2C471B;
 }
