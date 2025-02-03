@@ -12,6 +12,7 @@ import age from '../../assets/icons/age.png'
 import { processPreferredDishes, processPreferredDishesAge } from '../../../api/userPreferencesData';
 import like1 from "../../assets/icons/like1.png"
 import { fetchLikedDishes } from '../../../api/likedDishes';
+import WorldMap from '../../components/worldmap/worldmap';
 
 
 const Profile = () => {
@@ -23,6 +24,7 @@ const Profile = () => {
     const [prefReg, setPrefReg] = useState([]);
     const [prefAge, setPrefAge] = useState([]);
     const [likedDishes , setLikedDishes] = useState();
+    const [ map, setMap] = useState(0);
     const iduser = state?.iduser || 2;
 
     const handleAjouterPlat = () => {
@@ -130,7 +132,12 @@ const Profile = () => {
                             <div className='vertical-line-profile5'/>
                             <div className='profile5-actions'>
                                 <div className='profile5-info-t'>Actions</div>
-                                
+                                <div className='profile5-button1'>
+                                    Visualiser la carte du Maroc
+                                    </div>
+                                <div className='profile5-button1' onClick={() => setMap(1)}>
+                                    Visualiser la carte du monde
+                                    </div>
                                 <div className='profile5-button2' onClick={() => handleAjouterPlat()}>
                                     Ajouter un plat
                                 </div>
@@ -193,6 +200,7 @@ const Profile = () => {
                     ))}
                 </div>
             </div>
+            {map === 1 ? <WorldMap /> : null}
         </div>
     );
 };
