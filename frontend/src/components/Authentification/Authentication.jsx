@@ -28,7 +28,12 @@ function Authentication() {
 
       if (response.ok) {
         // Si la connexion réussit, rediriger vers le tableau de bord ou une autre page
-        navigate("/plats", {state: { iduser: data.id} });  // Remplacez "/dashboard" par l'URL vers laquelle vous voulez rediriger
+        if (data.type === "admin"){
+          navigate("/admin/dashboard", {state: { iduser: data.id} }); 
+        }
+        else if (data.type === "user"){
+          navigate("/plats", {state: { iduser: data.id} });  // Remplacez "/dashboard" par l'URL vers laquelle vous voulez rediriger
+        }
       } else {
         // Si la connexion échoue, afficher le message d'erreur
         setError(data.error || "Une erreur est survenue.");
