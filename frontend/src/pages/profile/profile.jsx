@@ -200,7 +200,7 @@ const Profile = () => {
                     ))}
                 </div>
             </div>
-            {map === 1 ? <WorldMap /> : null}
+            {map === 1 ? <WorldMap onClose={() => setMap(0)}/> : null}
         </div>
     );
 };

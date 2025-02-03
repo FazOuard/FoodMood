@@ -23,6 +23,7 @@
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: space-between;
+    z-index: 300;
 }
 
 .worldmap-1 img{

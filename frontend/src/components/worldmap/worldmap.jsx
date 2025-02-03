@@ -3,7 +3,7 @@ import './worldmap.css'
 import { worldData } from '../../../api/worldMapData';
 import { processContinentDishes } from '../../../api/userPreferencesData';
 
-const WorldMap = () => {
+const WorldMap = ({onClose}) => {
     const [ continent, setContinent ] = useState("Afrique")
     const [ continentDishes, setContinentDishes ] = useState()
 
@@ -23,8 +23,8 @@ const WorldMap = () => {
 
     console.log("this is continentDishes : ", continentDishes)
     return (
-        <div className='worldmap-all'>
-            <div className='worldmap-main'>
+        <div className='worldmap-all' onClick={onClose}>
+            <div className='worldmap-main' onClick={(e) => e.stopPropagation()}>
                 <div className='worldmap-1'>
                     <h2>La carte du monde</h2>
                     <img src={worldData.find((item) => item.name === continent).img}/>
