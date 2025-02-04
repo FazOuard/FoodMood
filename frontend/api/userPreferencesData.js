@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { fetchDataAllPlat } from './plat_data';
+import { natCont } from './NatContData';
 
 export const fetchDataPref = async () => {
     try {
@@ -165,4 +166,59 @@ export const processPreferredDishesAge = async (age) => {
         console.error("Error processing dishes:", error);
         return [];
     }
+};
+
+///////////////////////////////////////////////////////
+
+export const fetchDataPrefCont = async () => {
+  try {
+    const cachedData = sessionStorage.getItem('pref1');
+    if (cachedData) {
+      const data = JSON.parse(cachedData);
+      const enrichedData = data.map(item => ({
+        ...item,
+        Continent: natCont.find(nat => nat.nationality === item.Nationalite)?.continent || 'Unknown'
+      }));
+      return enrichedData;
+    }
+
+    const response = await axios.get('http://localhost:5000/userPreference');
+    const data = response.data;
+
+    const enrichedData = data.map(item => ({
+      ...item,
+      Continent: natCont.find(nat => nat.nationality === item.Nationalite)?.continent || 'Unknown'
+    }));
+
+    sessionStorage.setItem('pref1', JSON.stringify(enrichedData));
+
+    return enrichedData;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+};
+
+export const processContinentDishes = async (Continent) => {
+  try {
+      const data0 = await fetchDataPrefCont();
+      const data = data0.filter((dataa) => dataa.Continent === Continent)
+      const sortedDishes = getTopPreferredDishes(data);
+
+      const allDishes = await fetchDataAllPlat();
+
+      const mergedDishes = sortedDishes.map(dish => {
+          const matchedDish = allDishes.find(item => item.Titre.toLowerCase() === dish.dish);
+          return {
+              ...dish,
+              id: matchedDish ? matchedDish.id : null,
+              image: matchedDish? matchedDish.Image : null,
+          };
+      });
+
+      return mergedDishes;
+  } catch (error) {
+      console.error("Error processing dishes:", error);
+      return [];
+  }
 };

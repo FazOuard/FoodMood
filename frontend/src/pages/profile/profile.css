@@ -36,6 +36,9 @@
     width: 44vw;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .profile3{
@@ -59,6 +62,17 @@
     width: 19vw;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(110, 153, 85, 0) rgba(110, 153, 85, 0);
+    padding-bottom: 5px;
+}
+
+.profile2:hover{
+    scrollbar-color: rgba(110, 153, 85, 1) rgba(110, 153, 85, 0);
 }
 
 .profile1-1 img{
@@ -194,4 +208,124 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.imglikeddish{
+    min-width: 8vw;
+    min-height: 8vw;
+}
+
+.imglikeddish0{
+    width: 8vw;
+    height: 8vw;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border-radius: 200px;
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile2-likeddish-info{
+    background-color: #FFFEE6;
+    border-radius: 0 5px 5px 0;
+    height: calc(8vw - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    left: 4vw;
+    top: 5px;
+    padding: 10px 10px 5px 10px;
+    padding-left: calc(4vw + 5px);
+    width: calc(19vw - 30px - 8vw);
+    box-shadow: -15px 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile2-likeddish-info1{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.profile2-likeddish-info1 img{
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+}
+
+.profile2-likeddish-info2{
+    font-size: 10px;
+    width: 100%;
+    text-align: justify;
+    text-justify: auto;
+    height: auto;
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.profile2-likeddish{
+    position: relative;
+    height: calc(8vw + 5px);
+    margin: 5px;
+    margin-bottom: 0;
+}
+
+.profile5-infos{
+    padding: 10px;
+    width: 55%;
+    font-size: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 20px);
+    justify-content: space-between;
+}
+.profile5-actions{
+    padding: 10px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.profile5-info-t{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.profile5-button1{
+    padding: 10px 15px;
+    background-color: #FFFEE6;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile5-button2{
+    padding: 10px 15px;
+    background-color: #2C471B;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    color: #FFFEE6;
+    text-align: center;
+    cursor: pointer;
+}
+
+.vertical-line-profile5{
+    width: 1px;
+    height: 90%;
+    background-color: #2C471B;
 }

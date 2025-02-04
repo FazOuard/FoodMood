@@ -8,6 +8,7 @@
     box-sizing: border-box;
     max-width: 100vw;
     padding: 20px;
+    color: #2A2A2A;
   }
 
 
@@ -41,7 +42,16 @@
     table-layout: fixed; 
     width: 100%;
     border-collapse: collapse;
-    margin: 0 auto; /
+    margin: 0 auto; 
+    color: #2A2A2A;
+}
+
+.serach_input{
+  color: #2C471B;
+}
+
+.serach_input:focus {
+  box-shadow: none;
 }
 
 .ingredients-table thead {
@@ -157,6 +167,7 @@
   justify-content: center;
   align-items: center;
   overflow-y: auto;
+  color: #2A2A2A;
   }
   .modal1-content {
     background: white;
@@ -165,6 +176,7 @@
     border-radius: 8px;
     width: 700px;
     text-align: center;
+    color: #2A2A2A;
     
   }
   .modal1 h3 {
@@ -182,6 +194,7 @@
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    color: #2A2A2A;
   }
   
   .modal1 button {
@@ -220,4 +233,33 @@
 .blok_bot button{
   width: 20%;
 }
-  
+.error-message {
+  color: red;
+  background: #ffdddd;
+  border: 1px solid red;
+  padding: 20px;
+  margin-top: 50px;
+  width: 700px;
+  text-align: center;
+  border-radius: 5px;
+}
+.error_ahlam{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+.erreur_button button{
+  width: 25%;
+  margin-top: 30px;
+  margin-left: 500px;
+  display: flex;
+  justify-content: center;
+  background-color:#d90429;
+}

@@ -235,7 +235,7 @@ const RegistrationForm = () => {
                                     <option value="Oriental">Oriental</option>
                                     <option value="Marrakech-Safi">Marrakech-Safi</option>
                                     <option value="Tanger-Tétouan-Al Hoceima">Tanger-Tétouan-Al Hoceima</option>
-                                    <option value="Souss-Massa">Souss-Massa</option>
+                                    <option value="Dakhla-Oued ed Dahab">Dakhla-Oued ed Dahab</option>
                                     <option value="Laayoune-Sakia el Hamra">Laayoune-Sakia el Hamra</option>
                                     <option value="Guelmim-Oued Noun">Guelmim-Oued Noun</option>
                                     <option value="Je ne suis pas marocain">Je ne suis pas marocain</option>
