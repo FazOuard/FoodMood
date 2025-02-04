@@ -17,7 +17,7 @@ import ingr from "./routers/ingredient.js"
 
 import ingredientsRouters from "./routers/ingredientsRoutes.js"
 import likedDishesRoutes from "./routers/likedDishesRoutes.js"
-
+import ingPlatAdmin from "./routers/IngPlatAdminRouter.js"
 
 const app = express();
 app.use(cors()); 
@@ -31,7 +31,7 @@ app.use('/addDish', ingPlatRoutes);
 app.use('/userPreference', userPreferences);
 app.use('/likedDishes', likedDishesRoutes)
 app.use('/IngGroupPlat', IngGroupPlatRoutes);
-
+app.use('/ingplatAdmin',ingPlatAdmin)
 app.use("/api/auth", router);
 app.use("/api/ajouter", routerr);
 app.use("/users", userRoutes)

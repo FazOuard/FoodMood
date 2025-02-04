@@ -172,15 +172,16 @@ const Confirmer = () => {
 
   const handleSubmit = async () => {
     try {
-        console.log(selectedPlat);
-        console.log(newPlat);
+      console.log(selectedPlat);
+      console.log(newPlat);
+  
+      // Ajouter le plat
       const response = await fetch("http://localhost:5000/data/add", {
         method: 'POST',
         body: JSON.stringify(newPlat),
         headers: {
-          'Content-Type': 'application/json'
-        }
-        
+          'Content-Type': 'application/json',
+        },
       });
   
       if (!response.ok) {
@@ -188,9 +189,33 @@ const Confirmer = () => {
       }
   
       const newData = await response.json();
-      setData(prevData => [...prevData, newData]); // Mise à jour de l'état avec le nouvel élément
+      setData((prevData) => [...prevData, newData]); // Mise à jour de l'état avec le nouvel élément
+      
+      // Ajouter les éléments dans la table IngredientsPlat
+      const ingredientsData = {
+        idPlat: selectedPlat.id, // L'ID du plat ajouté
+        idIng: selectedPlat.idIng, // L'ID de l'ingrédient sélectionné
+        Quantite: selectedPlat.Quantite, // La quantité d'ingrédient
+      };
+  
+      // Envoi des données vers la table IngredientsPlat
+      const ingredientsResponse = await fetch("http://localhost:5000/ingplatAdmin/add", {
+        method: 'POST',
+        body: JSON.stringify(ingredientsData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!ingredientsResponse.ok) {
+        throw new Error("Erreur lors de l'ajout des ingrédients au plat");
+      }
+  
+      const ingredientsResult = await ingredientsResponse.json();
+      console.log("Ingrédients ajoutés avec succès :", ingredientsResult);
+      
       if (selectedPlat) {
-        handleDelete();
+        handleDelete(); // Supprimer l'élément si nécessaire
       }
       closeAddModal();
     } catch (error) {
