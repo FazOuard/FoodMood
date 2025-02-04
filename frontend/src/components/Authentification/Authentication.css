@@ -71,7 +71,11 @@
     padding: 0 10px;
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0);
-  }
+   }
+   /*
+    .auth-card input[type="text"] {
+      width: 24.7vw;
+  } */
   
   .auth-card input:focus {
     outline: none;

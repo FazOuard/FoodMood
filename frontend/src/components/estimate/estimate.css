@@ -62,8 +62,9 @@
 
 .estimate-all-ing{
     max-height: 47vh;
-    overflow-y: hidden;
+    overflow-y: scroll;
     scrollbar-width: thin;
+    scrollbar-color: rgba(44, 71, 27, 0) rgba(44, 71, 27, 0);
 }
 
 .estimate-all-ing:hover{

@@ -28,7 +28,12 @@ function Authentication() {
 
       if (response.ok) {
         // Si la connexion réussit, rediriger vers le tableau de bord ou une autre page
-        navigate("/plats", {state: { iduser: data.id} });  // Remplacez "/dashboard" par l'URL vers laquelle vous voulez rediriger
+        if (data.type === "admin"){
+          navigate("/admin/dashboard", {state: { iduser: data.id} }); 
+        }
+        else if (data.type === "user"){
+          navigate("/plats", {state: { iduser: data.id} });  // Remplacez "/dashboard" par l'URL vers laquelle vous voulez rediriger
+        }
       } else {
         // Si la connexion échoue, afficher le message d'erreur
         setError(data.error || "Une erreur est survenue.");
@@ -43,8 +48,8 @@ function Authentication() {
     <div className="container">
     <div className="auth-container">
       <div className="auth-card">
-        <h1>Log in</h1>
-        <p>Welcome</p>
+        <h1>Se connecter</h1>
+        <p>Bonjour!</p>
         <form onSubmit={handleLogin}>
           <input
             type="text"
@@ -58,10 +63,10 @@ function Authentication() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}  // Mise à jour de l'état du mot de passe
           />
-          <button type="submit">Log In</button>
+          <button type="submit">Se connecter</button>
         </form>
         {error && <p className="error">{error}</p>}  {/* Affichage de l'erreur si présente */}
-        <Link to="/Creat">Register</Link>
+        <Link to="/Creat">Créer un compte</Link>
       </div>
     </div>
     </div>
