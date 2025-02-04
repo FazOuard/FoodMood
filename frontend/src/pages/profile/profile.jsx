@@ -13,6 +13,7 @@ import { processPreferredDishes, processPreferredDishesAge } from '../../../api/
 import like1 from "../../assets/icons/like1.png"
 import { fetchLikedDishes } from '../../../api/likedDishes';
 import WorldMap from '../../components/worldmap/worldmap';
+import MoroccoMap from '../../components/moroccomap/moroccomap';
 
 
 const Profile = () => {
@@ -25,6 +26,7 @@ const Profile = () => {
     const [prefAge, setPrefAge] = useState([]);
     const [likedDishes , setLikedDishes] = useState();
     const [ map, setMap] = useState(0);
+    const [ morocco, setMorocco] = useState(0);
     const iduser = state?.iduser || 2;
 
     const handleAjouterPlat = () => {
@@ -132,7 +134,7 @@ const Profile = () => {
                             <div className='vertical-line-profile5'/>
                             <div className='profile5-actions'>
                                 <div className='profile5-info-t'>Actions</div>
-                                <div className='profile5-button1'>
+                                <div className='profile5-button1' onClick={() => setMorocco(1)}>
                                     Visualiser la carte du Maroc
                                     </div>
                                 <div className='profile5-button1' onClick={() => setMap(1)}>
@@ -201,6 +203,7 @@ const Profile = () => {
                 </div>
             </div>
             {map === 1 ? <WorldMap onClose={() => setMap(0)}/> : null}
+            {morocco === 1 ? <MoroccoMap onClose={() => setMorocco(0)}/> : null}
         </div>
     );
 };
