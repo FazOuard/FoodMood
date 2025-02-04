@@ -49,15 +49,38 @@ export const deleteIngredient = async (req, res) => {
   const { id } = req.params;
   try {
     const pool = await poolPromise;
+    
+    // Récupérer le nom de l'ingrédient à partir de son ID
     const request = pool.request();
     request.input("id", sql.Int, id);
+    const ingredientResult = await request.query("SELECT Ingredient FROM Ingredients WHERE Id = @id");
+
+    if (ingredientResult.recordset.length === 0) {
+      return res.status(404).json({ error: "Ingrédient introuvable" });
+    }
+
+    const ingredientName = ingredientResult.recordset[0].Ingredient;
+
+    // Vérifier si l'ingrédient est utilisé dans un plat
+    const checkRequest = pool.request();
+    checkRequest.input("ingredientName", sql.NVarChar, `%${ingredientName}%`);
+    const checkResult = await checkRequest.query("SELECT * FROM Plat WHERE Ingredients LIKE @ingredientName");
+
+    if (checkResult.recordset.length > 0) {
+      return res.status(400).json({ error: "Impossible de supprimer cet ingrédient, car il est utilisé dans un plat." });
+    }
+
+    // Supprimer l'ingrédient s'il n'est pas utilisé
     await request.query("DELETE FROM Ingredients WHERE Id = @id");
-    res.status(200).json({ message: "Ingrédient supprimé" });
+    res.status(200).json({ message: "Ingrédient supprimé avec succès" });
+
   } catch (error) {
     console.error("Erreur lors de la suppression de l'ingrédient :", error);
     res.status(500).json({ error: "Erreur serveur" });
   }
 };
+
+
 
 export const updateIngredient = async (req, res) => {
   const { id } = req.params;
