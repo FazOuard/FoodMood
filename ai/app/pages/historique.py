@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime
+from ..database import ApiSQLEngine
 
 # Ajouter une interaction à l'historique
 def add_interaction_to_historique(user_id, plat):
@@ -34,9 +35,8 @@ def add_interaction_to_historique(user_id, plat):
 # Récupérer l'historique d'un utilisateur
 def get_user_historique(user_id):
     try:
-        file_path='historique.csv'
         # Charger le fichier CSV
-        historique = pd.read_csv(file_path)
+        historique = pd.read_sql_query("SELECT * FROM historique", ApiSQLEngine)
     except FileNotFoundError:
         print("Fichier historique introuvable.")
         return None  # Return None if the file is not found

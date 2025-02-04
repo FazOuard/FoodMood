@@ -7,7 +7,7 @@ gethistorique_bp = Blueprint('toutHistorique', __name__)
 @gethistorique_bp.route('/toutHistorique', methods=['GET'])
 def get_historique():
     # Lire les paramètres de la requête
-    user_id = request.args.get('user_id', type=int)  # Récupérer le user_id depuis les paramètres
+    user_id = request.args.get('user_id', type=int)  
     
     if user_id is None:
         return jsonify({"error": "Veuillez fournir un user_id valide."}), 400

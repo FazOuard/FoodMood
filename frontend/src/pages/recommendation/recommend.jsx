@@ -7,7 +7,9 @@ const Recommend = () => {
     const [allPlats, setAllPlats] = useState([]); // Etat pour les plats récupérés via fetchDataAllPlat
     const navigate = useNavigate();
     const location = useLocation();
-
+  
+  const state = location.state || {};
+  const userId =  state?.iduser || 1;
     const goToOneDish = (idplat) => {
         navigate("/platinfo", {state: { ...(location.state || {}), idplat } })
     }
@@ -19,7 +21,7 @@ const Recommend = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ user_id: 1 }), // Envoie l'ID utilisateur dans le corps de la requête
+                body: JSON.stringify({ user_id: 1 }), 
             });
 
             if (!response.ok) {

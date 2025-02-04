@@ -121,7 +121,7 @@ def plat_recommended(user_id):
 
 
 def content_based_recommendations(train_data, item_id, top_n=10):
-    train_data['Ingredients '] = train_data['Ingredients '].fillna('')
+    train_data['Ingredients'] = train_data['Ingredients'].fillna('')
     # Check if the item_id exists in the training data
     if item_id not in train_data['id'].values:
         print(f"Item with id '{item_id}' not found in the training data.")
@@ -131,7 +131,7 @@ def content_based_recommendations(train_data, item_id, top_n=10):
     tfidf_vectorizer = TfidfVectorizer(stop_words='english')
 
     # Apply TF-IDF vectorization to 'soup' column (combined description of each item)
-    tfidf_matrix_content = tfidf_vectorizer.fit_transform(train_data['Ingredients '])
+    tfidf_matrix_content = tfidf_vectorizer.fit_transform(train_data['Ingredients'])
 
     # Calculate cosine similarity between items based on their 'soup' descriptions
     cosine_similarities_content = cosine_similarity(tfidf_matrix_content, tfidf_matrix_content)

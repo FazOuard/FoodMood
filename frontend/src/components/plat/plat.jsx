@@ -14,36 +14,35 @@ const Plat = () => {
   const [likedPlats, setLikedPlats] = useState({});
   const location = useLocation();
   const state = location.state || {};
-  const userId =  state?.iduser || 1;
+  const userId = state?.iduser || 1;
+
 
   useEffect(() => {
     const getData = async () => {
       try {
         const data = await fetchDataAllPlat();
         setData(data);
-
+  
         // Vérifier si le plat est déjà dans l'historique
         const plat = data.find((item) => item.id == state.idplat);
         if (plat) {
-          const response = await fetch(`http://localhost:8081/toutHistorique/${userId}`, {
+          const response = await fetch(`http://localhost:5000/historique?user_id=${userId}&plat=${plat.Titre}`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ user_id: userId, plat: plat.Titre }),
           });
           const result = await response.json();
-          setLikedPlats((prev) => ({ ...prev, [plat.id]: result.exists })); // `result.exists` doit être un booléen (true si dans l'historique)
-
+          setLikedPlats((prev) => ({ ...prev, [plat.id]: result.exists })); // `result.exists` devrait être un booléen
         }
       } catch (error) {
         console.error('Error in fetching data:', error);
       }
     };
-
+  
     getData();
   }, [state.idplat]);
-
+  
   const handleLikeClick = async (platId) => {
     const plat = data.find((item) => item.id == platId);
     if (!plat) {
