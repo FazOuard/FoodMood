@@ -16,6 +16,7 @@ const Ingredients = () => {
     Prix: '',
   });
   const [searchTerm, setSearchTerm] = useState(''); // Etat pour gérer la recherche
+  const [errorMessage, setErrorMessage] = useState(false); // État pour stocker l'erreur
 
   // Charger les ingrédients depuis l'API
   useEffect(() => {
@@ -62,6 +63,7 @@ const Ingredients = () => {
     setIsModalOpen(false);
     setIsAddModalOpen(false);
     setSelectedIngredient(null);
+    setErrorMessage(false);
   };
 
   const openAddModal = () => {
@@ -109,9 +111,15 @@ const Ingredients = () => {
     try {
       await axios.delete(`http://localhost:5000/ingredients/ingredients/${id}`);
       setIngredients(ingredients.filter((ingredient) => ingredient.Id !== id));
-      setFilteredIngredients(filteredIngredients.filter((ingredient) => ingredient.Id !== id)); // Mise à jour de la liste filtrée
+      setFilteredIngredients(filteredIngredients.filter((ingredient) => ingredient.Id !== id));
+      setErrorMessage(""); // Réinitialiser le message d'erreur en cas de succès
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
+      if (error.response && error.response.data.error) {
+        setErrorMessage(error.response.data.error); // Stocker le message d'erreur du backend
+      } else {
+        setErrorMessage("Une erreur est survenue lors de la suppression.");
+      }
     }
   };
 
@@ -192,6 +200,17 @@ const Ingredients = () => {
               <button onClick={closeModal}>Annuler</button>
             </div>
           </div>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className='error_ahlam'>
+        <div className="error-message">
+          {errorMessage}
+        <div className='erreur_button'>
+        <button onClick={closeModal}>OK</button>
+        </div>
+        </div>
         </div>
       )}
 

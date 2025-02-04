@@ -336,6 +336,8 @@ const Confirmer = () => {
           <p>{selectedPlat.Recette}</p>
           <p><strong>Ingredients</strong></p>
           <p>{selectedPlat.Ingredients}</p>
+          <p>{selectedPlat.idIng}</p>
+          <p>{selectedPlat.Quantite}</p>
           </div>
         </div>
 

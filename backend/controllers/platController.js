@@ -130,3 +130,41 @@ export const deleteData = async (req, res) => {
     res.status(500).send(err.message);
   }
 };
+
+
+
+
+export const addDataInPlatInIngredient = async (req, res) => {
+  const { Titre, Recette, Duree, Ingredients, Calories, Proteines, Lipides, Glucides, Youtube, Image, Cuisine, Cathegorie } = req.body;
+
+  try {
+    // Récupérer le dernier ID et l'incrémenter de 1
+    const lastId = await getLastId();
+    const newId = lastId + 1; // Incrémentation de l'ID
+
+    const pool = await poolPromise;
+    await pool
+      .request()
+      .input('id', newId)
+      .input('Titre', Titre)
+      .input('Recette', Recette)
+      .input('Duree', Duree)
+      .input('Ingredients', Ingredients)
+      .input('Calories', Calories)
+      .input('Proteines', Proteines)
+      .input('Lipides', Lipides)
+      .input('Glucides', Glucides)
+      .input('Youtube', Youtube)
+      .input('Image', Image)
+      .input('Cuisine', Cuisine)
+      .input('Cathegorie', Cathegorie)
+      .query(`
+        INSERT INTO plat (id, Titre, Recette, Duree, Ingredients, Calories, Proteines, Lipides, Glucides, Youtube, Image, Cuisine, Cathegorie)
+        VALUES (@id, @Titre, @Recette, @Duree, @Ingredients, @Calories, @Proteines, @Lipides, @Glucides, @Youtube, @Image, @Cuisine, @Cathegorie)
+      `);
+
+    res.status(201).json({ message: "Plat ajouté avec succès" });
+  } catch (err) {
+    res.status(500).send({ message: "Erreur lors de l'ajout du plat", error: err.message });
+  }
+};
