@@ -12,12 +12,13 @@ const Planifier = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    const state = location.state || {};
 
     const goToPlanWeek = () => {
-        navigate('/planSemaine');
+        navigate('/planSemaine', {state});
     }
     const goToPlanMonth = () => {
-        navigate('/planMois');
+        navigate('/planMois', {state});
     }
 
     return (

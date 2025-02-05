@@ -17,6 +17,8 @@ import NbrPerson2 from '../../components/nbrPerson2/nbrPerson2';
 
 const Rapport = () => {
     const location = useLocation();
+    const state = location.state || {};
+    const iduser = state?.iduser || 327;
     const { selectedDishes, ...existingState } = location.state || {};
     
     const [data, setData] = useState([]); 

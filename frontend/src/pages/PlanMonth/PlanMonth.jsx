@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NavBar from "../../components/navbar/navbar";
 import SideBar from "../../components/sidebar/sidebar";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const PlanMonth = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -11,7 +12,12 @@ const PlanMonth = () => {
   const [draggedItem, setDraggedItem] = useState(null);
   const [plats, setPlats] = useState([]);
   const [searchQuery, setSearchQuery] = useState(""); // État pour le champ de recherche
+  
+  const location = useLocation();
+  const state = location.state || {};
 
+  const iduser = state?.iduser || 327;
+  
   // Helper to get month days
   const getDaysInMonth = (year, month) => {
     return Array.from({ length: 31 }, (_, index) => new Date(year, month, index + 1))
