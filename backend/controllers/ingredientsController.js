@@ -47,6 +47,7 @@ export const addIngredient = async (req, res) => {
 
 export const deleteIngredient = async (req, res) => {
   const { id } = req.params;
+  
   try {
     const pool = await poolPromise;
     
@@ -64,14 +65,20 @@ export const deleteIngredient = async (req, res) => {
     // Vérifier si l'ingrédient est utilisé dans un plat
     const checkRequest = pool.request();
     checkRequest.input("ingredientName", sql.NVarChar, `%${ingredientName}%`);
-    const checkResult = await checkRequest.query("SELECT * FROM Plat WHERE Ingredients LIKE @ingredientName");
+    
+    checkRequest.input("id0", sql.NVarChar, id);
+    //const checkResult = await checkRequest.query("SELECT * FROM Plat WHERE Ingredients LIKE @ingredientName");
+    const checkResult = await checkRequest.query(`
+                                                  SELECT * 
+                                                  FROM [dbo].[IngredientsPlat] 
+                                                  WHERE CHARINDEX(',' + @id0 + ',', ',' + REPLACE(idIng, ' ', '') + ',') > 0;`);
 
     if (checkResult.recordset.length > 0) {
       return res.status(400).json({ error: "Impossible de supprimer cet ingrédient, car il est utilisé dans un plat." });
     }
 
     // Supprimer l'ingrédient s'il n'est pas utilisé
-    await request.query("DELETE FROM Ingredients WHERE Id = @id");
+    //await request.query("DELETE FROM Ingredients WHERE Id = @id");
     res.status(200).json({ message: "Ingrédient supprimé avec succès" });
 
   } catch (error) {
