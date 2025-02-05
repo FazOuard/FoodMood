@@ -27,7 +27,7 @@ const Profile = () => {
     const [likedDishes , setLikedDishes] = useState();
     const [ map, setMap] = useState(0);
     const [ morocco, setMorocco] = useState(0);
-    const iduser = state?.iduser || 2;
+    const iduser = state?.iduser || 327;
 
     const handleAjouterPlat = () => {
         navigate("/ajouterplat", {state})

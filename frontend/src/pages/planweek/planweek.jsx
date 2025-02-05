@@ -15,7 +15,8 @@ const PlanWeek = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-
+    const state = location.state || {};
+    const iduser = state?.iduser || 327;
     const [searchText, setSearchText] = useState('');
 
     const [data, setData] = useState([]);
