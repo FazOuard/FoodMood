@@ -68,6 +68,9 @@
   .auth-card form input{
     color: #555555;
   }
+  .auth-card form input:focus{
+    box-shadow: none;
+  }
   
   .password-container {
     height: 40px;

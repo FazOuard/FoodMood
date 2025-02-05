@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'; 
 import './recommend.css';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Recomm from "../../assets/replace/Recomm.png"
 
 const Recommend = () => {
     const [foodItems, setFoodItems] = useState([]);
@@ -21,7 +22,7 @@ const Recommend = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ user_id: 1 }), 
+                body: JSON.stringify({ user_id: userId }), 
             });
 
             if (!response.ok) {
@@ -65,7 +66,8 @@ const Recommend = () => {
             <h1>Plats que vous pourrez aimer</h1>
             <div className='plats0'>
                 <div className='plats00'>
-                {foodItems
+                {foodItems.length > 0 ?
+                    foodItems
                     .filter((item) => item.Image != null) // Filtre les plats pour ne garder que ceux qui ont une image
                     .map((item, index) => ( // Pour chaque plat filtré, crée un nouveau <div>
                         <div key={index} className='un_plat' onClick={() => {
@@ -82,7 +84,14 @@ const Recommend = () => {
                                 </div>
                             ) : null}
                         </div>
-                    ))}
+                    ))
+                :
+                <div className='un_plat'>
+                        <div className='plats_img'>
+                            <img src={Recomm} />
+                        </div>
+                </div>
+                }
             </div>
             </div>
         </div>

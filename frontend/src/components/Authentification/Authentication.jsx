@@ -55,7 +55,9 @@ function Authentication() {
             type="text"
             placeholder="Username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}  // Mise à jour de l'état du nom d'utilisateur
+            onChange={(e) => setUsername(e.target.value)} 
+            style={{ width : "24.7vw"}}
+            // Mise à jour de l'état du nom d'utilisateur
           />
           <input
             type="password"
