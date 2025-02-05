@@ -61,12 +61,15 @@ cosine_sim = cosine_similarity(count_matrix, count_matrix)
 
 # Fonction pour obtenir des recommandations basées sur un utilisateur
 def recommend_for_user(user_index, cosine_sim=cosine_sim, data=data):
+    if user_index >= len(data):
+       user_index=user_index-1
+        
     # Identifiez les utilisateurs similaires
     sim_scores = list(enumerate(cosine_sim[user_index]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     sim_scores = sim_scores[1:6]  # Top 5 utilisateurs similaires
     similar_users = [i[0] for i in sim_scores]
-
+    
     # Récupérez les plats préférés et consommés des utilisateurs similaires
     recommended_plates = []
     for u in similar_users:
