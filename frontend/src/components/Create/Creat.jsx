@@ -186,8 +186,8 @@ const RegistrationForm = () => {
                                     onChange={handleChange}
                                 >
                                     <option value="">Sélectionner votre genre</option>
-                                    <option value="femme">Femme</option>
-                                    <option value="homme">Homme</option>
+                                    <option value="Femme">Femme</option>
+                                    <option value="Homme">Homme</option>
                                 </select>
                             </div>
                             

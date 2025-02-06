@@ -95,7 +95,7 @@ const Profile = () => {
                     <div className='profile15'>
                         <div className='profile1'>
                             <div className='profile1-1'>
-                                {user?.Genre === "femme" ? 
+                                {user?.Genre.toLowerCase() === "femme" ? 
                                     <img src={femme} />
                                     :
                                     <img src={homme} />}
